@@ -19,6 +19,11 @@ RunCommand execute
   guess
 
 RunCommand execute
+  label "Add our back end application variable set, cp {{{ param::start-dir }}}/vars/$$mobilebackend.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/$$mobilebackend.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.fephp"
+  command "cp {{{ param::start-dir }}}/vars/$$mobilebackend.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/$$mobilebackend.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.fephp"
+  guess
+
+RunCommand execute
   label "Build the executable applications"
   command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32,x64 --out=/tmp/exe --overwrite --platform=darwin,linux"
   guess
