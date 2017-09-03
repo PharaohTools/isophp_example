@@ -1,6 +1,6 @@
 {
-    "name": "pharaohtools/isophp",
-    "description": "ISO PHP Framework",
+    "name": "pharaohtools/isophpexampleapplication",
+    "description": "The Example Application for the ISO PHP Framework",
     "autoload": {
         "psr-0": {
             "": "php/src/"
@@ -12,10 +12,6 @@
     },
     "license": "MIT",
     "authors": [
-        {
-            "name": "Dan Phillimore",
-            "email": "dan@ovms.co"
-        },
         {
             "name": "Pharaoh Tools",
             "email": "dave@pharaohtools.com"
