@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.isophp.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>ISOPHP</name>
+<widget id="uk.org.isophp.example" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>ISOPHPExampleApplication</name>
     <description>
-        The ISO PHP Mobile Application
+        The Example Application for the ISO PHP Framework
     </description>
-    <author email="admin@isophp.org.uk" href="https://www.isophp.org.uk">
-        ISO PHP
+    <author email="dave@pharaohtools.com" href="http://www.isophp.org.uk">
+        Pharaoh Tools
     </author>
     <content src="index.html" />
     <access origin="*" />
