@@ -34,13 +34,13 @@ class Router {
 
     private function getAvailableRoutes() {
       $this->availableRoutes = array(
-          "Index" => array("index"),
+          "LandingPage" => array("show"),
       );
     }
 
     private function getDefaultRoute() {
       $this->setDefaultRouteExtraParams() ;
-      return array( "control" => "Index" , "action" => "index", "extraParams" => $this->route["extraParams"] );
+      return array( "control" => "LandingPage" , "action" => "show", "extraParams" => $this->route["extraParams"] );
     }
 
     private function parseControllerAliases() {
