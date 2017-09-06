@@ -28,16 +28,16 @@
 						<div class="col-xs-4">
 							<div id="fh5co-logo">
 								<a href="index.html">
-									<img src="assets/images/tron_female_iso_logo.png" class="header_logo" href="index.html" />
+									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo" href="index.html" />
 								</a>
 							</div>
 						</div>
 						<div class="col-xs-8 text-right menu-1">
 							<ul>
 								<li>
-									<a href="/docs">
+									<span class="link link_docs">
 										Docs
-									</a>
+									</span>
 								</li>
 								<li class="btn-cta">
 									<a href="/get-started">
@@ -45,7 +45,7 @@
 									</a>
 								</li>
 								<li class="has-dropdown">
-									<a href="services.html">Download</a>
+									<a>Download</a>
 									<ul class="dropdown">
 										<li><a target="_blank" href="https://source.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Latest Package</a></li>
 										<li><a target="_blank" href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Pharaoh Cloud</a></li>
@@ -246,7 +246,7 @@
                                             </p>
                                         </div>
                                         <div class="col-sm-4">
-                                            <img src="assets/images/coming-soon.png" class="coming_soon_banner" />
+                                            <img src="app/ISOPHPExample/Assets/images/coming-soon.png" class="coming_soon_banner" />
                                         </div>
                                     </div>
 								</div>
@@ -267,7 +267,7 @@
                                             </p>
                                         </div>
                                         <div class="col-sm-4">
-                                            <img src="assets/images/coming-soon.png" class="coming_soon_banner" />
+                                            <img src="app/ISOPHPExample/Assets/images/coming-soon.png" class="coming_soon_banner" />
                                         </div>
                                     </div>
 								</div>
@@ -287,7 +287,7 @@
                                             </p>
                                         </div>
                                         <div class="col-sm-4">
-                                            <img src="assets/images/coming-soon.png" class="coming_soon_banner" />
+                                            <img src="app/ISOPHPExample/Assets/images/coming-soon.png" class="coming_soon_banner" />
                                         </div>
                                     </div>
 								</div>
@@ -303,12 +303,12 @@
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>Lets Get Started</h2>
-						<p>Were building the Framework and
+						<p>We&apos;re building the Framework and
 			<a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">
 						<strong>hosting it here</strong></a>. Soon, well build you guys a simple but highly functional
 							Boilerplate that you can create <strong>Isomorphic</strong>, beautiful, smooth, fast Web
 							Experiences with in minutes. For now, you can
-	<a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=iso_php_website">
+	<a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=iso_php_example_application">
         <strong>download the code for this Website</strong></a>, which
 							will include the parts as and when we make them. If youve made it this
 							far, you know you want to...</p>

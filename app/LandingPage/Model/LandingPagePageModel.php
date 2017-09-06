@@ -6,9 +6,9 @@ class PageModel extends \Model\Base {
 
     public function getPage() {
         $page = array() ;
-        $page['title'] = 'A title for a Landing Page' ;
-        $page['heading'] = 'A heading for an Landing page' ;
-        \ISOPHP\js_core::$console->log('Landing Page Mod', $page) ;
+        $page['title'] = 'Welcome to the ISO PHP Framework' ;
+        $page['heading'] = 'The only PHP Framework aimed at all platforms and devices Modern Applications require' ;
+        \ISOPHP\js_core::$console->log('ISO PHP Mod', $page) ;
         return $page ;
     }
 
@@ -16,10 +16,10 @@ class PageModel extends \Model\Base {
         return function () {
             \ISOPHP\js_core::$console->log('Binding buttons') ;
             $jQuery = \ISOPHP\js_core::$jQuery ;
-            $go_landing_page = $jQuery('#go-index-page') ;
+            $go_landing_page = $jQuery('.link_docs') ;
             $go_landing_page->on('click', function () {
                 $navigate = new \Model\Navigate() ;
-                $navigate->route('Index', 'index', array()) ;
+                $navigate->route('Docs', 'show', array(), '/docs') ;
             }) ;
         } ;
     }
