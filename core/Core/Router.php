@@ -35,6 +35,7 @@ class Router {
     private function getAvailableRoutes() {
       $this->availableRoutes = array(
           "LandingPage" => array("show"),
+          "Docs" => array("show"),
       );
     }
 
