@@ -89,18 +89,23 @@
 							You can create a new project at the command line with the following:
 						</p>
 						<pre> ptdeploy isophp create -yg </pre>
-						For a full list of available options during the creation process, use:
+						<p>For a full list of available options during the creation process, use:</p>
+						<pre> ptdeploy isophp help </pre>
+                        <p>
+                         The example below shows an example of the minimum required to create a new
+                         ISOPHP project in a single line how to:
+                                                                                                                                                                                                                                                                                                                                                                                                                                        </p>
 						<pre> ptdeploy isophp help </pre>
 					</div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>I want to run an ISOPHP Project</h2>
 						<p class="larger_paragraph">
 							First you should use your command line to navigate to the directory your project is in.
-							There is a development Virtual Machine that can build and run your application, as Web 
-							Server, Web Client, Mobile Emulators, Mobile Application Package
+							There is a development Virtual Machine that can build and run your application; with the Web 
+							Server, Web Client, Mobile Emulators, Desktop Package and Mobile Application Package
 							You can run the project locally with the following:
 						</p>
-                        <pre>ptvirtualize up now ---provision</pre>
+                        <pre>ptvirtualize up now --provision</pre>
 					</div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2> I want to update the ISOPHP version in my project?</h2>
@@ -111,16 +116,6 @@
 						<pre> ptdeploy isophp update -yg </pre>
 						For a full list of available options during the update process, use
 						<pre> ptdeploy isophp help </pre>
-					</div>
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>I want to add an icon set across devices and platforms in my project?</h2>
-						<p class="larger_paragraph">
-							clients/mobile/res/icon/android/
-                            clients/mobile/res/icon/ios/
-                            clients/desktop/icon/
-                            clients/web/icon/
-						</p>
-						<pre>ptdeploy isophp help </pre>
 					</div>
 				</div>
 			</div>
@@ -241,3 +236,16 @@
     return $html ;
 
 } ;
+
+/*
+ * 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<h2>I want to add an icon set across devices and platforms in my project?</h2>
+						<p class="larger_paragraph">
+							clients/mobile/res/icon/android/
+                            clients/mobile/res/icon/ios/
+                            clients/desktop/icon/
+                            clients/web/icon/
+						</p>
+						<pre>ptdeploy isophp help </pre>
+					</div>
+ */
