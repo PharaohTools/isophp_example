@@ -127,6 +127,10 @@ span#send_chat_message {
     max-height: 250px !important;
 }
 
+.container {
+    width: 90%;
+}
+
 .container ,
 .container.row {
     height: 100%;
