@@ -1,3 +1,18 @@
+<?php
+
+define('ISOPHP_CLIENT_SERVER_SIDE', true) ;
+
+require("core/constants.fephp") ;
+require("core/app_vars.fephp") ;
+require("core/isophp.fephp") ;
+require("core/init.fephp") ;
+require("core/WindowMessage.fephp") ;
+require("core/bootstrap.fephp") ;
+require("core/index.fephp") ;
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +32,9 @@
         <div id="message_overlay"></div>
         <div id="app-loader" class="app-loader"></div>
         <div id="template" class="app">
-            <h1>&nbsp;</h1>
+            <?php
+                echo \Core\View::$server_template ;
+            ?>
         </div>
     </body>
 
