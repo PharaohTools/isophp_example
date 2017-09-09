@@ -2,7 +2,7 @@
 
 Namespace Controller ;
 
-class DocsController extends \Controller\Base {
+class GetStartedController extends \Controller\Base {
 
     public function execute($pageVars) {
         $page_model = new \Model\LandingPage\PageModel() ;
@@ -11,9 +11,9 @@ class DocsController extends \Controller\Base {
         \ISOPHP\js_core::$window->document->title = 'isophp - The Isomorphic PHP Framework' ;
         $res = new \Controller\Result() ;
         $res->page = $page ;
-        $res->view = 'Docs.phptpl' ;
+        $res->view = 'GetStarted.phptpl' ;
         $res->type = 'view' ;
-        $res->view_control = 'Docs' ;
+        $res->view_control = 'GetStarted' ;
         $res->post_template[] = $page_model->bindButtons() ;
         \ISOPHP\js_core::$console->log('LandingPage Con', $res) ;
         return $res ;

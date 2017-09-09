@@ -84,68 +84,18 @@
 						</p>
 					</div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>How do I create an ISOPHP Project?</h2>
+						<h2>What&apos;s first?</h2>
 						<p class="larger_paragraph">
-							You can create a new project at the command line with the following:
+							First, start off by installing <a href="https://www.pharaohtools.com/install">Pharaoh Tools</a>
+							automation software. Pharaoh Tools will run on any major Operating System. 
 						</p>
-						<pre> ptdeploy isophp create -yg </pre>
-						<p>For a full list of available options during the creation process, use:</p>
-						<pre> ptdeploy isophp help </pre>
-                        <p>
-                         The example below shows an example of the minimum required to create a new
-                         ISOPHP project in a single line:</p>
-						<pre> ptdeploy isophp create -yg --email="example@isophp.org.uk" --web_link="http://isophp.example.com" --project_name="A New Example Project" --domainid="com.example.isophp" --author_name="Dave the Developer" --description="An Example of a new test Application being created" </pre>
 					</div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>I want to run an ISOPHP Project</h2>
+						<h2>What&apos;s first?</h2>
 						<p class="larger_paragraph">
-							First you should use your command line to navigate to the directory your project is in.
-							There is a development Virtual Machine that can build and run your application; with the Web 
-							Server, Web Client, Mobile Emulators, Desktop Package and Mobile Application Package
-							You can run the project locally with the following:
+							First, start off by installing <a href="https://www.pharaohtools.com/install">Pharaoh Tools</a>
+							automation software. Pharaoh Tools will run on any major Operating System. 
 						</p>
-                        <pre>ptvirtualize up now --provision</pre>
-						<p class="larger_paragraph">
-							The above step should end with output like the following, which will detail where your new 
-							applications are running on your machine.
-						</p>
-                        <pre>
-[Pharaoh Logging] [Up] Your ISOPHP Virtualize Box has been brought up. 
-
-The Example Application for the ISO PHP Framework
-
-
-            You now have the following urls:
-
-
-                http://build.isophpexampleapplication.vm:8076/ - Build Server
-
-                http://www.isophpexampleapplication.vm:8076/ - Web Client Application
-
-                http://www.isophpexampleapplication.vm:8876/ - Mobile Application Web Emulator 
-
-                http://server.isophpexampleapplication.vm:8076/ - Web Server Application
-
-
-******************************
-Pharaoh Tools - Virtualize
-******************************
-
-
-Up Successful
-In Pharaoh Virtualize Up
-******************************
-</pre>
-					</div>
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2> I want to update the ISOPHP version in my project?</h2>
-						<p class="larger_paragraph">
-							Navigate to the directory containing your project. Then,
-							you can update your project at the command line with the following:
-						</p>
-						<pre> ptdeploy isophp update -yg </pre>
-						For a full list of available options during the update process, use
-						<pre> ptdeploy isophp help </pre>
 					</div>
 				</div>
 			</div>
