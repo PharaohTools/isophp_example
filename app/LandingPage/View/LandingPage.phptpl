@@ -27,9 +27,9 @@
 					<div class="row">
 						<div class="col-xs-4">
 							<div id="fh5co-logo">
-								<a href="index.html">
-									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo" href="index.html" />
-								</a>
+								<span class="link link_home">
+									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo" />
+								</span>
 							</div>
 						</div>
 						<div class="col-xs-8 text-right menu-1">
@@ -39,10 +39,10 @@
 										Docs
 									</span>
 								</li>
-								<li class="btn-cta">
-									<a href="/get-started">
-										<span>Get Started</span>
-									</a>
+								<li>
+									<span class="link link_getstarted">
+										Get Started
+									</span>
 								</li>
 								<li class="has-dropdown">
 									<a>Download</a>
@@ -182,7 +182,7 @@
 &lt;<span style="color: blue;">/script</span>&gt;</pre>
                                     </div>
                                     <div class="col-sm-6">
-                                        <pre class="CodeExample"><iframe src="iframe.html"></iframe></pre>
+                                       <!-- <pre class="CodeExample"><iframe src="iframe.html"></iframe></pre> -->
                                     </div>
                                     <div class="col-sm-12">
                                         <h2 class="link_title">
