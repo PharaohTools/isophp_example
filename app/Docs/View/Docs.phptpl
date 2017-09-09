@@ -27,22 +27,22 @@
 					<div class="row">
 						<div class="col-xs-4">
 							<div id="fh5co-logo">
-								<a href="index.html">
-									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo" href="index.html" />
-								</a>
+								<span class="link link_home">
+									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo" />
+								</span>
 							</div>
 						</div>
 						<div class="col-xs-8 text-right menu-1">
 							<ul>
 								<li class="btn-cta">
-									<a href="/docs">
+									<span class="link link_docs">
 										Docs
-									</a>
+									</span>
 								</li>
 								<li>
-									<a href="/get-started">
-										<span>Get Started</span>
-									</a>
+									<span class="link link_getstarted">
+										Get Started
+									</span>
 								</li>
 								<li class="has-dropdown">
 									<a href="services.html">Download</a>
@@ -93,7 +93,7 @@
 						<pre> ptdeploy isophp help </pre>
                         <p>
                          The example below shows an example of the minimum required to create a new
-                         ISOPHP project in a single line how to:</p>
+                         ISOPHP project in a single line:</p>
 						<pre> ptdeploy isophp create -yg --email="example@isophp.org.uk" --web_link="http://isophp.example.com" --project_name="A New Example Project" --domainid="com.example.isophp" --author_name="Dave the Developer" --description="An Example of a new test Application being created" </pre>
 					</div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
@@ -105,6 +105,37 @@
 							You can run the project locally with the following:
 						</p>
                         <pre>ptvirtualize up now --provision</pre>
+						<p class="larger_paragraph">
+							The above step should end with output like the following, which will detail where your new 
+							applications are running on your machine.
+						</p>
+                        <pre>
+[Pharaoh Logging] [Up] Your ISOPHP Virtualize Box has been brought up. 
+
+The Example Application for the ISO PHP Framework
+
+
+            You now have the following urls:
+
+
+                http://build.isophpexampleapplication.vm:8076/ - Build Server
+
+                http://www.isophpexampleapplication.vm:8076/ - Web Client Application
+
+                http://www.isophpexampleapplication.vm:8876/ - Mobile Application Web Emulator 
+
+                http://server.isophpexampleapplication.vm:8076/ - Web Server Application
+
+
+******************************
+Pharaoh Tools - Virtualize
+******************************
+
+
+Up Successful
+In Pharaoh Virtualize Up
+******************************
+</pre>
 					</div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2> I want to update the ISOPHP version in my project?</h2>
