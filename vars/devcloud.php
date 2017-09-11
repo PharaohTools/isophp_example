@@ -12,6 +12,5 @@ class Configuration {
         self::$SERVER_URL = 'http://server.devcloud.'.$variables['domain'] ;
     }
 
-
 }
 
