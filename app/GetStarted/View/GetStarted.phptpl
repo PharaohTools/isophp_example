@@ -27,21 +27,21 @@
 					<div class="row">
 						<div class="col-xs-4">
 							<div id="fh5co-logo">
-								<span class="link link_home">
-									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo" />
+								<span>
+									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo link link_home" />
 								</span>
 							</div>
 						</div>
 						<div class="col-xs-8 text-right menu-1">
 							<ul>
+								<li class="btn-cta">
+									<span class="link link_GetStarted">
+										Get Started
+									</span>
+								</li>
 								<li>
 									<span class="link link_docs">
 										Docs
-									</span>
-								</li>
-								<li class="btn-cta">
-									<span class="link link_getstarted">
-										Get Started
 									</span>
 								</li>
 								<li class="has-dropdown">
@@ -75,26 +75,33 @@
 
 		<div id="fh5co-services" class="fh5co-bg-section">
 			<div class="container">
-				<div class="row animate-box">
+				<div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>What&apos;s first?</h2>
+						<h2>Try out the Apps</h2>
 						<p class="larger_paragraph">
-							First, start off by installing <a href="https://www.pharaohtools.com/install">Pharaoh Tools</a>
-							automation software. Pharaoh Tools will run on any major Operating System. 
+							The code for this Website is Isomorphic, and also our Demo application. So we have example
+							versions for all the platforms.
+							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/android/latest">
+							    Android Mobile Application
+							</a>
+							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/iphone/latest">
+							    IPhone Mobile Application
+							</a>
+							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/windows/latest">
+							    Microsoft Windows Desktop Installer
+							</a>
+							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/macos/latest">
+							    Apple MacOS Desktop Installer
+							</a>
+							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/linux/latest">
+							    Linux Desktop Installer
+							</a>
 						</p>
 					</div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>What&apos;s first?</h2>
+						<h2>Build an Application</h2>
 						<p class="larger_paragraph">
-							First, start off by installing <a href="https://www.pharaohtools.com/install">Pharaoh Tools</a>
-							automation software. Pharaoh Tools will run on any major Operating System. 
-						</p>
-					</div>
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>What&apos;s first?</h2>
-						<p class="larger_paragraph">
-							First, start off by installing <a href="https://www.pharaohtools.com/install">Pharaoh Tools</a>
-							automation software. Pharaoh Tools will run on any major Operating System. 
+							Use our Documentation section and start a new ISO PHP Application now!
 						</p>
 					</div>
 				</div>

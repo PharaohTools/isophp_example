@@ -27,21 +27,21 @@
 					<div class="row">
 						<div class="col-xs-4">
 							<div id="fh5co-logo">
-								<span class="link link_home">
-									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo" />
+								<span>
+									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo link link_home" />
 								</span>
 							</div>
 						</div>
 						<div class="col-xs-8 text-right menu-1">
 							<ul>
+								<li>
+									<span class="link link_GetStarted">
+										Get Started
+									</span>
+								</li>
 								<li class="btn-cta">
 									<span class="link link_docs">
 										Docs
-									</span>
-								</li>
-								<li>
-									<span class="link link_getstarted">
-										Get Started
 									</span>
 								</li>
 								<li class="has-dropdown">
@@ -75,14 +75,7 @@
 
 		<div id="fh5co-services" class="fh5co-bg-section">
 			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>What&apos;s first?</h2>
-						<p class="larger_paragraph">
-							First, start off by installing <a href="https://www.pharaohtools.com/install">Pharaoh Tools</a>
-							automation software. Pharaoh Tools will run on any major Operating System. 
-						</p>
-					</div>
+				<div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>How do I create an ISOPHP Project?</h2>
 						<p class="larger_paragraph">
@@ -153,7 +146,7 @@ In Pharaoh Virtualize Up
 
 		<div id="fh5co-started">
 			<div class="container">
-				<div class="row animate-box">
+				<div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>Lets Get Started</h2>
 						<p>We&apos;re building the Framework and
@@ -167,7 +160,7 @@ In Pharaoh Virtualize Up
 							far, you know you want to...</p>
 					</div>
 				</div>
-				<div class="row animate-box">
+				<div>
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<p>
 			<a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp"

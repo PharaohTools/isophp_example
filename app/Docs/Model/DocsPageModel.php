@@ -22,10 +22,10 @@ class PageModel extends \Model\Base {
                     $navigate = new \Model\Navigate() ;
                     $navigate->route('LandingPage', 'show', array(), '/') ;
                 }) ;
-                $go_get_started = $jQuery('.link_getstarted') ;
+                $go_get_started = $jQuery('.link_GetStarted') ;
                 $go_get_started->on('click', function () {
                     $navigate = new \Model\Navigate() ;
-                    $navigate->route('GetStarted', 'show', array(), '/getstarted') ;
+                    $navigate->route('GetStarted', 'show', array(), '/GetStarted') ;
                 }) ;
             }
         } ;

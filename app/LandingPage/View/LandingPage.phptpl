@@ -27,21 +27,21 @@
 					<div class="row">
 						<div class="col-xs-4">
 							<div id="fh5co-logo">
-								<span class="link link_home">
-									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo" />
+								<span>
+									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo link link_home" />
 								</span>
 							</div>
 						</div>
 						<div class="col-xs-8 text-right menu-1">
 							<ul>
 								<li>
-									<span class="link link_docs">
-										Docs
+									<span class="link link_GetStarted">
+										Get Started
 									</span>
 								</li>
 								<li>
-									<span class="link link_getstarted">
-										Get Started
+									<span class="link link_docs">
+										Docs
 									</span>
 								</li>
 								<li class="has-dropdown">
