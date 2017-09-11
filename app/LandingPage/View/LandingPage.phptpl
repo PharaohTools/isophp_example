@@ -235,20 +235,13 @@
 										<i class="icon-image"></i>
 									</span>
 									<h2>Front and Back End Request Handling</h2>
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-8">
-                                            <p>
-                                                We want requests to be handled in browser, and where possible, a controller and
-                                                view that are in front end code should handle the whole request. This will
-                                                allow for much faster user interfaces, since we can change pages without server
-                                                requests. All pages requests should still be handled by the server also when
-                                                directly visiting URLs.
-                                            </p>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <img src="app/ISOPHPExample/Assets/images/coming-soon.png" class="coming_soon_banner" />
-                                        </div>
-                                    </div>
+                                    <p>
+                                        We want requests to be handled in browser, and where possible, a controller and
+                                        view that are in front end code should handle the whole request. This will
+                                        allow for much faster user interfaces, since we can change pages without server
+                                        requests. All pages requests should still be handled by the server also when
+                                        directly visiting URLs.
+                                    </p>
 								</div>
 							</div>
 							<div class="col-md-12 col-sm-12">
@@ -257,19 +250,12 @@
 										<i class="icon-image"></i>
 									</span>
 									<h2>Browser and Server View Rendering</h2>
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-8">
-                                            <p>
-                                                Templates that have previously only been rendered on the server, can now be
-                                                rendered directly in browser, without making further server requests. Load or
-                                                Update pages far more quickly, search engine support/direct url requests by
-                                                handing templating logic directly to the browser.
-                                            </p>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <img src="app/ISOPHPExample/Assets/images/coming-soon.png" class="coming_soon_banner" />
-                                        </div>
-                                    </div>
+                                    <p>
+                                        Templates that have previously only been rendered on the server, can now be
+                                        rendered directly in browser, without making further server requests. Load or
+                                        Update pages far more quickly, search engine support/direct url requests by
+                                        handing templating logic directly to the browser.
+                                    </p>
 								</div>
 							</div>
 							<div class="col-md-12 col-sm-12">
