@@ -33,6 +33,7 @@ RunCommand execute
   label "Copy icons from application"
   command "cd {{{ param::start-dir }}} && cp -r {{{ param::start-dir }}}/app/Default/Assets/icons/*.png {{{ param::start-dir }}}/clients/mobile/res/icon/android/"
   guess
+  ignore_errors
 
 RunCommand execute
   label "Tell Cordova no usage statistics"
