@@ -144,33 +144,6 @@ In Pharaoh Virtualize Up
 			</div>
 		</div>
 
-		<div id="fh5co-started">
-			<div class="container">
-				<div>
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Lets Get Started</h2>
-						<p>We&apos;re building the Framework and
-			<a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">
-						<strong>hosting it here</strong></a>. Soon, well build you guys a simple but highly functional
-							Boilerplate that you can create <strong>Isomorphic</strong>, beautiful, smooth, fast Web
-							Experiences with in minutes. For now, you can
-	<a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=iso_php_example_application">
-        <strong>download the code for this Website</strong></a>, which
-							will include the parts as and when we make them. If youve made it this
-							far, you know you want to...</p>
-					</div>
-				</div>
-				<div>
-					<div class="col-md-8 col-md-offset-2 text-center">
-						<p>
-			<a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp"
-			   class="btn btn-default btn-lg">Get Started</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<footer id="fh5co-footer" role="contentinfo">
 			<div class="container">
 				<div class="row row-pb-md">
