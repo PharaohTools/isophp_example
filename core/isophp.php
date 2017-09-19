@@ -33,6 +33,15 @@ class PHPWrapper {
         }
     }
 
+    public function error_log($message) {
+        if (ISOPHP_EXECUTION_ENVIRONMENT === 'ZEND') {
+//            error_log('ISOPHP Zend Error Log: ' .$message) ;
+        }
+        if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
+//            \ISOPHP\js_core::$console->log('ISOPHP Uniter Error Log: ' .$message) ;
+        }
+    }
+
 }
 
 class console {

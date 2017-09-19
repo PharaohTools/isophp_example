@@ -7,8 +7,8 @@
 \ISOPHP\js_core::$jQuery = $jQuery ;
 
 if (\ISOPHP\core::$php == NULL) {
-//    \ISOPHP\core::$php = new \ISOPHP\PHPWrapper() ;
-//    \ISOPHP\core::$php->error_log("This is running in Zend ") ;
+    \ISOPHP\core::$php = new \ISOPHP\PHPWrapper() ;
+    \ISOPHP\core::$php->error_log("This is running in Zend ") ;
     define('ISOPHP_EXECUTION_ENVIRONMENT', 'ZEND') ;
 } else {
     define('ISOPHP_EXECUTION_ENVIRONMENT', 'UNITER') ;
@@ -73,7 +73,7 @@ function __autoload($classname) {
     } else if ($classname === 'stdClass') {
         return ;
     }
-//     \ISOPHP\core::$php->error_log("Autoloading " . $classname) ;
+    // \ISOPHP\core::$php->error_log("Autoloading " . $classname) ;
     $parts = \ISOPHP\core::$php->explode('\\', $classname) ;
     if ($parts[0] === 'Core') {
             // \ISOPHP\core::$php->error_log('Looking in core') ;
