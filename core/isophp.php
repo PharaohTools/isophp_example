@@ -27,7 +27,6 @@ class js_core {
 class PHPWrapper {
     
     public function __call($name, $arguments) {
-//        error_log('this method is ' .$name) ;
         if (function_exists($name)) {
             return call_user_func_array($name, $arguments) ;
         }
@@ -35,10 +34,10 @@ class PHPWrapper {
 
     public function error_log($message) {
         if (ISOPHP_EXECUTION_ENVIRONMENT === 'ZEND') {
-//            error_log('ISOPHP Zend Error Log: ' .$message) ;
+            error_log('ISOPHP Zend Error Log: ' . $message) ;
         }
         if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
-//            \ISOPHP\js_core::$console->log('ISOPHP Uniter Error Log: ' .$message) ;
+//            \ISOPHP\js_core::$console->log('ISOPHP Uniter Error Log: ' . $message) ;
         }
     }
 
@@ -46,12 +45,12 @@ class PHPWrapper {
 
 class console {
 
-    public function log($message) {
+    public static function log($message) {
         if (ISOPHP_EXECUTION_ENVIRONMENT === 'ZEND') {
 //            error_log('ISOPHP Zend Console: ' .$message) ;
         }
         if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
-            \ISOPHP\js_core::$console->log('ISOPHP Uniter Console: ' .$message) ;
+//            \ISOPHP\js_core::$console->log('ISOPHP Uniter Console: ' .$message) ;
         }
     }
 
