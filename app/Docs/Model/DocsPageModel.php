@@ -8,14 +8,14 @@ class PageModel extends \Model\Base {
         $page = array() ;
         $page['title'] = 'Documents for the ISO PHP Framework' ;
         $page['heading'] = 'The only PHP Framework aimed at all platforms and devices Modern Applications require' ;
-        \ISOPHP\js_core::$console->log('Docs Mod', $page) ;
+        \ISOPHP\console::log('Docs Mod', $page) ;
         return $page ;
     }
 
     public static function bindButtons() {
         return function () {
             if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
-                \ISOPHP\js_core::$console->log('Binding buttons') ;
+                \ISOPHP\console::log('Binding buttons') ;
                 $jQuery = \ISOPHP\js_core::$jQuery ;
                 $go_landing_page = $jQuery('.link_home') ;
                 $go_landing_page->on('click', function ($jqThis) {
