@@ -118,8 +118,24 @@ span#send_chat_message {
     transition: all 0.5s ease 0s;
 }
 
-.link:hover {
+.link, .link_standard {
+    transition: 0.5s;
+    color: #000;
+    text-decoration: none;
+}
+
+.link_menu {
+    transition: 0.5s;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.link:hover,
+.link_menu:hover {
     cursor: pointer;
+}
+
+.link_menu:hover {
+    text-decoration: underline;
 }
 
 .header-narrow {
