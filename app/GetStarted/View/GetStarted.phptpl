@@ -77,7 +77,12 @@
 			<div class="container">
 				<div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Try out the Apps</h2>
+						<h2>Try out the Demo Apps</h2>
+						<p class="larger_paragraph">
+						    We have demo versions of the ISO PHP Example Application, for every platform and device.
+						    Try them out - Web (Here), Desktop or Mobile. Get a feel of how apps built with ISO PHP
+						    will work for you.
+						</p>
 						<p class="larger_paragraph">
 							The code for this Website is Isomorphic, and also our Demo application. So we have example
 							versions for all the platforms.
