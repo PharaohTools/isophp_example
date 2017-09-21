@@ -86,20 +86,24 @@
 							    Android Mobile Application
 							</a>
 							<br />
-							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/iphone/latest">
-							    IPhone Mobile Application
-							</a>
-							<br />
-							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/windows/latest">
-							    Microsoft Windows Desktop Application
-							</a>
-							<br />
-							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/macos/latest">
+							<a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpapplication-osx.zip">
 							    Apple MacOS Desktop Application
 							</a>
 							<br />
-							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/linux/latest">
-							    Linux Desktop Application
+							<a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpapplication-32bit.zip">
+							    Linux Desktop Application (32 Bit)
+							</a>
+							<br />
+							<a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpapplication-64bit.zip">
+							    Linux Desktop Application (64 Bit)
+							</a>
+							<br />
+							<a>
+							    (Coming Soon!) IPhone Mobile Application
+							</a>
+							<br />
+							<a>
+							    (Coming Soon!) Microsoft Windows Desktop Application
 							</a>
 						</p>
 					</div>
