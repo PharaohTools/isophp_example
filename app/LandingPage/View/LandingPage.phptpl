@@ -302,7 +302,7 @@
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<p>
-			                <a href="/GetStarted" class="btn btn-default btn-lg">Get Started</a>
+			                <span class= href="/GetStarted" class="btn btn-default btn-lg">Get Started</a>
 						</p>
 					</div>
 				</div>
@@ -336,7 +336,7 @@
 							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Downloads</a></li>
 							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Source Code</a></li>
 							<li><a href="https://github.com/asmblah/uniter">Uniter Github</a></li>
-							<li><a href="https://github.com/PharaohTools">Pharaoh Github</a></li>
+							<li><a href="https://github.com/PharaohTools">Pharaoh Tools Github</a></li>
 						</ul>
 					</div>
 
