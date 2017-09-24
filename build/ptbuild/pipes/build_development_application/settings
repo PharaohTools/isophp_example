@@ -130,7 +130,7 @@
         "custom_release": {
             "3506207020156906": {
                 "release_title": "Desktop Application for Linux x64",
-                "release_file": "\/tmp\/exe\/isophpexampleapplication-linux-x64\/isophpexampleapplication",
+                "release_file": "\/tmp\/exe\/isophpexampleapplication-linux-x64.zip",
                 "image": "",
                 "allow_public": "on"
             },
@@ -154,14 +154,15 @@
             },
             "5734845226823665": {
                 "release_title": "Desktop Application for Linux x32",
-                "release_file": "\/tmp\/exe\/isophpexampleapplication-linux-ia32\/isophpexampleapplication",
+                "release_file": "\/tmp\/exe\/isophpexampleapplication-linux-ia32.zip",
                 "image": "",
                 "allow_public": "on"
             },
             "14818716633141804": {
                 "release_title": "Desktop Application for Mac OS",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-darwin-x64\/isophpexampleapplication.app.zip",
-                "image": ""
+                "image": "",
+                "allow_public": "on"
             }
         }
     },
