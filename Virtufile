@@ -28,7 +28,7 @@ class Virtufile extends VirtufileBase {
 
         $random_port_suffix = '76' ;
         $this->config["vm"]["cpus"] = "2" ;
-        $this->config["vm"]["memory"] = "4096" ;
+        $this->config["vm"]["memory"] = "8192" ;
         $this->config["vm"]["graceful_halt_timeout"] = 15 ;
         $this->config["vm"]["ssh_halt_timeout"] = 2 ;
         $this->config["network"]["natpf1"][] = "{$this->config["vm"]["name"]}_guestssh,tcp,,22{$random_port_suffix},,22";
