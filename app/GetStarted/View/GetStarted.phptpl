@@ -91,15 +91,15 @@
 							    Android Mobile Application
 							</a>
 							<br />
-							<a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpapplication-osx.zip">
+							<a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpapplication.app.zip">
 							    Apple MacOS Desktop Application
 							</a>
 							<br />
-							<a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpapplication-32bit.zip">
+							<a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpapplication-linux-ia32.zip">
 							    Linux Desktop Application (32 Bit)
 							</a>
 							<br />
-							<a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpapplication-64bit.zip">
+							<a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpapplication-linux-64.zip">
 							    Linux Desktop Application (64 Bit)
 							</a>
 							<br />
@@ -210,16 +210,3 @@
     return $html ;
 
 } ;
-
-/*
- * 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>I want to add an icon set across devices and platforms in my project?</h2>
-						<p class="larger_paragraph">
-							clients/mobile/res/icon/android/
-                            clients/mobile/res/icon/ios/
-                            clients/desktop/icon/
-                            clients/web/icon/
-						</p>
-						<pre>ptdeploy isophp help </pre>
-					</div>
- */
