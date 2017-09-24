@@ -6,7 +6,6 @@ class LandingPageView extends \Core\View {
 
     public function display($data) {
 //        \ISOPHP\console::log('data', $data ) ;
-        \ISOPHP\js_core::$window->document->title = 'Landing Page' ;
         $tplfunc = \Core\View::$template ;
         $tpl_data = \Core\View::parse_view_template($tplfunc) ;
         \Core\View::execute_view_template('#template', $tpl_data) ;
