@@ -14,7 +14,6 @@
 						<div class="col-xs-12 text-right">
 							<ul class="fh5co-social">
 								<li><a href="http://twitter.com/isophp"><i class="icon-twitter"></i></a></li>
-								<!--<li><a href="http://twitter.com/isophp"><i class="icon-dribbble"></i></a></li>-->
 								<li><a href="http://github.com/pharaohtools/isophp"><i class="icon-github"></i></a></li>
 								<li><a href="http://facebook.com/isophp"><i class="icon-facebook"></i></a></li>
 							</ul>
@@ -70,7 +69,7 @@
 								<h1>Isomorphic <strong>PHP</strong></h1>
 								<p>
 									<a href="#" class="btn btn-primary btn-lg with-arrow">
-										PHP <strong>client and server</strong> code
+										PHP <strong>client and server</strong> code - The Mobile App
 									</a>
 								</p>
 							</div>
@@ -334,7 +333,7 @@
 
 					<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 						<ul class="fh5co-footer-links">
-							<li><span class="link link_Docs">Documantation</span></li>
+							<li><span class="link link_Docs">Documentation</span></li>
 							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Downloads</a></li>
 							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Source Code</a></li>
 							<li><a href="https://github.com/asmblah/uniter">Uniter Github</a></li>
