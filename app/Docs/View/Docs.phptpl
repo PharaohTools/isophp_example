@@ -35,12 +35,12 @@
 						<div class="col-xs-8 text-right menu-1">
 							<ul>
 								<li>
-									<span class="link_menu link_GetStarted">
+									<span class="link link_menu link_GetStarted">
 										Get Started
 									</span>
 								</li>
 								<li class="btn-cta">
-									<span class="link_menu link_Docs">
+									<span class="link link_menu link_Docs">
 										Docs
 									</span>
 								</li>
