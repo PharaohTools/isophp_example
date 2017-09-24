@@ -8,7 +8,7 @@ class LandingPageController extends \Controller\Base {
         $page_model = new \Model\LandingPage\PageModel() ;
         $page = $page_model->getPage() ;
         \ISOPHP\console::log('ICP', $page) ;
-        \ISOPHP\js_core::$window->document->title = 'isophp - The Isomorphic PHP Framework' ;
+        \ISOPHP\js_core::$window->document->title = 'ISOPHP Home - The Isomorphic PHP Framework' ;
         $res = new \Controller\Result() ;
         $res->page = $page ;
         $res->view = 'LandingPage.phptpl' ;
