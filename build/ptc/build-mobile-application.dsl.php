@@ -15,8 +15,8 @@ RunCommand execute
   guess
 
 RunCommand execute
-  label "Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$mobilebackend.php {{{ param::start-dir }}}/clients/mobile/www/core/ && mv {{{ param::start-dir }}}/clients/mobile/www/core/$$mobilebackend.php {{{ param::start-dir }}}/clients/mobile/www/core/app_vars.fephp"
-  command "cp {{{ param::start-dir }}}/vars/configuration_$$mobilebackend.php {{{ param::start-dir }}}/clients/mobile/www/core/ && mv {{{ param::start-dir }}}/clients/mobile/www/core/$$mobilebackend.php {{{ param::start-dir }}}/clients/mobile/www/core/app_vars.fephp"
+  label "Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$mobilebackend.php {{{ param::start-dir }}}/clients/mobile/www/core/ && mv {{{ param::start-dir }}}/clients/mobile/www/core/configuration_$$mobilebackend.php {{{ param::start-dir }}}/clients/mobile/www/core/app_vars.fephp"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$mobilebackend.php {{{ param::start-dir }}}/clients/mobile/www/core/ && mv {{{ param::start-dir }}}/clients/mobile/www/core/configuration_$$mobilebackend.php {{{ param::start-dir }}}/clients/mobile/www/core/app_vars.fephp"
   guess
 
 RunCommand execute
