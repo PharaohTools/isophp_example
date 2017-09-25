@@ -14,7 +14,6 @@
 						<div class="col-xs-12 text-right">
 							<ul class="fh5co-social">
 								<li><a href="http://twitter.com/isophp"><i class="icon-twitter"></i></a></li>
-								<!--<li><a href="http://twitter.com/isophp"><i class="icon-dribbble"></i></a></li>-->
 								<li><a href="http://github.com/pharaohtools/isophp"><i class="icon-github"></i></a></li>
 								<li><a href="http://facebook.com/isophp"><i class="icon-facebook"></i></a></li>
 							</ul>
@@ -75,7 +74,7 @@
 								</p>
 								<p>
 								    <a class="btn btn-primary btn-lg with-arrow">
-										The Mobile Application
+										The Web Application
 									</a>
 								</p>
 							</div>
@@ -99,6 +98,18 @@
 							The isophp Framework combines some of the latest and greatest Web technology available,
                             to bring you a PHP development platform like no other - the first truly Isomorphic PHP
                             Framework.
+						</p>
+					</div>
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<h2>Why its useful</h2>
+						<p class="larger_paragraph">
+							Lots of Web Applications use a PHP Back End with a Front End built in one of the Javascript
+                            Frameworks for interface building. Now that we can build the same functionality
+                            in the browser side with PHP that we can with the server side, we can build libraries and
+                            Frameworks that support all the same clever development patterns and principles.
+                            Think Angular PHP, React PHP for Front End, Meteor PHP or Derby PHP. We can have them all
+                            working in browser, and it would be great to see those projects appear on the Internet
+                            over the coming months. Isomorphic PHP is the first one off starting blocks I believe.
 						</p>
 					</div>
 				</div>
@@ -150,6 +161,43 @@
                                     </div>
 
 								</div>
+							</div>
+							<div class="col-md-12 col-sm-12">
+								<div class="feature-center animate-box" data-animate-effect="fadeIn">
+                                    <span class="feature_icon icon">
+                                        <i class="icon-image"></i>
+                                    </span>
+                                    <h2>PHP Logic in HTML text/x-uniter tags</h2>
+                                    <p>
+                                        We introduce a new script type for the script tag, that will execute PHP
+                                        Logic. This type is <strong>text/x-uniter</strong>, and can be used just as
+                                        you would the traditional text/javascript type. All of the code
+                                        below is executed in browser, written in PHP, and requires no PHP server.
+                                    </p>
+                                </div>
+                                <div class="feature-center animate-box" data-animate-effect="fadeIn">
+                                    <div class="col-sm-6">
+                                        <pre class="CodeExample">&lt;p&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;Some content
+&lt;/p&gt;
+&lt;<span style="color: blue;">script</span> type="<span style="color: green;">text/x-uniter</span>"&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;echo "Hello from PHP Land&lt;br /&gt;";
+&nbsp;&nbsp;&nbsp;&nbsp;var_dump("Hello again from PHP Land") ;
+&lt;<span style="color: blue;">/script</span>&gt;</pre>
+                                    </div>
+                                    <div class="col-sm-6">
+                                       <!-- <pre class="CodeExample"><iframe src="iframe.html"></iframe></pre> -->
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <h2 class="link_title">
+                                            <a target="_blank" href="https://jsfiddle.net/sxqscesz/2/">
+                                                <strong>
+                                                    Click here to see it in a JSFiddle
+                                                </strong>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
 							</div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="col-md-12 feature-center animate-box" data-animate-effect="fadeIn">
@@ -289,11 +337,11 @@
 
 					<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 						<ul class="fh5co-footer-links">
-							<li><span class="link link_standard link_Docs">Documentation</span></li>
+							<li><span class="link link_Docs">Documentation</span></li>
 							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Downloads</a></li>
 							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Source Code</a></li>
 							<li><a href="https://github.com/asmblah/uniter">Uniter Github</a></li>
-							<li><a href="https://github.com/PharaohTools">Pharaoh Github</a></li>
+							<li><a href="https://github.com/PharaohTools">Pharaoh Tools Github</a></li>
 						</ul>
 					</div>
 

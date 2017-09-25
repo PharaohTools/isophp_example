@@ -2,7 +2,7 @@
 
 \Core\View::$template = function() {
     $html = '
-    		
+
 		<div class="fh5co-loader"></div>
 		<div id="message_overlay"></div>
 
@@ -69,7 +69,12 @@
 								<h1>Isomorphic <strong>PHP</strong></h1>
 								<p>
 									<a href="#" class="btn btn-primary btn-lg with-arrow">
-										PHP <strong>client and server</strong> code - The Mobile App
+										PHP <strong>client and server</strong> code
+									</a>
+								</p>
+								<p>
+									<a class="btn btn-primary btn-lg with-arrow">
+										The Desktop Application
 									</a>
 								</p>
 							</div>
