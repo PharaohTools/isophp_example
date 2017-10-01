@@ -1,0 +1,8 @@
+<?php
+
+$console->log("PHPFE Started") ;
+
+require_once('assets/fephp/JSCore.fephp') ;
+require_once('assets/fephp/WindowMessage.fephp') ;
+
+$console->log("PHPFE Loaded") ;
