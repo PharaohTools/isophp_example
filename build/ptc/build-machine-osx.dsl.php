@@ -8,6 +8,7 @@ Composer ensure
 RunCommand execute
   label "Install prequisite applications"
   command "brew install -y zip unzip node"
+  run-as-user admin
   guess
 
 RunCommand execute
