@@ -7,8 +7,8 @@ Composer ensure
 
 RunCommand execute
   label "Install prequisite applications"
-  command "brew install -y zip unzip node"
-  run-as-user admin
+  command "brew install -y unzip node"
+  run-as-user "{{{ var::osx-brew-user }}}"
   guess
 
 RunCommand execute
