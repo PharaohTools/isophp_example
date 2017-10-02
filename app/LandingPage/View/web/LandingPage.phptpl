@@ -307,7 +307,7 @@
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center">
 						<p>
-			                <span class= href="/GetStarted" class="btn btn-default btn-lg">Get Started</a>
+			                <span class"link link_GetStarted" class="btn btn-default btn-lg">Get Started</a>
 						</p>
 					</div>
 				</div>
