@@ -33,4 +33,11 @@ class PageModel extends \Model\Base {
         } ;
     }
 
+    public static function bindChatApplication() {
+        return function () {
+            $chat = new \Model\LandingPage\ChatApplication() ;
+            $chat->start() ;
+        } ;
+    }
+
 }
