@@ -1,5 +1,7 @@
 <?php
 
+Namespace Model\LandingPage ;
+
 class ChatApplication {
 
     protected static $chat_name ;
@@ -7,39 +9,40 @@ class ChatApplication {
     protected static $socket ;
 
     public function start() {
-        $host = \JSCore::$window->location->hostname ;
-        $socket_server_url = 'http://' . $host . ':3000' ;
-        self::$socket = \JSCore::$window->io($socket_server_url);
-        \JSCore::$console->log(self::$socket) ;
-        $jQuery = \JSCore::$jQuery ;
-        $this->bindButton($jQuery) ;
-        $this->bindSocket() ;
+        \ISOPHP\console::log('in the start method') ;
+        if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
+            \ISOPHP\console::log('this is the chat app start') ;
+            $host = \ISOPHP\js_core::$window->location->hostname ;
+            $socket_server_url = 'http://' . $host . ':3000' ;
+            self::$socket = \ISOPHP\js_core::$window->io($socket_server_url);
+            \ISOPHP\console::log(self::$socket) ;
+            $jQuery = \ISOPHP\js_core::$jQuery ;
+            $this->bindButton($jQuery) ;
+            $this->bindSocket() ;
+        }
     }
 
     private function bindButton($jQuery) {
         $jQuery('#choose_chat_name')->on('click', function (){
-            $console = \JSCore::$console ;
-            $console->log('Clicked the #choose_chat_name span button') ;
+            \ISOPHP\console::log('Clicked the #choose_chat_name span button') ;
             self::chooseChatName() ;
         });
         $jQuery('#choose_chat_msg')->on('click', function () {
-            $console = \JSCore::$console ;
-            $console->log('Clicked the #choose_chat_msg span button') ;
+            \ISOPHP\console::log('Clicked the #choose_chat_msg span button') ;
             $is_valid = (self::$chat_name !== null) ;
             if ( $is_valid ) {
                 self::chooseChatMessage() ;
             } else {
-                \WindowMessage::showMessage('Please pick a name before a message', 'bad') ;
+                \Core\WindowMessage::showMessage('Please pick a name before a message', 'bad') ;
             }
         });
         $jQuery('#send_chat_message')->on('click', function () {
-            $console = \JSCore::$console ;
-            $console->log('Clicked the #send_chat_message span button') ;
+            \ISOPHP\console::log('Clicked the #send_chat_message span button') ;
             $is_valid = ( (self::$chat_name !== null) && (self::$chat_msg !== null) ) ;
             if ( $is_valid ) {
                 self::submitForm() ;
             } else {
-                \WindowMessage::showMessage('Please pick a name and message to send', 'bad') ;
+                \Core\WindowMessage::showMessage('Please pick a name and message to send', 'bad') ;
             }
         });
     }
@@ -57,18 +60,17 @@ class ChatApplication {
             $html = $html . $name."'>".$name."</span>" ;
             $html = $html . "<hr />" ;
         }
-        \WindowMessage::showOverlay($html) ;
-        $jQuery = \JSCore::$jQuery ;
+        \Core\WindowMessage::showOverlay($html) ;
+        $jQuery = \ISOPHP\js_core::$jQuery ;
         $jQuery('.chat_name_choice')->on('click', function ($jqthis) {
-            $jQuery = \JSCore::$jQuery ;
-            $console = \JSCore::$console ;
-            $console->log( $jqthis->target->id );
+            $jQuery = \ISOPHP\js_core::$jQuery ;
+            \ISOPHP\console::log( $jqthis->target->id );
             self::$chat_name = $jQuery('#'.$jqthis->target->id)->attr('data-chat_name_choice');
-            $console->log('Chosen chat name of '.self::$chat_name) ;
+            \ISOPHP\console::log('Chosen chat name of '.self::$chat_name) ;
             $label = '<h4>Name: <strong>'.self::$chat_name.'</strong></h4>' ;
             $jQuery('#choose_chat_name_wrapper')->html($label) ;
-            \WindowMessage::showMessage('Chat name '.self::$chat_name.' chosen', 'good') ;
-            \WindowMessage::closeOverlay() ;
+            \Core\WindowMessage::showMessage('Chat name '.self::$chat_name.' chosen', 'good') ;
+            \Core\WindowMessage::closeOverlay() ;
             $jQuery('#choose_chat_msg')->removeClass('disabled') ;
         });
     }
@@ -87,41 +89,37 @@ class ChatApplication {
             $msg_html = $msg_html . $msg."'>".$msg."</span>" ;
             $msg_html = $msg_html . "<hr />" ;
         }
-        \WindowMessage::showOverlay($msg_html) ;
-        $jQuery = \JSCore::$jQuery ;
+        \Core\WindowMessage::showOverlay($msg_html) ;
+        $jQuery = \ISOPHP\js_core::$jQuery ;
         $jQuery('.chat_msg_choice')->on('click', function ($jqthis) {
-            $jQuery = \JSCore::$jQuery ;
-            $console = \JSCore::$console ;
-            $console->log( $jqthis->target->id );
+            $jQuery = \ISOPHP\js_core::$jQuery ;
+            \ISOPHP\console::log( $jqthis->target->id );
             self::$chat_msg = $jQuery('#'.$jqthis->target->id)->attr('data-chat_msg_choice');
-            $console->log('Chosen chat msg of '.self::$chat_msg) ;
+            \ISOPHP\console::log('Chosen chat msg of '.self::$chat_msg) ;
             $label = '<h4>Message: <strong>'.self::$chat_msg.'</strong></h4>' ;
             $jQuery('#choose_chat_msg_wrapper')->html($label) ;
-            \WindowMessage::showMessage('Chat message '.self::$chat_msg.' chosen', 'good') ;
-            \WindowMessage::closeOverlay() ;
+            \Core\WindowMessage::showMessage('Chat message '.self::$chat_msg.' chosen', 'good') ;
+            \Core\WindowMessage::closeOverlay() ;
             $jQuery('#send_chat_message')->removeClass('disabled') ;
         });
     }
 
     private function bindSocket() {
         self::$socket->on('chat update',  function ($msg) {
-            $console = \JSCore::$console ;
-            $console->log('Running the chat update event on the socket') ;
+            \ISOPHP\console::log('Running the chat update event on the socket') ;
             self::chatUpdate($msg) ;
         });
     }
 
     private function submitForm() {
-        $console = \JSCore::$console ;
-        $console->log('current message is', self::$chat_msg) ;
+        \ISOPHP\console::log('current message is', self::$chat_msg) ;
         self::$socket->emit('chat message', self::$chat_name . ' says ' . self::$chat_msg);
     }
 
     public static function chatUpdate($msg) {
-        $console = \JSCore::$console ;
-        $jQuery = \JSCore::$jQuery ;
+        $jQuery = \ISOPHP\js_core::$jQuery ;
         $html_to_append = '<span>'.$msg.'</span>' ;
-        $console->log('appending html', $html_to_append) ;
+        \ISOPHP\console::log('appending html', $html_to_append) ;
         $jQuery('#messages')->append($html_to_append);
     }
 
