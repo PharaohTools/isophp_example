@@ -15,6 +15,7 @@ class LandingPageController extends \Controller\Base {
         $res->type = 'view' ;
         $res->view_control = 'LandingPage' ;
         $res->post_template[] = $page_model->bindButtons() ;
+        $res->post_template[] = $page_model->bindChatApplication() ;
         \ISOPHP\console::log('LandingPage Con', $res) ;
         return $res ;
     }
