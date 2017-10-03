@@ -34,6 +34,7 @@ class Virtufile extends VirtufileBase {
         $this->config["network"]["natpf1"][] = "{$this->config["vm"]["name"]}_guestssh,tcp,,22{$random_port_suffix},,22";
         $this->config["network"]["natpf1"][] = "{$this->config["vm"]["name"]}_guestweb,tcp,,80{$random_port_suffix},,80";
         $this->config["network"]["natpf1"][] = "{$this->config["vm"]["name"]}_guestmobile,tcp,,88{$random_port_suffix},,8000";
+        $this->config["network"]["natpf1"][] = "{$this->config["vm"]["name"]}_guestsocket,tcp,,3000,,3000";
 
         $this->config["ssh"]["driver"] = "native" ;
         $this->config["ssh"]["user"] = "ptv" ;
