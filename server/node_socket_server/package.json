@@ -1,0 +1,42 @@
+{
+  "name": "socketio-php",
+  "version": "1.0.0",
+  "author": "Pharaoh Tools",
+  "license": "none",
+  "description": "An example of a Chat Application, using Uniter PHP and Socket IO, with classes",
+  "main": "main.js",
+  "scripts": {
+    "build:fs": "node fs",
+    "build": "npm run build:fs && (browserify app --standalone=socketIOPHP | uglifyjs > uniter_bundle/bundle.js)",
+    "webpack": "webpack"
+  },
+  "repository": "https://source.internal.pharaohtools.com/git/public/pharaoh_installer",
+  "keywords": [
+    "PharaohTools",
+    "IProov",
+    "socketio",
+    "uniter",
+    "php",
+    "Electron",
+    "browserify",
+    "fs"
+  ],
+  "devDependencies": {
+    "jquery": "^2.1.4",
+    "json-loader": "^0.5.1",
+    "uglifyify": "^3.0.1",
+    "uniter": "^1.0",
+    "browserify": "^10.2.0",
+    "globby": "^2.0.0",
+    "uglify-js": "^2.4.23",
+    "webpack": "^1.9.7",
+    "express": "4.10.2",
+      "node-libs-browser": "^0.5.0",
+    "socket.io": "1.2.0"
+  },
+  "browserify": {
+    "transform": [
+      "uglifyify"
+    ]
+  }
+}
