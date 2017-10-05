@@ -1,3 +1,8 @@
+RunCommand execute
+  label "Show any running socketserve.js server"
+  command "lsof -i :3000"
+  guess
+
 Process kill
   label "Kill any running socketserve.js server"
   name "node"
@@ -8,6 +13,11 @@ RunCommand execute
   label "Start socket server bash -c 'node {{{ param::start-dir }}}/server/node_socket_server/socketserve.js &' 2&>1 "
   command "bash -c 'node {{{ param::start-dir }}}/server/node_socket_server/socketserve.js &' 2&>1 "
   nohup
+  guess
+
+RunCommand execute
+  label "Show any running socketserve.js server"
+  command "lsof -i :3000"
   guess
 
 Port until-responding
