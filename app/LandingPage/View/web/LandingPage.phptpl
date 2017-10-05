@@ -270,12 +270,14 @@
 										<i class="icon-image"></i>
 									</span>
 									<h2>View Bindings</h2>
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-8">
+                                    <div class="col-sm-12 nopadding">
+                                        <div class="col-sm-8 nopadding">
                                             <p>
+                                                Create true real time associations between your Client and your Server.
+                                                Using native integration of WebSockets, you can specify variables.
                                                 Organize your code into Components with designer-friendly HTML templates.
-                                                Easily specify live bindings between the view and model so that when data
-                                                changes, the view updates instantly.
+                                                Easily specify live bindings between the view and model so that when
+                                                data changes, the view updates instantly.
                                             </p>
                                         </div>
                                         <div class="col-sm-4">
