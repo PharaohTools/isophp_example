@@ -2,6 +2,7 @@ RunCommand execute
   label "Show any running socketserve.js server"
   command "lsof -i :3000"
   guess
+  ignore_errors
 
 Process kill
   label "Kill any running socketserve.js server"
@@ -15,12 +16,12 @@ RunCommand execute
   nohup
   guess
 
-RunCommand execute
-  label "Show any running socketserve.js server"
-  command "lsof -i :3000"
-  guess
-
 Port until-responding
   label "Wait for the socket server to start"
   port "3000"
+  guess
+
+RunCommand execute
+  label "Show any running socketserve.js server"
+  command "lsof -i :3000"
   guess
