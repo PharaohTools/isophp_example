@@ -11,8 +11,8 @@ Process kill
   yes
 
 RunCommand execute
-  label "Start socket server bash -c 'node {{{ param::start-dir }}}/server/node_socket_server/socketserve.js &' 2&>1 "
-  command "bash -c 'node {{{ param::start-dir }}}/server/node_socket_server/socketserve.js &' 2&>1 "
+  label "Start socket server bash -c 'node {{{ param::start-dir }}}/server/node_socket_server/socketserve.js &' 2&1> /dev/null "
+  command "bash -c 'node {{{ param::start-dir }}}/server/node_socket_server/socketserve.js &' 2&1> /dev/null "
   nohup
   guess
 
