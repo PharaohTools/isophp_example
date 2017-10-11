@@ -310,8 +310,7 @@
 				</div>
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center">
-			                <span class="link_GetStarted btn btn-primary btn-lg">Get Started</span>
-			                <a class="link_GetStarted btn btn-primary btn-lg">Get Started</a>
+                        <span class="link_GetStarted btn btn-primary btn-lg">Get Started</span>
 					</div>
 				</div>
 			</div>
