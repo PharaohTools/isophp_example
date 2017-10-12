@@ -151,25 +151,7 @@
 
 								</div>
 							</div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="col-md-12 feature-center animate-box" data-animate-effect="fadeIn">
-									<span class="feature_icon icon">
-										<div class="fullWidth">
-                                            <i class="icon-laptop"></i>
-                                        </div>
-										<div class="fullWidth">
-                                            <i class="icon-tablet"></i>
-                                        </div>
-									</span>
-                                </div>
-                                <div class="col-md-12 feature-center animate-box" data-animate-effect="fadeIn">
-                                    <h2>Fully Responsive</h2>
-                                    <p>
-                                        The ISO PHP Framework includes <strong>Twitter Bootstrap</strong> by
-                                        default, providing us smooth, responsive and highly structured interfaces.
-                                    </p>
-                                </div>
-                            </div>
+
                             <div class="col-md-12 col-sm-12">
                                 <div class="feature-center animate-box" data-animate-effect="fadeIn">
 									<span class="feature_icon icon">
@@ -185,55 +167,7 @@
                                     </p>
                                 </div>
                             </div>
-							<div class="col-md-12 col-sm-12">
-								<div class="feature-center animate-box" data-animate-effect="fadeIn">
-									<span class="feature_icon icon">
-										<i class="icon-image"></i>
-									</span>
-									<h2>Front and Back End Request Handling</h2>
-                                    <p>
-                                        We want requests to be handled in browser, and where possible, a controller and
-                                        view that are in front end code should handle the whole request. This will
-                                        allow for much faster user interfaces, since we can change pages without server
-                                        requests. All pages requests should still be handled by the server also when
-                                        directly visiting URLs.
-                                    </p>
-								</div>
-							</div>
-							<div class="col-md-12 col-sm-12">
-								<div class="feature-center animate-box" data-animate-effect="fadeIn">
-									<span class="feature_icon icon">
-										<i class="icon-image"></i>
-									</span>
-									<h2>Browser and Server View Rendering</h2>
-                                    <p>
-                                        Templates that have previously only been rendered on the server, can now be
-                                        rendered directly in browser, without making further server requests. Load or
-                                        Update pages far more quickly, search engine support/direct url requests by
-                                        handing templating logic directly to the browser.
-                                    </p>
-								</div>
-							</div>
-							<div class="col-md-12 col-sm-12">
-								<div class="feature-center animate-box" data-animate-effect="fadeIn">
-									<span class="feature_icon icon">
-										<i class="icon-image"></i>
-									</span>
-									<h2>View Bindings</h2>
-                                    <div class="col-sm-12">
-                                        <div class="col-sm-8">
-                                            <p>
-                                                Organize your code into Components with designer-friendly HTML templates.
-                                                Easily specify live bindings between the view and model so that when data
-                                                changes, the view updates instantly.
-                                            </p>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <img src="app/ISOPHPExample/Assets/images/coming-soon.png" class="coming_soon_banner" />
-                                        </div>
-                                    </div>
-								</div>
-							</div>
+
 						</div>
 					</div>
 				</div>
