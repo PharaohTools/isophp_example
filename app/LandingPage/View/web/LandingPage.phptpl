@@ -130,7 +130,12 @@
                                         </a>. Use the Chat Application below to see an example of real time page updates
                                         using WebSockets. Open this page in multiple windows, browsers, or from multiple
                                         computers to see messages change in real time. Remember, everything in the front
-                                        and back end is written in PHP.
+                                        and back end is written in PHP.<br />
+                                        Create true real time associations between your Client and your Server.
+                                        Using native integration of WebSockets, you can specify variables.
+                                        Organize your code into Components with designer-friendly HTML templates.
+                                        Easily specify live bindings between the view and model so that when
+                                        data changes, the view updates instantly.
 									</p>
 
 
@@ -262,28 +267,6 @@
                                         Update pages far more quickly, search engine support/direct url requests by
                                         handing templating logic directly to the browser.
                                     </p>
-								</div>
-							</div>
-							<div class="col-md-12 col-sm-12">
-								<div class="feature-center animate-box" data-animate-effect="fadeIn">
-									<span class="feature_icon icon">
-										<i class="icon-image"></i>
-									</span>
-									<h2>View Bindings</h2>
-                                    <div class="col-sm-12 nopadding">
-                                        <div class="col-sm-8 nopadding">
-                                            <p>
-                                                Create true real time associations between your Client and your Server.
-                                                Using native integration of WebSockets, you can specify variables.
-                                                Organize your code into Components with designer-friendly HTML templates.
-                                                Easily specify live bindings between the view and model so that when
-                                                data changes, the view updates instantly.
-                                            </p>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <img src="app/ISOPHPExample/Assets/images/coming-soon.png" class="coming_soon_banner" />
-                                        </div>
-                                    </div>
 								</div>
 							</div>
 						</div>
