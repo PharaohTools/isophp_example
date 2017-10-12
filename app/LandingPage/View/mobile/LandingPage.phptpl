@@ -328,8 +328,8 @@
 		<script src="app/ISOPHPExample/Assets/js/jquery.easing.1.3.js"></script>
 
         <!-- jquery ui -->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="app/ISOPHPExample/Assets/css/jquery-ui.css">
+        <script src="app/ISOPHPExample/Assets/js/jquery-ui.js"></script>
 
 		<!-- Bootstrap -->
 		<script src="app/ISOPHPExample/Assets/js/bootstrap.min.js"></script>
