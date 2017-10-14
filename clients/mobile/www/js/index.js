@@ -60,13 +60,6 @@ var app = {
         // document.getElementById("app-loader").className = "";
         console.log('device ready notify') ;
 
-        var oReq = new XMLHttpRequest();
-
-        oReq.addEventListener("progress", updateProgress);
-        oReq.addEventListener("load", transferComplete);
-        oReq.addEventListener("error", transferFailed);
-        oReq.addEventListener("abort", transferCanceled);
-        oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
     },
 
     // Update DOM on a Received Event
@@ -83,3 +76,10 @@ var app = {
 app.initialize();
 
 document.addEventListener("deviceready", app.onDeviceReady(), false);
+
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("progress", updateProgress);
+oReq.addEventListener("load", transferComplete);
+oReq.addEventListener("error", transferFailed);
+oReq.addEventListener("abort", transferCanceled);
+oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
