@@ -45,7 +45,6 @@ function getFileData(path) {
 // Set up a PHP module loader
 phpEngine.configure({
     include: function (path, promise) {
-        console.log('pref path ' . pref_path) ;
         promise.resolve(getFileData(path));
     }
 });
