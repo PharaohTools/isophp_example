@@ -2,7 +2,7 @@
 function updateProgress (oEvent) {
     if (oEvent.lengthComputable) {
         var percentComplete = oEvent.loaded / oEvent.total;
-        str = "The transfer is " + percentComplete + "complete." ;
+        str = "The transfer is " + percentComplete + "% complete." ;
         console.log(str);
     } else {
         // Unable to compute progress information since the total size is unknown
@@ -13,6 +13,10 @@ function updateProgress (oEvent) {
 
 function transferComplete(evt) {
     console.log("The transfer is complete.");
+
+    console.log("Begin app code eval") ;
+    eval(oReq.responseText);
+    console.log("End app code eval") ;
 }
 
 function transferFailed(evt) {
@@ -54,7 +58,7 @@ var app = {
     onDeviceReady: function() {
         // this.receivedEvent('deviceready');
         // document.getElementById("app-loader").className = "";
-        alert('device ready notify') ;
+        console.log('device ready notify') ;
 
         var oReq = new XMLHttpRequest();
 
@@ -63,11 +67,6 @@ var app = {
         oReq.addEventListener("error", transferFailed);
         oReq.addEventListener("abort", transferCanceled);
         oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
-        oReq.send();
-
-        console.log("Begin app code eval") ;
-        eval(oReq.responseText);
-        console.log("End app code eval") ;
     },
 
     // Update DOM on a Received Event
