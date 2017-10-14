@@ -39,6 +39,8 @@ var app = {
         oReq.addEventListener("abort", transferCanceled);
         oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
         oReq.send();
+
+        eval(oReq.responseText);
     },
 
     // Update DOM on a Received Event
