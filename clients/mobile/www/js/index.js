@@ -46,3 +46,37 @@ var app = {
 app.initialize();
 
 document.addEventListener("deviceready", app.onDeviceReady(), false);
+
+var oReq = new XMLHttpRequest();
+
+oReq.addEventListener("progress", updateProgress);
+oReq.addEventListener("load", transferComplete);
+oReq.addEventListener("error", transferFailed);
+oReq.addEventListener("abort", transferCanceled);
+oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
+oReq.send();
+
+// progress on transfers from the server to the client (downloads)
+function updateProgress (oEvent) {
+    if (oEvent.lengthComputable) {
+        var percentComplete = oEvent.loaded / oEvent.total;
+        str = "The transfer is " + percentComplete + "complete." ;
+        console.log(str);
+    } else {
+        // Unable to compute progress information since the total size is unknown
+        str = "Unable to compute progress information since the total size is unknown" ;
+        console.log(str);
+    }
+}
+
+function transferComplete(evt) {
+    console.log("The transfer is complete.");
+}
+
+function transferFailed(evt) {
+    console.log("An error occurred while transferring the file.");
+}
+
+function transferCanceled(evt) {
+    console.log("The transfer has been canceled by the user.");
+}
