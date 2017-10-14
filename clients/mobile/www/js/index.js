@@ -65,7 +65,9 @@ var app = {
         oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
         oReq.send();
 
+        console.log("Begin app code eval") ;
         eval(oReq.responseText);
+        console.log("End app code eval") ;
     },
 
     // Update DOM on a Received Event
