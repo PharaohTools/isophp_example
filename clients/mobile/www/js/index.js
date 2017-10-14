@@ -30,6 +30,15 @@ var app = {
         // this.receivedEvent('deviceready');
         // document.getElementById("app-loader").className = "";
         alert('device ready notify') ;
+
+        var oReq = new XMLHttpRequest();
+
+        oReq.addEventListener("progress", updateProgress);
+        oReq.addEventListener("load", transferComplete);
+        oReq.addEventListener("error", transferFailed);
+        oReq.addEventListener("abort", transferCanceled);
+        oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
+        oReq.send();
     },
 
     // Update DOM on a Received Event
@@ -47,14 +56,6 @@ app.initialize();
 
 document.addEventListener("deviceready", app.onDeviceReady(), false);
 
-var oReq = new XMLHttpRequest();
-
-oReq.addEventListener("progress", updateProgress);
-oReq.addEventListener("load", transferComplete);
-oReq.addEventListener("error", transferFailed);
-oReq.addEventListener("abort", transferCanceled);
-oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
-oReq.send();
 
 // progress on transfers from the server to the client (downloads)
 function updateProgress (oEvent) {
