@@ -75,7 +75,7 @@ var app = {
 
 app.initialize();
 
-// document.addEventListener("deviceready", app.onDeviceReady(), false);
+document.addEventListener("deviceready", app.onDeviceReady(), false);
 
 // var oReq = new XMLHttpRequest();
 // oReq.addEventListener("progress", updateProgress);
