@@ -33,8 +33,6 @@ file_require_string += 'require("/core/WindowMessage.fephp") ; ' ;
 file_require_string += 'require("/core/bootstrap.fephp") ; ' ;
 file_require_string += 'require("/core/index.fephp") ; ' ;
 
-var cordova_splash_stop_string = ' ' ;
-
 console.log('mainfiles app js', 'file data', file_data, 'file index', file_index) ;
 
 function getFileData(path) {
