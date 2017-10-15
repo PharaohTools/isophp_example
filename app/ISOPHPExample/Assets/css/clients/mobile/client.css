@@ -2,6 +2,10 @@
     width: 100% ;
 }
 
+#template.app h1.loading-title {
+    width: 100% ;
+}
+
 #template.app img.loading-start {
     width: 100% ;
 }
