@@ -24,12 +24,16 @@ var $ = require('jquery'),
 var file_require_string = 'require("/core/constants.fephp") ; ' ;
 file_require_string += 'require("/core/app_vars.fephp") ; ' ;
 file_require_string += 'require("/core/isophp.fephp") ; ' ;
+file_require_string += '\\ISOPHP\\cordova_core::$cordova = $cordova ; ' ;
+file_require_string += '\\ISOPHP\\cordova_core::$navigator = $navigator ; ' ;
 file_require_string += '\\ISOPHP\\core::$php = $php ; ' ;
 file_require_string += '\\ISOPHP\\core::$file_index = $file_index ; ' ;
 file_require_string += 'require("/core/init.fephp") ; ' ;
 file_require_string += 'require("/core/WindowMessage.fephp") ; ' ;
 file_require_string += 'require("/core/bootstrap.fephp") ; ' ;
 file_require_string += 'require("/core/index.fephp") ; ' ;
+
+var cordova_splash_stop_string = ' ' ;
 
 console.log('mainfiles app js', 'file data', file_data, 'file index', file_index) ;
 
@@ -63,6 +67,8 @@ phpEngine.expose(this_window, 'window');
 phpEngine.expose(this_console, 'console');
 phpEngine.expose(window.app, 'app');
 phpEngine.expose(file_index, 'file_index');
+phpEngine.expose(cordova, 'cordova');
+phpEngine.expose(navigator, 'navigator');
 
 console.log('engine expose end app js') ;
 
