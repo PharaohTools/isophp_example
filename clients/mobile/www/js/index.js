@@ -1,31 +1,30 @@
-// // progress on transfers from the server to the client (downloads)
-// function updateProgress (oEvent) {
-//     if (oEvent.lengthComputable) {
-//         var percentComplete = oEvent.loaded / oEvent.total;
-//         str = "The transfer is " + percentComplete + "% complete." ;
-//         console.log(str);
-//     } else {
-//         // Unable to compute progress information since the total size is unknown
-//         str = "Unable to compute progress information since the total size is unknown" ;
-//         console.log(str);
-//     }
-// }
-//
-// function transferComplete(evt) {
-//     console.log("The transfer is complete.");
-//
-//     console.log("Begin app code eval") ;
-//     eval(oReq.responseText);
-//     console.log("End app code eval") ;
-// }
-//
-// function transferFailed(evt) {
-//     console.log("An error occurred while transferring the file.");
-// }
-//
-// function transferCanceled(evt) {
-//     console.log("The transfer has been canceled by the user.");
-// }
+// progress on transfers from the server to the client (downloads)
+function updateProgress (oEvent) {
+    if (oEvent.lengthComputable) {
+        var percentComplete = oEvent.loaded / oEvent.total;
+        str = "The transfer is " + percentComplete + "% complete." ;
+        console.log(str);
+    } else {
+        // Unable to compute progress information since the total size is unknown
+        str = "Unable to compute progress information since the total size is unknown" ;
+        console.log(str);
+    }
+}
+
+function transferComplete(evt) {
+    console.log("The transfer is complete.");
+    console.log("Begin app code eval") ;
+    eval(oReq.responseText);
+    console.log("End app code eval") ;
+}
+
+function transferFailed(evt) {
+    console.log("An error occurred while transferring the file.");
+}
+
+function transferCanceled(evt) {
+    console.log("The transfer has been canceled by the user.");
+}
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -45,41 +44,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        // document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
+app_initialize = function() {
+    // document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+} ;
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        // this.receivedEvent('deviceready');
-        // document.getElementById("app-loader").className = "";
-        console.log('device ready notify') ;
+// deviceready Event Handler
+//
+// Bind any cordova events here. Common events are:
+// 'pause', 'resume', etc.
+on_device_ready = function() {
+    // this.receivedEvent('deviceready');
+    // document.getElementById("app-loader").className = "";
+    console.log('device ready notify') ;
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("progress", updateProgress);
+    oReq.addEventListener("load", transferComplete);
+    oReq.addEventListener("error", transferFailed);
+    oReq.addEventListener("abort", transferCanceled);
+    oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
+} ;
 
-    },
+app_initialize();
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        // var parentElement = document.getElementById(id);
-        // var listeningElement = parentElement.querySelector('.listening');
-        // var receivedElement = parentElement.querySelector('.received');
-        // listeningElement.setAttribute('style', 'display:none;');
-        // receivedElement.setAttribute('style', 'display:block;');
-        // console.log('Received Event: ' + id);
-    }
-};
-
-app.initialize();
-
-document.addEventListener("deviceready", app.onDeviceReady(), false);
-
-// var oReq = new XMLHttpRequest();
-// oReq.addEventListener("progress", updateProgress);
-// oReq.addEventListener("load", transferComplete);
-// oReq.addEventListener("error", transferFailed);
-// oReq.addEventListener("abort", transferCanceled);
-// oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
+document.addEventListener("deviceready", on_device_ready, false);
