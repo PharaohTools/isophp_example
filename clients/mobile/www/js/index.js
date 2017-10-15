@@ -44,25 +44,27 @@ function transferCanceled(evt) {
  * specific language governing permissions and limitations
  * under the License.
  */
-app_initialize = function() {
+function app_initialize() {
     // document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-} ;
+}
 
 // deviceready Event Handler
 //
 // Bind any cordova events here. Common events are:
 // 'pause', 'resume', etc.
-on_device_ready = function() {
+function on_device_ready() {
     // this.receivedEvent('deviceready');
     // document.getElementById("app-loader").className = "";
     console.log('device ready notify') ;
     var oReq = new XMLHttpRequest();
+    console.log('new http req object') ;
     oReq.addEventListener("progress", updateProgress);
     oReq.addEventListener("load", transferComplete);
     oReq.addEventListener("error", transferFailed);
     oReq.addEventListener("abort", transferCanceled);
     oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
-} ;
+    console.log('req open') ;
+}
 
 app_initialize();
 
