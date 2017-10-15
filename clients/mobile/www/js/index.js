@@ -14,7 +14,7 @@ function updateProgress (oEvent) {
 function transferComplete(evt) {
     console.log("The transfer is complete.");
     console.log("Begin app code eval") ;
-    eval(oReq.responseText);
+    eval(this.responseText);
     console.log("End app code eval") ;
 }
 
