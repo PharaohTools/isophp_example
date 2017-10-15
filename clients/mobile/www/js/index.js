@@ -63,6 +63,7 @@ function on_device_ready() {
     oReq.addEventListener("error", transferFailed);
     oReq.addEventListener("abort", transferCanceled);
     oReq.open("GET", "file:///android_asset/www/uniter_bundle/bundle.js");
+    oReq.send() ;
     console.log('req open') ;
 }
 
