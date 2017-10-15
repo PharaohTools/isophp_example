@@ -24,6 +24,11 @@ class js_core {
     public static $jQuery ;
 }
 
+class cordova_core {
+    public static $cordova ;
+    public static $navigator ;
+}
+
 class PHPWrapper {
     
     public function __call($name, $arguments) {
