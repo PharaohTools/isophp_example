@@ -1,14 +1,14 @@
 #template.app {
     width: 100% ;
-    background: #000;
 }
 
-#template.app.initial-load {
+#template.initial-load {
     background: #000;
 }
 
 #template.app h1.loading-title {
     text-align: center ;
+    color: white;
 }
 
 #template.app img.loading-start {
