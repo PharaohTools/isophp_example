@@ -40,4 +40,11 @@ class PageModel extends \Model\Base {
         } ;
     }
 
+    public static function hideSplashScreen() {
+        return function () {
+            $navigator = \ISOPHP\cordova_core::$navigator ;
+            $navigator->splashscreen->hide();
+        } ;
+    }
+
 }
