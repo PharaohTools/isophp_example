@@ -1,9 +1,10 @@
 #template.app {
     width: 100% ;
+    background: #000;
 }
 
 #template.app h1.loading-title {
-    width: 100% ;
+    text-align: center ;
 }
 
 #template.app img.loading-start {
