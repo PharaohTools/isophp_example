@@ -29,7 +29,6 @@ console.log('mainfiles app js', 'file data', file_data, 'file index', file_index
 
 function getFileData(path) {
     var pref_path = path.substr(1);
-    console.log('pref path ' . pref_path) ;
     if (!file_data.hasOwnProperty(pref_path)) {
         throw new Error('Unknown file "' + path + '"');
     }
