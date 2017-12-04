@@ -16,6 +16,7 @@ var $ = require('jquery'),
 var file_require_string = 'require("/core/constants.fephp") ; ' ;
 file_require_string += 'require("/core/app_vars.fephp") ; ' ;
 file_require_string += 'require("/core/isophp.fephp") ; ' ;
+file_require_string += '$isocore = new \\ISOPHP\\core ; var_dump($isocore) ; ' ;
 file_require_string += '\\ISOPHP\\core::$php = $php ; ' ;
 file_require_string += '\\ISOPHP\\core::$file_index = $file_index ; ' ;
 file_require_string += 'require("/core/init.fephp") ; ' ;
