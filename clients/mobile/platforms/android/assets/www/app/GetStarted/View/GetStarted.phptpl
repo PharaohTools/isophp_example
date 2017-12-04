@@ -27,22 +27,22 @@
 					<div class="row">
 						<div class="col-xs-4">
 							<div id="fh5co-logo">
-                                <a class="link link_home" href="/">
+								<span class="link link_home">
 									<img src="app/ISOPHPExample/Assets/images/tron_female_iso_logo.png" class="header_logo" />
-                                </a>
+								</span>
 							</div>
 						</div>
 						<div class="col-xs-8 text-right menu-1">
 							<ul>
 								<li class="btn-cta">
-									<a class="link link_GetStarted" href="/GetStarted">
+									<span class="link link_menu link_get_started">
 										Get Started
-									</a>
+									</span>
 								</li>
 								<li>
-									<a class="link link_Docs" href="/Docs">
+									<span class="link link_menu link_docs">
 										Docs
-									</a>
+									</span>
 								</li>
 								<li class="has-dropdown">
 									<a>Download</a>
@@ -77,38 +77,123 @@
 			<div class="container">
 				<div>
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Try out the Apps</h2>
+						<h2>Try out the Demo Apps</h2>
 						<p class="larger_paragraph">
-							The code for this Website is Isomorphic, and also our Demo application. So we have example
+						    We have demo versions of the ISO PHP Example Application, for every platform and device.
+						    Try them out - Web (Here), Desktop or Mobile. Get a feel of how apps built with ISO PHP
+						    will work for you.
+						</p>
+						<p class="larger_paragraph">
+							The code for this Website is Isomorphic, and also our Demo application. Our demonstration
+							application for our Framework is this Website. It works as a Website, as a Mobile
+							application, and as a Desktop Application compatible with any major Platform. We have example
 							versions for all the platforms.
-							<br />
-							<a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
-							    Android Mobile Application
-							</a>
-							<br />
-							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/iphone/latest">
-							    IPhone Mobile Application
-							</a>
-							<br />
-							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/windows/latest">
-							    Microsoft Windows Desktop Application
-							</a>
-							<br />
-							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/macos/latest">
-							    Apple MacOS Desktop Application
-							</a>
-							<br />
-							<a href="http://build.internal.pharaohtools.com/releases/iso_php_example_application/linux/latest">
-							    Linux Desktop Application
-							</a>
 						</p>
 					</div>
+					<div class="col-md-12 fh5co-heading">
+					    <div class="panel panel-default col-md-4 text-center">
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
+                                    Android Mobile Application
+                                </a>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
+                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/android-play-store.png" />
+                                </a>
+                            </div>
+					    </div>
+					    <div class="panel panel-default col-md-4 text-center">
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication.app.zip">
+                                    Apple MacOS Desktop Application
+                                </a>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication.app.zip">
+                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/mac.png" />
+                                </a>
+                            </div>
+					    </div>
+					    <div class="panel panel-default col-md-4 text-center">
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication-linux-ia32.zip">
+                                    Linux Desktop Application (32 Bit)
+                                </a>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication-linux-ia32.zip">
+                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/linux.png" />
+                                </a>
+                            </div>
+					    </div>
+					    <div class="panel panel-default col-md-4 text-center">
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication-linux-x64.zip">
+                                    Linux Desktop Application (64 Bit)
+                                </a>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication-linux-x64.zip">
+                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/linux.png" />
+                                </a>
+                            </div>
+					    </div>
+					    <div class="panel panel-default col-md-4 text-center">
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
+                                    (Coming Soon!) IPhone Mobile Application
+                                </a>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
+                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/iphone-app-store.png" />
+                                </a>
+                            </div>
+					    </div>
+					    <div class="panel panel-default col-md-4 text-center">
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
+                                    (Coming Soon!) Microsoft Windows Desktop Application
+                                </a>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
+                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/windows-logo.png" />
+                                </a>
+                            </div>
+					    </div>
+					</div>
+					
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<h2>Watch us Build an Application in 5 minutes</h2>
+						<p class="larger_paragraph">
+							We have a new Video of us building an ISOPHP Application in 5 minutes. Watch the video and
+							code along yourself. See us walk you through how to build an ISO PHP Application.
+						</p>
+					</div>
+					
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>Build an Application</h2>
 						<p class="larger_paragraph">
-							Use our Documentation section and start a new ISO PHP Application now!
+							Have a read through our <a class="link link_standard">Documentation</a> section and start a
+							new ISO PHP Application now in just a few commands.
 						</p>
 					</div>
+					
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<h2>See other Applications built with ISO PHP</h2>
+						<p class="larger_paragraph">
+							We have also built the Website <a href="http://www.theuniterleague.org.uk">The Uniter
+							League</a>, a showcase of lot of Applications built with the use of
+							<a href="https://github.com/asmblah/uniter">Uniter PHP</a>. This includes
+							<strong>every</strong> website or other Application that was built with
+							<a href="http://www.isophp.org.uk">ISO PHP</a>, as
+							<a href="https://github.com/asmblah/uniter">Uniter PHP</a> is the Core Transpilation
+							Framework that makes ISO PHP possible.
+						</p>
+					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -136,7 +221,7 @@
 
 					<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 						<ul class="fh5co-footer-links">
-							<li><span class="link link_Docs">Documentation</span></li>
+							<li><span class="link link_docs">Documentation</span></li>
 							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Downloads</a></li>
 							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Source Code</a></li>
 							<li><a href="https://github.com/asmblah/uniter">Uniter Github</a></li>
@@ -175,8 +260,8 @@
 		<script src="app/ISOPHPExample/Assets/js/jquery.easing.1.3.js"></script>
 
         <!-- jquery ui -->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="app/ISOPHPExample/Assets/css/jquery-ui.css">
+        <script src="app/ISOPHPExample/Assets/js/jquery-ui.js"></script>
 
 		<!-- Bootstrap -->
 		<script src="app/ISOPHPExample/Assets/js/bootstrap.min.js"></script>
@@ -201,16 +286,3 @@
     return $html ;
 
 } ;
-
-/*
- * 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>I want to add an icon set across devices and platforms in my project?</h2>
-						<p class="larger_paragraph">
-							clients/mobile/res/icon/android/
-                            clients/mobile/res/icon/ios/
-                            clients/desktop/icon/
-                            clients/web/icon/
-						</p>
-						<pre>ptdeploy isophp help </pre>
-					</div>
- */

@@ -17,19 +17,38 @@ class PageModel extends \Model\Base {
             if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
                 \ISOPHP\console::log('Binding buttons') ;
                 $jQuery = \ISOPHP\js_core::$jQuery ;
-                $go_docs = $jQuery('.link_Docs') ;
+                $go_docs = $jQuery('.link_docs') ;
                 $go_docs->on('click', function ($jqThis) {
                     $jqThis->preventDefault();
                     $navigate = new \Model\Navigate() ;
                     $navigate->route('Docs', 'show', array(), '/Docs') ;
                 }) ;
-                $go_get_started = $jQuery('.link_GetStarted') ;
+                $go_get_started = $jQuery('.link_get_started') ;
                 $go_get_started->on('click', function ($jqThis) {
                     $jqThis->preventDefault();
                     $navigate = new \Model\Navigate() ;
                     $navigate->route('GetStarted', 'show', array(), '/GetStarted') ;
                 }) ;
             }
+        } ;
+    }
+
+    public static function bindChatApplication() {
+        return function () {
+            $chat = new \Model\LandingPage\ChatApplication() ;
+            $chat->start() ;
+        } ;
+    }
+
+    public static function hideSplashScreen() {
+        return function () {
+            $jQuery = \ISOPHP\js_core::$jQuery ;
+            $template = $jQuery('#template') ;
+            $template->removeClass('initial-load') ;
+            $title = $jQuery('#loading-title') ;
+            $title->removeClass('loading-title') ;
+            $navigator = \ISOPHP\cordova_core::$navigator ;
+            $navigator->splashscreen->hide();
         } ;
     }
 
