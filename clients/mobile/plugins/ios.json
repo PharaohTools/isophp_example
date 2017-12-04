@@ -1,15 +1,18 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "uk.org.isophp.example"
     },
-    "config_munge": {
-        "files": {}
-    },
-    "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "uk.org.isophp.example"
-        }
-    },
-    "dependent_plugins": {}
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "uk.org.isophp.example"
+    }
+  },
+  "dependent_plugins": {}
 }
