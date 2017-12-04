@@ -26,7 +26,7 @@ class Virtufile extends VirtufileBase {
         $this->config["vm"]["box_url"] = $bu ;
         $this->config["vm"]["box"] = "vanillaubuntu1404264bitserveredition" ;
 
-        $random_port_suffix = '76' ;
+        $random_port_suffix = '78' ;
         $this->config["vm"]["cpus"] = "2" ;
         $this->config["vm"]["memory"] = "8192" ;
         $this->config["vm"]["graceful_halt_timeout"] = 15 ;
