@@ -21,10 +21,8 @@ $files_to_update = array(
     "clients/mobile/config.xml",
     "clients/mobile/www/js/app.js",
     "clients/mobile/www/js/index.js",
-
 //    "core/Core/Base/Model/Base.php",
 //    "core/Core/Base/Model/Navigate.php",
-
     "vars/configuration_devcloud.php",
     "vars/configuration_local.php",
     "vars/configuration_production.php",
@@ -36,14 +34,41 @@ $files_to_update = array(
 //    "Virtufile",
 ) ;
 
+
+if ( isset($argv[1]) && ($argv[1] != '' || $argv[1] != false) ) {
+    $isophp_home = $argv[1] ;
+} else {
+    echo "ISO PHP Home Dir should be first parameter to this script\n" ;
+    exit (1) ;
+}
+
+if ( isset($argv[2]) && ($argv[2] == 'to' || $argv[2] == 'from') ) {
+    $to_from = $argv[2] ;
+
+} else {
+    echo "to or from must be the second parameter to this script\n" ;
+    exit (1) ;
+}
+
+$isophp_example_application_home = getcwd().DIRECTORY_SEPARATOR ;
+
 foreach ($files_to_update as $file_to_update) {
-    if ( ($argv[1] == false) || ($argv[1] == '')) {
-        $isophp_home = $argv[1] ;
+
+    if ($to_from === 'to') {
+        $comm = "cp {$isophp_example_application_home}{$file_to_update} {$isophp_home}{$file_to_update}" ;
     } else {
-        echo "ISO PHP Home Dir shold be first/only parameter to this script\n" ;
-        exit (1) ;
+        $comm = "cp {$isophp_home}{$file_to_update} {$isophp_example_application_home}{$file_to_update}" ;
     }
-    $isophp_example_application_home = getcwd().DIRECTORY_SEPARATOR ; # $argv[1] $argv[2]
-    $comm = "cp {$isophp_example_application_home}{$file_to_update} {$isophp_home}{$file_to_update}" ;
-    system($comm) ;
+
+    if ( isset($argv[3]) && ($argv[3] == 'run') ) {
+        echo "run parameter included, performing commands for real\n" ;
+        system($comm) ;
+    } else {
+        if (!isset($runny)) {
+            echo "run parameter not included, just echoing what I would have run...\n" ;
+            $runny = true ;
+        }
+        echo "{$comm}\n" ;
+    }
+
 }
