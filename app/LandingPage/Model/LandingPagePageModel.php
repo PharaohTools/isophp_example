@@ -40,16 +40,4 @@ class PageModel extends \Model\Base {
         } ;
     }
 
-    public static function hideSplashScreen() {
-        return function () {
-            $jQuery = \ISOPHP\js_core::$jQuery ;
-            $template = $jQuery('#template') ;
-            $template->removeClass('initial-load') ;
-            $title = $jQuery('#loading-title') ;
-            $title->removeClass('loading-title') ;
-            $navigator = \ISOPHP\cordova_core::$navigator ;
-            $navigator->splashscreen->hide();
-        } ;
-    }
-
 }
