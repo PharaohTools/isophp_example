@@ -51,14 +51,6 @@ span.chat_choice:hover {
     background: rgba(76, 74, 138, 0.9) none repeat scroll 0 0;
 }
 
-/*span.chat_name_choice {*/
-    /*cursor: pointer;*/
-/*}*/
-
-/*span.chat_name_choice:hover {*/
-    /*background: rgba(76, 74, 138, 0.9) none repeat scroll 0 0;*/
-/*}*/
-
 span#send_chat_message {
     display: block;
     margin: 0 auto;
