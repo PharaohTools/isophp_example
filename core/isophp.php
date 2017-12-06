@@ -12,7 +12,12 @@ class core {
     public static $data_ray ;
 
     public static function load_file_index() {
-        require (dirname(__DIR__).DIRECTORY_SEPARATOR.'uniter_bundle'.DIRECTORY_SEPARATOR.'file_index.php') ;
+        $file_index = array() ;
+        if (ISOPHP_EXECUTION_ENVIRONMENT === 'ZEND') {
+            require (REQUIRE_PREFIX.DIRECTORY_SEPARATOR.'uniter_bundle'.DIRECTORY_SEPARATOR.'file_index.fephp') ;
+        } else {
+            require (REQUIRE_PREFIX.DIRECTORY_SEPARATOR.'uniter_bundle'.DIRECTORY_SEPARATOR.'file_index.fephp') ;
+        }
         return $file_index ;
     }
 
