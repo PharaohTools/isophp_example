@@ -1,17 +1,14 @@
 <?php
 
-define('ISOPHP_CLIENT_SERVER_SIDE', true) ;
-
-require("core/constants.fephp") ;
-require("core/app_vars.fephp") ;
-require("core/isophp.fephp") ;
-require("core/init.fephp") ;
-require("core/WindowMessage.fephp") ;
-require("core/bootstrap.fephp") ;
-require("core/index.fephp") ;
+//require("constants-webclient-server.fephp") ;
+//require("core/app_vars.fephp") ;
+//require("core/isophp.fephp") ;
+//require("core/init.fephp") ;
+//require("core/WindowMessage.fephp") ;
+//require("core/bootstrap.fephp") ;
+//require("core/index.fephp") ;
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -33,7 +30,7 @@ require("core/index.fephp") ;
         <div id="app-loader" class="app-loader"></div>
         <div id="template" class="app">
             <?php
-                echo \Core\View::$server_template ;
+//                echo \Core\View::$server_template ;
             ?>
         </div>
     </body>
