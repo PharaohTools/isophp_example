@@ -3,8 +3,5 @@ define('CURRENT_TARGET', "mobile") ;
 define('IMAGE_ASSET_PREFIX', 'file:///android_asset/www/') ;
 define('CSS_ASSET_PREFIX', '') ;
 
-if (ISOPHP_CLIENT_SERVER_SIDE === true) {
-    define('REQUIRE_PREFIX', dirname(__DIR__)) ;
-} else {
-    define('REQUIRE_PREFIX', '') ;
-}
+define('REQUIRE_PREFIX', '') ;
+define('ISOPHP_EXECUTION_ENVIRONMENT', 'UNITER') ;
