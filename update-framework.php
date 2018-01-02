@@ -5,6 +5,9 @@ $files_to_update = array(
 //    "build/ptbuild/pipes/build_development_application/settings",
 //    "build/ptbuild/pipes/build_development_application/steps",
     "build/ptbuild/ptbuildvars",
+    "build/android-shell.bash",
+    "build/cloud-android-shell.bash",
+    "build/vm-android-shell.bash",
 //    "build/ptc/all-vm-web-assets.dsl.php", # Intentionally leave this
     "build/ptc/build-desktop-application.dsl.php",
     "build/ptc/build-machine-osx.dsl.php",
