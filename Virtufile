@@ -16,7 +16,8 @@ class Virtufile extends VirtufileBase {
 //        var_dump('vfile vars', __DIR__.DIRECTORY_SEPARATOR.'vars'.DIRECTORY_SEPARATOR.'vm.php', $variables) ;
 
         $this->setDefaultConfig();
-        $this->config["vm"]["name"] = strtolower(basename(dirname(__FILE__))) ;
+        $this->config["vm"]["name"] = 'iso_php_example' ;
+//        $this->config["vm"]["name"] = strtolower(basename(dirname(__FILE__))) ;
         $this->config["vm"]["gui_mode"] = "gui" ;
         $this->config["vm"]["box"] = "pharaohubuntu14041amd64" ;
         $this->config["vm"]["box"] = "standard_ubuntu" ;
@@ -62,17 +63,23 @@ class Virtufile extends VirtufileBase {
                 "target" => "guest",
                 "default" => "PTConfigureInit" ];
 
+        if (in_array(PHP_OS, array("Windows", 'WINNT'))) {
+            $i_path = dirname(__FILE__) ;
+        } else {
+            $i_path = dirname(__FILE__).DS ;
+        }
+
         $this->config["vm"]["provision"][] = $this->config["vm"]["provision_up_light"][] =
             [   "provisioner" => "PharaohTools",
                 "tool" => "ptdeploy",
                 "target" => "host",
-                "script" => getcwd()."/build/ptd/add-hostfile-entry.dsl.php",
-                "params" => array("vars" => dirname(__FILE__)."/vars/vm.php"), ] ;
+                "script" => $i_path.'build'.DS.'ptd'.DS.'add-hostfile-entry.dsl.php',
+                "params" => array("vars" => $i_path.'vars'.DS.'vm.php'), ] ;
 
         $this->config["vm"]["provision_destroy_post"][] =
             [   "provisioner" => "PharaohTools", "tool" => "ptdeploy", "target" => "host",
-                "script" => getcwd()."/build/ptd/remove-hostfile-entry.dsl.php",
-                "params" => array("vars" => getcwd()."/vars/vm.php") ] ;
+                "script" => $i_path.'build'.DS.'ptd'.DS.'remove-hostfile-entry.dsl.php',
+                "params" => array("vars" => $i_path.'vars'.DS.'vm.php') ] ;
 
         $this->config["vm"]["provision"][] =
             [   "provisioner" => "PharaohTools",
