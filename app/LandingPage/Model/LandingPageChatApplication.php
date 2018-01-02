@@ -9,7 +9,7 @@ class ChatApplication {
     protected static $socket ;
 
     public function start() {
-        \ISOPHP\console::log('in the start method') ;
+        \ISOPHP\console::log('in the chat app start method') ;
         if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
             \ISOPHP\console::log('this is the chat app start') ;
             $host = \ISOPHP\js_core::$window->location->hostname ;
@@ -78,7 +78,7 @@ class ChatApplication {
     private function chooseChatMessage() {
         $msg_html  = "<h2>Choose a chat message</h2>" ;
         $msgs = array(
-            1 => "Ninja.  Vanish.",
+            1 => "Ninja. Vanish.",
             2 => "Pizza dude’s got 30 seconds",
             3 => "Dude, Awesome!!!",
             4 => "I have always liked... Cowabunga.",
