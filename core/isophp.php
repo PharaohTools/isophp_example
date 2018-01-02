@@ -16,7 +16,7 @@ class core {
         if (ISOPHP_EXECUTION_ENVIRONMENT === 'ZEND') {
             require (REQUIRE_PREFIX.DIRECTORY_SEPARATOR.'uniter_bundle'.DIRECTORY_SEPARATOR.'file_index.fephp') ;
         } else {
-            require (REQUIRE_PREFIX.DIRECTORY_SEPARATOR.'uniter_bundle'.DIRECTORY_SEPARATOR.'file_index.fephp') ;
+            require (DIRECTORY_SEPARATOR.'uniter_bundle'.DIRECTORY_SEPARATOR.'file_index.fephp') ;
         }
         return $file_index ;
     }
