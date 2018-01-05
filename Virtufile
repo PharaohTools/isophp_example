@@ -63,11 +63,7 @@ class Virtufile extends VirtufileBase {
                 "target" => "guest",
                 "default" => "PTConfigureInit" ];
 
-        if (in_array(PHP_OS, array("Windows", 'WINNT'))) {
-            $i_path = dirname(__FILE__) ;
-        } else {
-            $i_path = dirname(__FILE__).DS ;
-        }
+        $i_path = dirname(__FILE__).DS ;
 
         $this->config["vm"]["provision"][] = $this->config["vm"]["provision_up_light"][] =
             [   "provisioner" => "PharaohTools",
