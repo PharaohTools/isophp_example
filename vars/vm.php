@@ -11,6 +11,9 @@ if (isset($params['backendenv'])) {
     if (in_array($params['backendenv'], array('local', 'devcloud'))) {
         $variables['custom_branch'] = 'development' ;
     }
+} else {
+    $params['backendenv'] = 'local' ;
+    $variables['backendenv'] = $params['backendenv'] ;
 }
 
 # Developer build (Virtual Machine) can use a back end of either local (VM) or devcloud
