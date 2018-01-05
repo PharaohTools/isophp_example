@@ -100,11 +100,11 @@ class Virtufile extends VirtufileBase {
 
         $description = (isset($variables['description'])) ? "\n\n{$variables['description']}\n\n" : '' ;
         $this->config["vm"]["post_up_message"] = "Your ISOPHP Virtualize Box has been brought up. $description
-            You now have the following urls:\n\n
-                http://build.{$variables['domain']}:80{$random_port_suffix}/ - Build Server\n
-                http://www.{$variables['domain']}:80{$random_port_suffix}/ - Web Client Application\n
-                http://www.{$variables['domain']}:88{$random_port_suffix}/ - Mobile Application Web Emulator \n
-                http://server.{$variables['domain']}:80{$random_port_suffix}/ - Web Server Application\n\n";
+  You now have the following urls:\n\n
+    http://build.{$variables['domain']}:80{$random_port_suffix}/ - Build Server\n
+    http://www.{$variables['domain']}:80{$random_port_suffix}/ - Web Client Application\n
+    http://www.{$variables['domain']}:88{$random_port_suffix}/ - Mobile Application Web Emulator \n
+    http://server.{$variables['domain']}:80{$random_port_suffix}/ - Web Server Application\n\n";
     }
 
 }
