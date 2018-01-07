@@ -77,26 +77,31 @@ class Virtufile extends VirtufileBase {
                 "script" => $i_path.'build'.DS.'ptd'.DS.'remove-hostfile-entry.dsl.php',
                 "params" => array("vars" => $i_path.'vars'.DS.'vm.php') ] ;
 
+        $dsl_params = array('start-dir' => "/var/www/hostshare",
+                            'vars' => '/var/www/hostshare/vars/vm.php',
+                            'step-times' => 'true',
+                            'step-numbers' => 'true') ;
+
         $this->config["vm"]["provision"][] =
             [   "provisioner" => "PharaohTools",
                 "tool" => "ptconfigure",
                 "target" => "guest",
                 "script" => "/var/www/hostshare/build/ptc/development.dsl.php",
-                "params" => array('start-dir' => "/var/www/hostshare", 'vars' => '/var/www/hostshare/vars/vm.php') ] ;
+                "params" => $dsl_params ] ;
 
         $this->config["vm"]["provision"][] =
             [   "provisioner" => "PharaohTools",
                 "tool" => "ptconfigure",
                 "target" => "guest",
                 "script" => "/var/www/hostshare/build/ptc/build-web-client-application.dsl.php",
-                "params" => array('start-dir' => "/var/www/hostshare", 'vars' => '/var/www/hostshare/vars/vm.php') ] ;
+                "params" => $dsl_params ] ;
 
         $this->config["vm"]["provision"][] =
             [   "provisioner" => "PharaohTools",
                 "tool" => "ptconfigure",
                 "target" => "guest",
                 "script" => "/var/www/hostshare/build/ptc/build-web-server-application.dsl.php",
-                "params" => array('start-dir' => "/var/www/hostshare", 'vars' => '/var/www/hostshare/vars/vm.php') ] ;
+                "params" => $dsl_params ] ;
 
         $description = (isset($variables['description'])) ? "\n\n{$variables['description']}\n\n" : '' ;
         $this->config["vm"]["post_up_message"] = "Your ISOPHP Virtualize Box has been brought up. $description
