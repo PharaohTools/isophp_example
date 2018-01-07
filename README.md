@@ -18,7 +18,7 @@ and Windows. Download and try any of the native Applications on the [Get Started
 To install and run this application locally, we'll be using Pharaoh Tools
 
 First, download the Pharaoh Tools installer from https://www.pharaohtools.com/install for your operating system. Unzip
-the package and install Pharaoh Virtualize. It will automatically install and dependencies it needs.
+the package and install Pharaoh Virtualize. It will automatically install any dependencies it needs.
 
 Secondly, Download this repository. You can use the git clone link [here](https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=iso_php_example_application)
 to get the code.
@@ -44,7 +44,7 @@ Where your development version of the Web Client Application can be seen.
 
 
 ``
-http://build.isophpexampleapplication.vm:8078/ - 
+http://build.isophpexampleapplication.vm:8078 
 ``
 Where your associated build server can be seen. Use Build Server for tasks such as deploying the latest
 Web Client code, Building an installable Mobile Package, building a Desktop Package, Rebuilding a Database,
