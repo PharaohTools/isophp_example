@@ -47,12 +47,12 @@ PTBuild ensure
 
 RunCommand execute
   label "Install SDKManager for Gradle"
-  command 'echo ptv | sudo su -c "(export SDKMAN_DIR=/home/ptbuild/.sdkman && curl -s https://get.sdkman.io | bash > /dev/null)" - ptbuild'
+  command 'echo ptv | sudo -S su -c "(export SDKMAN_DIR=/home/ptbuild/.sdkman && curl -s https://get.sdkman.io | bash > /dev/null)" - ptbuild'
   guess
 
 RunCommand execute
   label "Install Gradle using SDKManager"
-  command "echo ptv | sudo su -c 'source /home/ptbuild/.sdkman/bin/sdkman-init.sh && sdk install gradle 4.0.2' - ptbuild"
+  command "echo ptv | sudo -S su -c 'source /home/ptbuild/.sdkman/bin/sdkman-init.sh && sdk install gradle 4.0.2' - ptbuild"
   guess
 
 RunCommand execute
