@@ -7,7 +7,7 @@ Composer ensure
 NodeJS install
 
 RunCommand execute
-  label "Install prequisite applications"
+  label "Install prequisite packages"
   command "apt-get install -y apache2 libapache2-mod-php5 sqlite3 php5-sqlite zip unzip"
   guess
 
@@ -38,7 +38,8 @@ PTBuild install
 
 RunCommand execute
   label "Install SDKManager for Gradle"
-  command 'echo ptv | sudo su -c "(export SDKMAN_DIR=/home/ptbuild/.sdkman && curl -s https://get.sdkman.io | bash)" - ptbuild'
+  command 'echo ptv | sudo su -c "(export SDKMAN_DIR=/home/ptbuild/.sdkman && curl -s https://get.sdkman.io | bash 2&1> /dev/null )" - ptbuild'
+  guess
 
 RunCommand execute
   label "Install Gradle using SDKManager"
