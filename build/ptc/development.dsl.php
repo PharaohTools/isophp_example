@@ -105,8 +105,9 @@ Logging log
 
 RunCommand execute
   label "Import the Development Build pipes"
-  command "ptbuild importexport import -yg --source=/var/www/hostshare/build/ptbuild/pipes/build_development_application"
+  command "ptbuild importexport import -yg --source=/var/www/hostshare/build/ptbuild/pipes/{{ loop }}"
   guess
+  loop "build_development_application,cloud_environment_deploy_latest_application,cloud_environment_infrastructure_remove,local_application_re-deploy,cloud_environment_configuration_ensure,cloud_environment_infrastructure_ensure,local_application_database_save"
 
 RunCommand execute
   label "Create a default admin user"
