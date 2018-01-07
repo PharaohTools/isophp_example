@@ -16,16 +16,16 @@ class Virtufile extends VirtufileBase {
 //        var_dump('vfile vars', __DIR__.DIRECTORY_SEPARATOR.'vars'.DIRECTORY_SEPARATOR.'vm.php', $variables) ;
 
         $this->setDefaultConfig();
-        $this->config["vm"]["name"] = 'iso_php_example' ;
+        $this->config["vm"]["name"] = 'iso_php_example_application' ;
 //        $this->config["vm"]["name"] = strtolower(basename(dirname(__FILE__))) ;
         $this->config["vm"]["gui_mode"] = "gui" ;
         $this->config["vm"]["box"] = "pharaohubuntu14041amd64" ;
         $this->config["vm"]["box"] = "standard_ubuntu" ;
 
-        $bu = '/opt/ptvirtualize/boxes/vanillaubuntu1604264bitserver.box' ;
-        $bu = 'https://www.pharaohtools.com/virtualize/boxes/vanillaubuntu1404264bitserveredition' ;
+//        $bu = '/opt/ptvirtualize/boxes/vanillaubuntu1604264bitserver.box' ;
+        $bu = 'https://www.pharaohtools.com/virtualize/boxes/standardubuntu1404264bitserveredition' ;
         $this->config["vm"]["box_url"] = $bu ;
-        $this->config["vm"]["box"] = "vanillaubuntu1404264bitserveredition" ;
+        $this->config["vm"]["box"] = "standardubuntu1404264bitserveredition" ;
 
         $random_port_suffix = '78' ;
         $this->config["vm"]["cpus"] = "2" ;
