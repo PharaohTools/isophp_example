@@ -154,5 +154,8 @@ StandardTools ensure
 GitTools ensure
   label "Lets ensure some git tools are installed"
 
-GitKeySafe ensure
-  label "Lets ensure Git SSH Key Safe is installed"
+RunCommand execute
+  label "FS Fixes for web writing to share"
+  command "usermod -a -G vboxsf {{ loop }}"
+  guess
+  loop "www-data,ptv"
