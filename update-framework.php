@@ -51,6 +51,7 @@ $files_to_update = array(
     "vars/production.php",
     "vars/staging.php",
     "vars/vm.php",
+    "update-framework.php",
 //    "Virtufile",
 ) ;
 
