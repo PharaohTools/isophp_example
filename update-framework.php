@@ -1,6 +1,7 @@
 <?php
 
 $files_to_update = array(
+    "build/ptbuild/pipes",
 //    "build/ptbuild/pipes/build_development_application/defaults",
 //    "build/ptbuild/pipes/build_development_application/settings",
 //    "build/ptbuild/pipes/build_development_application/steps",
