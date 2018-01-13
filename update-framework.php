@@ -1,7 +1,10 @@
 <?php
 
-$files_to_update = array(
-    "build/ptbuild/pipes",
+//$pipe_dir = __DIR__.DIRECTORY_SEPARATOR."build/ptbuild/pipes" ;
+$pipe_dir = "build/ptbuild/pipes" ;
+$pipe_files = getDirContents($pipe_dir) ;
+
+$other_files = array(
 //    "build/ptbuild/pipes/build_development_application/defaults",
 //    "build/ptbuild/pipes/build_development_application/settings",
 //    "build/ptbuild/pipes/build_development_application/steps",
@@ -56,6 +59,8 @@ $files_to_update = array(
 //    "Virtufile",
 ) ;
 
+$files_to_update = array_merge($pipe_files, $other_files) ;
+
 
 if ( isset($argv[1]) && ($argv[1] != '' || $argv[1] != false) ) {
     $isophp_home = $argv[1] ;
@@ -77,8 +82,12 @@ $isophp_example_application_home = getcwd().DIRECTORY_SEPARATOR ;
 foreach ($files_to_update as $file_to_update) {
 
     if ($to_from === 'to') {
+        $dir = dirname($isophp_home.$file_to_update) ;
+        if (!is_dir($dir)) mkdir($dir, 0755, true) ;
         $comm = "cp {$isophp_example_application_home}{$file_to_update} {$isophp_home}{$file_to_update}" ;
     } else {
+        $dir = dirname($isophp_example_application_home.$file_to_update) ;
+        if (!is_dir($dir)) mkdir($dir, 0755, true) ;
         $comm = "cp {$isophp_home}{$file_to_update} {$isophp_example_application_home}{$file_to_update}" ;
     }
 
@@ -94,3 +103,32 @@ foreach ($files_to_update as $file_to_update) {
     }
 
 }
+
+function getDirContents($path) {
+    $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
+
+    $files = array();
+    foreach ($rii as $file)
+        if (!$file->isDir())
+            $files[] = $file->getPathname();
+
+    return $files;
+}
+
+//function recursive_copy($source, $dest) {
+////    $source = "dir/dir/dir";
+////    $dest= "dest/dir";
+//
+//    mkdir($dest, 0755);
+//    foreach (
+//        $iterator = new \RecursiveIteratorIterator(
+//            new \RecursiveDirectoryIterator($source, \RecursiveDirectoryIterator::SKIP_DOTS),
+//            \RecursiveIteratorIterator::SELF_FIRST) as $item
+//    ) {
+//        if ($item->isDir()) {
+//            mkdir($dest . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
+//        } else {
+//            copy($item, $dest . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
+//        }
+//    }
+//}
