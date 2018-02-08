@@ -86,7 +86,7 @@
 
 		<div id="fh5co-services" class="fh5co-bg-section">
 			<div class="container">
-				<div class="row animate-box">
+				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>How it Works</h2>
 						<p class="larger_paragraph">
@@ -117,7 +117,7 @@
 					<div class="col-md-12">
 						<div class="row services-inner">
 							<div class="col-md-12 col-sm-12">
-								<div class="feature-center animate-box" data-animate-effect="fadeIn">
+								<div class="feature-center" data-animate-effect="fadeIn">
 									<span class="feature_icon icon">
 										<i class="icon-air-play"></i>
 									</span>
