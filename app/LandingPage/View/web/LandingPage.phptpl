@@ -87,7 +87,7 @@
 		<div id="fh5co-services" class="fh5co-bg-section">
 			<div class="container">
 				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<div class="col-md-12 text-center fh5co-heading">
 						<h2>How it Works</h2>
 						<p class="larger_paragraph">
                             Combining Standard PHP Server Code with Transpilation from
@@ -101,7 +101,7 @@
                             Framework.
 						</p>
 					</div>
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<div class="col-md-12 text-center fh5co-heading">
 						<h2>Why its useful</h2>
 						<p class="larger_paragraph">
 							Build native applications for any major platform in a single codebase. Lots of Web
