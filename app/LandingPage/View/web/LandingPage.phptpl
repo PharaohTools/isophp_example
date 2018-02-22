@@ -119,7 +119,7 @@
 					<div class="col-md-12">
 						<div class="row services-inner">
 							<div class="col-md-12 col-sm-12">
-								<div class="feature-center animate-box" data-animate-effect="fadeIn">
+								<div class="feature-center" data-animate-effect="fadeIn">
 									<span class="feature_icon icon">
 										<i class="icon-air-play"></i>
 									</span>

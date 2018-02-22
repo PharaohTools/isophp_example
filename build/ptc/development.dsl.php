@@ -31,7 +31,7 @@ RunCommand execute
   equals "true"
 
 Java install
-  java-install-version "1.8"
+  version "1.8"
   guess
 
 PTDeploy ensure
@@ -104,10 +104,16 @@ Logging log
   source Autopilot
 
 RunCommand execute
+  label "Get the names of the Build pipes"
+  command 'cd /var/www/hostshare/build/ptbuild/pipes/ && ls -1 | paste -sd "," -'
+  guess
+  register "build_pipe_names"
+
+RunCommand execute
   label "Import the Development Build pipes"
   command "ptbuild importexport import -yg --source=/var/www/hostshare/build/ptbuild/pipes/{{ loop }}"
   guess
-  loop "build_development_application,cloud_environment_deploy_latest_application,cloud_environment_infrastructure_remove,local_application_re-deploy,cloud_environment_configuration_ensure,cloud_environment_infrastructure_ensure,local_application_database_save"
+  loop "$$build_pipe_names"
 
 RunCommand execute
   label "Create a default admin user"
