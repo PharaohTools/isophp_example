@@ -1,6 +1,11 @@
 <?php
 
 \Core\View::$template = function() {
+    $configuration = new \Model\Configuration() ;
+    $current_env_level = $configuration->variable('current_env_level') ;
+    if ($current_env_level == null) {
+        $current_env_level = 'dev' ;
+    }
     $html = '
     		
 		<div class="fh5co-loader"></div>
@@ -105,60 +110,72 @@
 					    </div>
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication.app.zip">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication.app.zip">
                                     Apple MacOS Desktop Application
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication.app.zip">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication.app.zip">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/mac.png" />
                                 </a>
                             </div>
 					    </div>
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication-linux-ia32.zip">
-                                    Linux Desktop Application (32 Bit)
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication-ios.ipa">
+                                    IPhone Mobile Application
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication-linux-ia32.zip">
-                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/linux.png" />
-                                </a>
-                            </div>
-					    </div>
-					    <div class="panel panel-default col-md-4 text-center">
-                            <div class="col-sm-12 text-center">
-                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication-linux-x64.zip">
-                                    Linux Desktop Application (64 Bit)
-                                </a>
-                            </div>
-                            <div class="col-sm-12 text-center">
-                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/isophpexampleapplication-linux-x64.zip">
-                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/linux.png" />
-                                </a>
-                            </div>
-					    </div>
-					    <div class="panel panel-default col-md-4 text-center">
-                            <div class="col-sm-12 text-center">
-                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
-                                    (Coming Soon!) IPhone Mobile Application
-                                </a>
-                            </div>
-                            <div class="col-sm-12 text-center">
-                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication-ios.ipa">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/iphone-app-store.png" />
                                 </a>
                             </div>
 					    </div>
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
-                                    (Coming Soon!) Microsoft Windows Desktop Application
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication-linux-ia32.zip">
+                                    Linux Desktop Application (32 Bit)
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/android-debug.apk">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication-linux-ia32.zip">
+                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/linux.png" />
+                                </a>
+                            </div>
+					    </div>
+					    <div class="panel panel-default col-md-4 text-center">
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication-linux-x64.zip">
+                                    Linux Desktop Application (64 Bit)
+                                </a>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication-linux-x64.zip">
+                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/linux.png" />
+                                </a>
+                            </div>
+					    </div>
+					    <div class="panel panel-default col-md-4 text-center">
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication-win32-ia32.zip">
+                                    Windows Desktop Application (32 Bit)
+                                </a>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication-win32-ia32.zip">
+                                    <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/windows-logo.png" />
+                                </a>
+                            </div>
+					    </div>
+					    <div class="panel panel-default col-md-4 text-center">
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication-win32-x64.zip">
+                                    Windows Desktop Application (64 Bit)
+                                </a>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <a href="http://00d26aa7bc5db1104be7-55545d37eb9d0f4eb84c171c2c4d0895.r61.cf3.rackcdn.com/'.$current_env_level.'.isophpexampleapplication-win32-x64.zip">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/windows-logo.png" />
                                 </a>
                             </div>
