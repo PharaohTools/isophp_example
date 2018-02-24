@@ -2,7 +2,7 @@
 
 \Core\View::$template = function() {
     $configuration = new \Model\Configuration() ;
-    $current_env_level = $configuration->variable('current_env_level') ;
+    $current_env_level = $configuration->variable('env_level') ;
     if ($current_env_level == null) {
         $current_env_level = 'dev' ;
     }
