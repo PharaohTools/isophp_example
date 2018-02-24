@@ -88,7 +88,7 @@ RunCommand execute
   when "{{{ param::create_apk_only }}}"
 
 RunCommand execute
-  label "Just create the android executable applications"
+  label "Just create the android executable applications source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile"
   command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova build android"
   guess
   when "{{{ param::create_apk_only }}}"
