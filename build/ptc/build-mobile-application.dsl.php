@@ -72,15 +72,18 @@ RunCommand execute
 
 RunCommand execute
   label "Force install the platforms"
-  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova platform add {{ loop }}"
+  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova platform add android"
   guess
-  loop "android"
 
 RunCommand execute
-  label "Force install the cordova plugins"
-  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova plugin add cordova-plugin-{{ loop }}"
+  label "Force install the cordova splashscreen plugin"
+  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova plugin add cordova-plugin-splashscreen"
   guess
-  loop "splashscreen,whitelist"
+
+RunCommand execute
+  label "Force install the cordova whitelist plugin"
+  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova plugin add cordova-plugin-whitelist"
+  guess
 
 RunCommand execute
   label "Build and run the executable applications"
