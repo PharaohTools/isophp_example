@@ -162,6 +162,10 @@ GitTools ensure
 
 RunCommand execute
   label "FS Fixes for web writing to share"
-  command "usermod -a -G vboxsf {{ loop }}"
+  command "usermod -a -G vboxsf www-data"
   guess
-  loop "www-data,ptv"
+
+RunCommand execute
+  label "FS Fixes for web writing to share in a Virtual Machine"
+  command "usermod -a -G vboxsf ptv"
+  guess

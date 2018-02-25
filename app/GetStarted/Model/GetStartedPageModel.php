@@ -1,6 +1,6 @@
 <?php
 
-Namespace Model\LandingPage ;
+Namespace Model\GetStarted ;
 
 class PageModel extends \Model\Base {
 
@@ -17,7 +17,7 @@ class PageModel extends \Model\Base {
             if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
                 \ISOPHP\console::log('Binding buttons') ;
                 $jQuery = \ISOPHP\js_core::$jQuery ;
-                $go_landing_page = $jQuery('.link_home') ;
+                $go_landing_page = $jQuery('.header_logo') ;
                 $go_landing_page->on('click', function ($jqThis) {
                     $jqThis->preventDefault();
                     $navigate = new \Model\Navigate() ;
