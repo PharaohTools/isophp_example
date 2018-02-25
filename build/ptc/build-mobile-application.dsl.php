@@ -1,6 +1,6 @@
 RunCommand execute
   label "Update NPM"
-  command "npm update -g --silent"
+  command "npm update -g --silent > /dev/null"
   guess
 
 RunCommand execute
