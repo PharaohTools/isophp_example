@@ -6,7 +6,7 @@ RunCommand execute
 
 RunCommand execute
   label "Update NPM"
-  command "npm install -g uglify-js browserify || true"
+  command "npm install -g uglify-js browserify cordova@7.0.1 || true"
   ignore_errors
   guess
 
