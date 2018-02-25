@@ -1,4 +1,14 @@
 RunCommand execute
+  label "Update NPM"
+  command "npm update -g --silent"
+  guess
+
+RunCommand execute
+  label "Update NPM"
+  command "npm install -g uglify-js browserify"
+  guess
+
+RunCommand execute
   label "Empty the Node NPM Modules"
   command "cd {{{ param::start-dir }}}/clients/mobile && rm -rf node_modules/*"
   guess
