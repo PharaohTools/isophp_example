@@ -5,7 +5,7 @@ RunCommand execute
   guess
 
 RunCommand execute
-  label "Update NPM"
+  label "Install Global NPM Packages"
   command "npm install -g uglify-js browserify cordova@7.0.1 || true"
   ignore_errors
   guess
