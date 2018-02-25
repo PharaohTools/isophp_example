@@ -1,9 +1,4 @@
 RunCommand execute
-  label "Update NPM"
-  command "npm update -g --silent > /dev/null"
-  guess
-
-RunCommand execute
   label "Empty the Node NPM Modules"
   command "cd {{{ param::start-dir }}}/clients/mobile && rm -rf node_modules/*"
   guess
