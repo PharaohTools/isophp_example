@@ -1,11 +1,13 @@
 RunCommand execute
   label "Update NPM"
-  command "npm update -g --silent"
+  command "npm update -g --silent || true"
+  ignore_errors
   guess
 
 RunCommand execute
   label "Update NPM"
-  command "npm install -g uglify-js browserify"
+  command "npm install -g uglify-js browserify || true"
+  ignore_errors
   guess
 
 RunCommand execute
