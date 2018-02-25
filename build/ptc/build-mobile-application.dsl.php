@@ -74,7 +74,7 @@ RunCommand execute
   label "Force install the platforms"
   command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova platform add {{ loop }}"
   guess
-  loop "ios,android"
+  loop "android"
 
 RunCommand execute
   label "Force install the cordova plugins"
