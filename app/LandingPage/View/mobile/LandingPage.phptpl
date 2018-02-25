@@ -91,14 +91,15 @@
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>How it Works</h2>
 						<p class="larger_paragraph">
-                            Combining Standard PHP Server Code with Transpilation from
-                            <a href="http://www.github.com/asmblah/uniter">Uniter PHP</a>, an MVC pattern, and some
-                            bonus libraries, we bring you Isomorphic PHP. Write Code that can run on your
-							server, in your browser, or both - seamlessly. An ISO PHP application runs as both a
-							server side web site and a single page application at the same time, from the same code.
+                            Write Code that can run on your
+							server, in your browser, mobile, desktop or all of the above - seamlessly. An ISO PHP
+							application while part of a website runs as both a server side web site and a single page
+							application at the same time, from the same code. It also runs natively for Mobile/Desktop.
 							The isophp Framework combines some of the latest and greatest Web technology available,
                             to bring you a PHP development platform like no other - the first truly Isomorphic PHP
-                            Framework.
+                            Framework. Combining PHP Server Code with Client side Transpilation from
+                            <a href="http://www.github.com/asmblah/uniter">Uniter PHP</a>, MVC Design Patterns, and
+                            bonus libraries, we bring you Isomorphic PHP. 
 						</p>
 					</div>
 				</div>
