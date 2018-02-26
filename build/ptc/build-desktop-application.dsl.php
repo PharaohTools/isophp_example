@@ -1,6 +1,6 @@
 RunCommand execute
   label "Install Global NPM Packages"
-  command "npm install -g globby || true"
+  command "npm install -g globby uglify-js browserify || true"
   ignore_errors
   guess
 
