@@ -9,11 +9,6 @@ RunCommand execute
   guess
 
 RunCommand execute
-  label "Run the Node NPM Build"
-  command "cd {{{ param::start-dir }}}/clients/desktop && npm run build"
-  guess
-
-RunCommand execute
   label "Build to our Target Client"
   command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php desktop > /dev/null"
   guess
@@ -29,6 +24,16 @@ RunCommand execute
 RunCommand execute
   label "Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/core/default.fephp "
   command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/core/default.fephp "
+  guess
+
+RunCommand execute
+  label "Run the Node FS "
+  command "cd {{{ param::start-dir }}}/clients/mobile && sudo node fs > /dev/null"
+  guess
+
+RunCommand execute
+  label "Run the Node NPM Build"
+  command "cd {{{ param::start-dir }}}/clients/desktop && npm run build"
   guess
 
 RunCommand execute

@@ -8,7 +8,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "node fs > /dev/null && (browserify app --standalone=isophpexampleapplication | uglifyjs > uniter_bundle/bundle.js)",
+    "build": "browserify app --standalone=isophpexampleapplication | uglifyjs > uniter_bundle/bundle.js",
     "webpack": "webpack"
   },
   "repository": "https://anon:any@source.internal.pharaohtools.com/git/public/isophpexampleapplication/",
