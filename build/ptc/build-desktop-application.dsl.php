@@ -47,11 +47,11 @@ RunCommand execute
   label "Build the Linux executable applications"
   command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32,x64 --out=/tmp/exe --overwrite --platform=linux"
   guess
-  when "{{{ param::include-linux }}}"
+  when "{{{ param::include_linux }}}"
 
 RunCommand execute
   label "Package the Linux executable applications as Zip"
   command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-{{ loop }}.zip {{{ var::desktop_app_slug }}}-{{ loop }} "
   guess
   loop "linux-ia32,linux-x64"
-  when "{{{ param::include-linux }}}"
+  when "{{{ param::include_linux }}}"
