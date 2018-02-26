@@ -15,6 +15,11 @@ RunCommand execute
   guess
 
 RunCommand execute
+  label "Run the Node NPM Install"
+  command "cd {{{ param::start-dir }}}/clients/mobile && npm install --save uglify-js"
+  guess
+
+RunCommand execute
   label "Run the Composer Install"
   command "cd {{{ param::start-dir }}}/clients/desktop && sudo composer install"
   guess
