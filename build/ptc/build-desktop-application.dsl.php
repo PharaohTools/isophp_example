@@ -1,11 +1,22 @@
 RunCommand execute
+  label "Update NPM"
+  command "npm update -g --silent || true"
+  ignore_errors
+  guess
+
+RunCommand execute
+  label "Empty the Node NPM Modules"
+  command "cd {{{ param::start-dir }}}/clients/mobile && rm -rf node_modules/*"
+  guess
+
+RunCommand execute
   label "Run the Node NPM Install"
-  command "cd {{{ param::start-dir }}}/clients/desktop && sudo npm install --no-bin-links"
+  command "cd {{{ param::start-dir }}}/clients/desktop && npm install"
   guess
 
 RunCommand execute
   label "Run the Composer Install"
-  command "cd {{{ param::start-dir }}}/clients/desktop && sudo composer install"
+  command "cd {{{ param::start-dir }}}/clients/desktop && composer install"
   guess
 
 RunCommand execute
