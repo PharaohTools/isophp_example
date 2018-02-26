@@ -16,6 +16,10 @@ RunCommand execute
 Logging log
   log-message "Our Custom Branch is : $$custom_branch"
 
+Mkdir path
+  path "{{{ param::start-dir }}}/clients/desktop/web/core/"
+  recursive
+
 RunCommand execute
   label "Always Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.fephp"
   command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.fephp"
