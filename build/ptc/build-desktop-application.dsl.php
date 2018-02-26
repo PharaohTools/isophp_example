@@ -28,6 +28,7 @@ Logging log
   log-message "Our Custom Branch is : $$custom_branch"
 
 Mkdir path
+  label "Ensure Directry before using"
   path "{{{ param::start-dir }}}/clients/desktop/web/core/"
   recursive
 
@@ -45,6 +46,11 @@ RunCommand execute
   label "Run the Node FS "
   command "cd {{{ param::start-dir }}}/clients/mobile && sudo node fs > /dev/null"
   guess
+
+Mkdir path
+  label "Ensure Directry before using"
+  path "{{{ param::start-dir }}}/clients/desktop/uniter_bundle/"
+  recursive
 
 RunCommand execute
   label "Run the Node NPM Build"
