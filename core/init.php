@@ -29,7 +29,7 @@ if (\ISOPHP\core::$file_index == NULL) {
     $console->log("FILE INDEX: BEFORE CORE") ;
     $iso_php = new \ISOPHP\core() ;
     $console->log("FILE INDEX: AFTER CORE") ;
-    \ISOPHP\core::$file_index = $iso_php->load_file_index();
+    $iso_php->load_file_index();
     $console->log("FILE INDEX: AFTER") ;
     $console->log(\ISOPHP\core::$file_index) ;
 }
