@@ -42,6 +42,7 @@ function getFileData(path) {
         }) ;
         file_string += '\n) ;' ;
         file_string += '\n\n\\ISOPHP\\core::$file_index = $file_index ;\n' ;
+        console.log('app js parsed file index: ', file_string) ;
         return file_string ;
     } else {
         if (!hasOwn.call(file_data, pref_path)) {

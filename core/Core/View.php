@@ -50,8 +50,8 @@ class View {
         \ISOPHP\js_core::$console->log('View PageVars', $pageVars, $module) ;
         self::$page_vars = $pageVars;
 
-        $view_client_path = 'app/'.$module.'/View/'.CURRENT_TARGET.'/'.$viewFileName ;
-        $view_default_path = 'app/'.$module.'/View/'.$viewFileName ;
+        $view_client_path = '/app/'.$module.'/View/'.CURRENT_TARGET.'/'.$viewFileName ;
+        $view_default_path = '/app/'.$module.'/View/'.$viewFileName ;
         \ISOPHP\js_core::$console->log("Current Target is ".CURRENT_TARGET) ;
         \ISOPHP\js_core::$console->log("View Looking for $view_client_path") ;
         \ISOPHP\js_core::$console->log("And looking for $view_default_path") ;
@@ -97,6 +97,9 @@ class View {
 
     public function templateExists($path) {
         $php = \ISOPHP\core::$php ;
+        $file_index = \ISOPHP\core::$file_index ;
+        \ISOPHP\js_core::$console->log('view: file index in templateExists', $file_index) ;
+        \ISOPHP\js_core::$console->log($file_index) ;
         if ($php->in_array($path, \ISOPHP\core::$file_index)){
             return true ;
         }
