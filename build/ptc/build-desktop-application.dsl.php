@@ -1,6 +1,17 @@
 RunCommand execute
+  label "Install Global NPM Packages"
+  command "npm install -g globby || true"
+  ignore_errors
+  guess
+
+RunCommand execute
+  label "Empty the Node NPM Modules"
+  command "cd {{{ param::start-dir }}}/clients/mobile && rm -rf node_modules/*"
+  guess
+
+RunCommand execute
   label "Run the Node NPM Install"
-  command "cd {{{ param::start-dir }}}/clients/desktop && sudo npm install --no-bin-links"
+  command "cd {{{ param::start-dir }}}/clients/mobile && npm install --no-bin-links"
   guess
 
 RunCommand execute
