@@ -1,6 +1,6 @@
 RunCommand execute
   label "Install Global NPM Packages"
-  command "npm install -g globby uglify-js uglifyify browserify electron-packager || true"
+  command "npm install -g globby uglify-js uglifyify browserify electron-packager electron@1.6.2 || true"
   ignore_errors
   guess
 
