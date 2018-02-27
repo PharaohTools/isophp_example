@@ -15,7 +15,7 @@ RunCommand execute
 
 RunCommand execute
   label "Run the Node NPM Install"
-  command "cd {{{ param::start-dir }}}/clients/desktop && npm install"
+  command "cd {{{ param::start-dir }}}/clients/desktop && npm install --silent"
   guess
 
 RunCommand execute
@@ -24,7 +24,7 @@ RunCommand execute
   guess
 
 RunCommand execute
-  label "Run the Node NPM Install"
+  label "Run the Node NPM Uglify Install"
   command "cd {{{ param::start-dir }}}/clients/mobile && npm install --save uglify-js"
   guess
 
