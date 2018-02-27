@@ -42,7 +42,7 @@ Logging log
   log-message "Our Custom Branch is : $$custom_branch"
 
 Mkdir path
-  label "Ensure Directry before using"
+  label "Ensure Directory before using"
   path "{{{ param::start-dir }}}/clients/desktop/web/core/"
   recursive
 
@@ -62,7 +62,7 @@ RunCommand execute
   guess
 
 Mkdir path
-  label "Ensure Directry before using"
+  label "Ensure Directory before using"
   path "{{{ param::start-dir }}}/clients/desktop/uniter_bundle/"
   recursive
 
@@ -85,13 +85,24 @@ RunCommand execute
 
 RunCommand execute
   label "Build the Linux executable applications"
-  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32,x64 --out=/tmp/exe --overwrite --platform=linux"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32 --out=/tmp/exe --overwrite --platform=linux"
   guess
   when "{{{ param::include_linux }}}"
 
 RunCommand execute
   label "Package the Linux executable applications as Zip"
-  command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-{{ loop }}.zip {{{ var::desktop_app_slug }}}-{{ loop }} "
+  command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-linux-ia32.zip {{{ var::desktop_app_slug }}}-linux-ia32 "
   guess
-  loop "linux-ia32,linux-x64"
+  when "{{{ param::include_linux }}}"
+
+RunCommand execute
+  label "Build the Linux executable applications"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=linux"
+  guess
+  when "{{{ param::include_linux }}}"
+
+RunCommand execute
+  label "Package the Linux executable applications as Zip"
+  command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-linux-x64.zip {{{ var::desktop_app_slug }}}-linux-x64 "
+  guess
   when "{{{ param::include_linux }}}"
