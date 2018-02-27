@@ -72,37 +72,37 @@ RunCommand execute
   guess
 
 RunCommand execute
-  label "Build the OSx executable applications"
+  label "Build the OSx executable application"
   command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=darwin"
   guess
   when "{{{ param::include-osx }}}"
 
 RunCommand execute
-  label "Package the OSx executable applications as Zip"
+  label "Package the OSx executable application as Zip"
   command "cd /tmp/exe/{{{ var::desktop_app_slug }}}-darwin-x64 && zip -q -r {{{ var::desktop_app_slug }}}.app.zip {{{ var::desktop_app_slug }}}.app"
   guess
   when "{{{ param::include-osx }}}"
 
 RunCommand execute
-  label "Build the Linux executable applications"
+  label "Build the Linux ia32 executable application"
   command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32 --out=/tmp/exe --overwrite --platform=linux"
   guess
   when "{{{ param::include_linux }}}"
 
 RunCommand execute
-  label "Package the Linux executable applications as Zip"
+  label "Package the Linux ia32 executable application as Zip"
   command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-linux-ia32.zip {{{ var::desktop_app_slug }}}-linux-ia32 "
   guess
   when "{{{ param::include_linux }}}"
 
 RunCommand execute
-  label "Build the Linux executable applications"
+  label "Build the Linux x64 executable application"
   command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=linux"
   guess
   when "{{{ param::include_linux }}}"
 
 RunCommand execute
-  label "Package the Linux executable applications as Zip"
+  label "Package the Linux x64 executable application as Zip"
   command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-linux-x64.zip {{{ var::desktop_app_slug }}}-linux-x64 "
   guess
   when "{{{ param::include_linux }}}"
