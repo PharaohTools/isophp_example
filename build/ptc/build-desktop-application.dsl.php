@@ -4,33 +4,23 @@ RunCommand execute
   guess
 
 RunCommand execute
-  label "Install Global NPM Packages"
-  command "npm install -g globby uglify-js uglifyify browserify electron-packager electron@1.6.2 || true"
-  guess
-
-RunCommand execute
   label "Empty the Node NPM Modules"
   command "cd {{{ param::start-dir }}}/clients/mobile && rm -rf node_modules/*"
   guess
 
 RunCommand execute
+  label "Install (Previously) Global NPM Packages"
+  command "npm install globby uglify-js uglifyify browserify electron-packager electron@1.6.2 || true"
+  guess
+
+RunCommand execute
   label "Run the Node NPM Install"
-  command "cd {{{ param::start-dir }}}/clients/desktop && npm install --silent > /dev/null"
+  command "cd {{{ param::start-dir }}}/clients/desktop && npm install --silent"
   guess
 
 RunCommand execute
   label "Run the Composer Install"
   command "cd {{{ param::start-dir }}}/clients/desktop && composer install"
-  guess
-
-RunCommand execute
-  label "Run the Node NPM Uglify Install"
-  command "cd {{{ param::start-dir }}}/clients/mobile && npm install --save uglify-js"
-  guess
-
-RunCommand execute
-  label "Run the Composer Install"
-  command "cd {{{ param::start-dir }}}/clients/desktop && sudo composer install"
   guess
 
 RunCommand execute
