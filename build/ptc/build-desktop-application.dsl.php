@@ -106,3 +106,27 @@ RunCommand execute
   command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-linux-x64.zip {{{ var::desktop_app_slug }}}-linux-x64 "
   guess
   when "{{{ param::include_linux }}}"
+
+RunCommand execute
+  label "Build the Windows ia32 executable application"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32 --out=/tmp/exe --overwrite --platform=windows"
+  guess
+  when "{{{ param::include_windows }}}"
+
+RunCommand execute
+  label "Package the Windows ia32 executable application as Zip"
+  command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-windows-ia32.zip {{{ var::desktop_app_slug }}}-windows-ia32 "
+  guess
+  when "{{{ param::include_windows }}}"
+
+RunCommand execute
+  label "Build the Windows x64 executable application"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=windows"
+  guess
+  when "{{{ param::include_windows }}}"
+
+RunCommand execute
+  label "Package the Windows x64 executable application as Zip"
+  command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-windows-x64.zip {{{ var::desktop_app_slug }}}-windows-x64 "
+  guess
+  when "{{{ param::include_windows }}}"
