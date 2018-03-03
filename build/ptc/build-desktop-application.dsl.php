@@ -109,7 +109,7 @@ RunCommand execute
 
 RunCommand execute
   label "Build the Windows ia32 executable application"
-  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32 --out=/tmp/exe --overwrite --platform=windows"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32 --out=/tmp/exe --overwrite --platform=win32"
   guess
   when "{{{ param::include_windows }}}"
 
@@ -121,7 +121,7 @@ RunCommand execute
 
 RunCommand execute
   label "Build the Windows x64 executable application"
-  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=windows"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=win32"
   guess
   when "{{{ param::include_windows }}}"
 
