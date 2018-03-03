@@ -115,7 +115,7 @@ RunCommand execute
 
 RunCommand execute
   label "Package the Windows ia32 executable application as Zip"
-  command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-windows-ia32.zip {{{ var::desktop_app_slug }}}-windows-ia32 "
+  command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-windows-ia32.zip {{{ var::desktop_app_slug }}}-win32-ia32 "
   guess
   when "{{{ param::include_windows }}}"
 
@@ -127,6 +127,6 @@ RunCommand execute
 
 RunCommand execute
   label "Package the Windows x64 executable application as Zip"
-  command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-windows-x64.zip {{{ var::desktop_app_slug }}}-windows-x64 "
+  command "cd /tmp/exe && zip -q -r {{{ var::desktop_app_slug }}}-windows-x64.zip {{{ var::desktop_app_slug }}}-win32-x64 "
   guess
   when "{{{ param::include_windows }}}"
