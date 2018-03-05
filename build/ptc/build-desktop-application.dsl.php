@@ -5,7 +5,7 @@ RunCommand execute
 
 RunCommand execute
   label "Empty the Node NPM Modules"
-  command "cd {{{ param::start-dir }}}/clients/mobile && rm -rf node_modules/*"
+  command "cd {{{ param::start-dir }}}/clients/desktop && rm -rf node_modules/*"
   guess
 
 RunCommand execute
@@ -23,6 +23,11 @@ RunCommand execute
   command "cd {{{ param::start-dir }}}/clients/desktop && composer install"
   guess
 
+Mkdir path
+  label "Ensure Directory before using"
+  path "{{{ param::start-dir }}}/clients/desktop/uniter_bundle/"
+  recursive
+
 RunCommand execute
   label "Build to our Target Client"
   command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php desktop > /dev/null"
@@ -37,8 +42,8 @@ Mkdir path
   recursive
 
 RunCommand execute
-  label "Always Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.fephp"
-  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.fephp"
+  label "Always Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/ && mv {{{ param::start-dir }}}/clients/desktop/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/app_vars.fephp"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/ && mv {{{ param::start-dir }}}/clients/desktop/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/app_vars.fephp"
   guess
 
 RunCommand execute
@@ -48,13 +53,8 @@ RunCommand execute
 
 RunCommand execute
   label "Run the Node FS "
-  command "cd {{{ param::start-dir }}}/clients/mobile && sudo node fs > /dev/null"
+  command "cd {{{ param::start-dir }}}/clients/desktop && node fs > /dev/null "
   guess
-
-Mkdir path
-  label "Ensure Directory before using"
-  path "{{{ param::start-dir }}}/clients/desktop/uniter_bundle/"
-  recursive
 
 RunCommand execute
   label "Run the Node NPM Build"
@@ -65,13 +65,13 @@ RunCommand execute
   label "Build the OSx executable application"
   command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=darwin"
   guess
-  when "{{{ param::include-osx }}}"
+  when "{{{ param::include_osx }}}"
 
 RunCommand execute
   label "Package the OSx executable application as Zip"
   command "cd /tmp/exe/{{{ var::desktop_app_slug }}}-darwin-x64 && zip -q -r {{{ var::desktop_app_slug }}}.app.zip {{{ var::desktop_app_slug }}}.app"
   guess
-  when "{{{ param::include-osx }}}"
+  when "{{{ param::include_osx }}}"
 
 RunCommand execute
   label "Build the Linux ia32 executable application"
