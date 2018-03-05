@@ -61,7 +61,9 @@ ptconfigure auto x --af=build/build-assets.dsl.php --start-dir=`pwd` --vars=vars
 ``
 To build for Desktop
 ``
-ptconfigure auto x --af=build/build-assets.dsl.php --start-dir=`pwd` --vars=vars/default.php
+ptconfigure auto x --af=build/build-desktop-application.dsl.php --start-dir=`pwd` --vars=vars/vm.php --include_linux
+ptconfigure auto x --af=build/build-desktop-application.dsl.php --start-dir=`pwd` --vars=vars/vm.php --include_osx
+ptconfigure auto x --af=build/build-desktop-application.dsl.php --start-dir=`pwd` --vars=vars/vm.php --include_windows
 ``
 
 
