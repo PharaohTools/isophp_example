@@ -15,7 +15,7 @@ RunCommand execute
 
 RunCommand execute
   label "Run the Node NPM Install"
-  command "cd {{{ param::start-dir }}}/clients/desktop && npm install --silent"
+  command "cd {{{ param::start-dir }}}/clients/desktop && npm install --silent > /dev/null"
   guess
 
 RunCommand execute
