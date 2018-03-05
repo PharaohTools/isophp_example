@@ -24,14 +24,10 @@ if (\ISOPHP\js_core::$console == NULL) {
     \ISOPHP\js_core::$console = new \ISOPHP\console() ;
 }
 
-$console->log("FILE INDEX: during init") ;
 if (\ISOPHP\core::$file_index == NULL) {
-    $console->log("FILE INDEX: BEFORE CORE") ;
     $iso_php = new \ISOPHP\core() ;
-    $console->log("FILE INDEX: AFTER CORE") ;
     $iso_php->load_file_index();
-    $console->log("FILE INDEX: AFTER") ;
-    $console->log(\ISOPHP\core::$file_index) ;
+    ISOPHP\js_core::$console->log(\ISOPHP\core::$file_index) ;
 }
 
 if (CURRENT_TARGET === 'desktop') {
