@@ -98,12 +98,12 @@
 					<div class="col-md-12 fh5co-heading">
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/android-debug.apk">
+                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.android.apk">
                                     Android Mobile Application
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/android-debug.apk">
+                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.android.apk">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/android-play-store.png" />
                                 </a>
                             </div>
@@ -122,12 +122,12 @@
 					    </div>
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application-ios.ipa">
+                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.ipa.app.zip">
                                     IPhone Mobile Application
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application-ios.ipa">
+                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.ipa.app.zip">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/iphone-app-store.png" />
                                 </a>
                             </div>
