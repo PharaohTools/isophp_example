@@ -193,7 +193,7 @@
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>Build an Application</h2>
 						<p class="larger_paragraph">
-							Have a read through our <a class="link link_standard">Documentation</a> section and start a
+							Have a read through our <span class="link link_standard">Documentation</span> section and start a
 							new ISO PHP Application now in just a few commands.
 						</p>
 					</div>
