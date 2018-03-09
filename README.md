@@ -13,11 +13,9 @@ examples of itself running as a Mobile Application for Android  or iOS, and also
 and Windows. Download and try any of the native Applications on the [Get Started](http://www.isophp.org.uk/GetStarted).
 
 <img src="http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/web-client.png" alt="Web Client Application" style="width: 500px; height: 200px;" />
-<div style="width:50%">
-    <img src="http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/iphone-emulator-1.png" alt="IPhone Emulator 1" style="width: 200px; height: 200px;" />
-</div>
-<div style="width:50%">
-    <img src="http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/iphone-emulator-2.png" alt="IPhone Emulator 2" style="width: 200px; height: 200px;" />
+<div style="width:100%">
+    <img src="http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/iphone-emulator-1-small.png" alt="IPhone Emulator 1" style="width: 200px; height: 200px;" />
+    <img src="http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/iphone-emulator-2-small.png" alt="IPhone Emulator 2" style="width: 200px; height: 200px;" />
 </div>
 
 
