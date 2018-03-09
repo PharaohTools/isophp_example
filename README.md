@@ -12,9 +12,9 @@ Our main example is the ISO PHP Website, itself an ISO PHP Application running a
 examples of itself running as a Mobile Application for Android  or iOS, and also as Desktop Applications for Linux, OSx
 and Windows. Download and try any of the native Applications on the [Get Started](http://www.isophp.org.uk/GetStarted).
 
-![Web Client Application](http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/web-client.png "Web Client Application" =500x)
-![IPhone Emulator 1](http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/iphone-emulator-1.png "IPhone App in Emulator 1" =200x)
-![IPhone Emulator 2](http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/iphone-emulator-2.png "IPhone App in Emulator 2" =200x)
+<img src="http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/web-client.png" alt="Web Client Application" style="width: 500px; height: 200px;" />
+<img src="http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/iphone-emulator-1.png" alt="IPhone Emulator 1" style="width: 200px; height: 200px;" />
+<img src="http://devcloud.isophp.org.uk/app/ISOPHPExample/Assets/images/example_images/iphone-emulator-2.png" alt="IPhone Emulator 2" style="width: 200px; height: 200px;" />
 
 
 ## Installation
