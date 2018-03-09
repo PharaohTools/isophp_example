@@ -116,11 +116,11 @@ span#send_chat_message {
 }
 
 .link, .link_standard {
-    transition: 0.5s;
-    font-size: 120%;
+    /*transition: 0.5s;*/
+    /*font-size: 120%;*/
     color: #000;
     text-decoration: none;
-    display: inline !important;
+    /*display: inline !important;*/
 }
 
 .link_menu {
@@ -133,6 +133,7 @@ span#send_chat_message {
     cursor: pointer;
 }
 
+.link_standard:hover,
 .link_menu:hover {
     text-decoration: underline;
 }
