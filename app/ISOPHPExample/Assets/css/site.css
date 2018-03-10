@@ -129,12 +129,9 @@ span#send_chat_message {
 }
 
 .link:hover,
-.link_menu:hover {
-    cursor: pointer;
-}
-
 .link_standard:hover,
 .link_menu:hover {
+    cursor: pointer;
     text-decoration: underline;
 }
 
