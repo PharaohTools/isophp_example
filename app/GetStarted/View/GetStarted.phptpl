@@ -183,7 +183,7 @@
 					</div>
 					
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Watch us Build an Application in 5 minutes</h2>
+						<h2>Watch us Build an Application</h2>
 						<p class="larger_paragraph">
 							We have a new Video of us building an ISOPHP Application in 5 minutes. Watch the video and
 							code along yourself. See us walk you through how to build an ISO PHP Application.
@@ -193,7 +193,7 @@
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>Build an Application</h2>
 						<p class="larger_paragraph">
-							Have a read through our <span class="link link_standard">Documentation</span> section and start a
+							Have a read through our <span class="link link_standard link_docs">Documentation</span> section and start a
 							new ISO PHP Application now in just a few commands.
 						</p>
 					</div>
@@ -201,12 +201,12 @@
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>See other Applications built with ISO PHP</h2>
 						<p class="larger_paragraph">
-							We have also built the Website <a href="http://www.theuniterleague.org.uk">The Uniter
+							We have also built the Website <a class="link" href="http://www.theuniterleague.org.uk">The Uniter
 							League</a>, a showcase of lot of Applications built with the use of
-							<a href="https://github.com/asmblah/uniter">Uniter PHP</a>. This includes
+							<a class="link" href="https://github.com/asmblah/uniter">Uniter PHP</a class="link">. This includes
 							<strong>every</strong> website or other Application that was built with
-							<a href="http://www.isophp.org.uk">ISO PHP</a>, as
-							<a href="https://github.com/asmblah/uniter">Uniter PHP</a> is the Core Transpilation
+							<a class="link" href="http://www.isophp.org.uk">ISO PHP</a>, as
+							<a class="link" href="https://github.com/asmblah/uniter">Uniter PHP</a> is the Core Transpilation
 							Framework that makes ISO PHP possible.
 						</p>
 					</div>
@@ -238,7 +238,7 @@
 
 					<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 						<ul class="fh5co-footer-links">
-							<li><span class="link link_docs">Documentation</span></li>
+							<li><a class="link_docs">Documentation</a></li>
 							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Downloads</a></li>
 							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Source Code</a></li>
 							<li><a href="https://github.com/asmblah/uniter">Uniter Github</a></li>
