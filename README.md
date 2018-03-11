@@ -65,9 +65,8 @@ build the app for any platform for you.
 
 
 
-Part of the Pharaoh Tools group of Websites
+Part of the Pharaoh Tools group
 
-Built By Laughing Babies
 
 Kudos to
 
