@@ -109,11 +109,15 @@ RunCommand execute
   guess
   register "build_pipe_names"
 
+Logging log
+  log-message "build pipe names are {{{ param::build_pipe_names }}}"
+  source Autopilot
+
 RunCommand execute
   label "Import the Development Build pipes"
   command "ptbuild importexport import -yg --source=/var/www/hostshare/build/ptbuild/pipes/{{ loop }}"
-  guess
   loop "{{{ param::build_pipe_names }}}"
+  guess
 
 RunCommand execute
   label "Create a default admin user"
