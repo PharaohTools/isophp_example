@@ -1,9 +1,0 @@
-<?php
-
-$console->log("Chat Application") ;
-
-require_once('/assets/php/ChatApplication.fephp') ;
-$ChatApplication = new \ChatApplication();
-$ChatApplication->start() ;
-
-$console->log("Chat Application Loaded") ;

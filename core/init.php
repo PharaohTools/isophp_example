@@ -26,7 +26,8 @@ if (\ISOPHP\js_core::$console == NULL) {
 
 if (\ISOPHP\core::$file_index == NULL) {
     $iso_php = new \ISOPHP\core() ;
-    \ISOPHP\core::$file_index = $iso_php->load_file_index();
+    $iso_php->load_file_index();
+    ISOPHP\js_core::$console->log(\ISOPHP\core::$file_index) ;
 }
 
 if (CURRENT_TARGET === 'desktop') {

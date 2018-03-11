@@ -131,36 +131,42 @@
             "3506207020156906": {
                 "release_title": "Desktop Application for Linux x64",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-linux-x64.zip",
+                "new_file_name": "",
                 "image": "",
                 "allow_public": "on"
             },
             "9868886922805767": {
                 "release_title": "Desktop Application for Windows",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-windows\/isophpexampleapplication.exe",
+                "new_file_name": "",
                 "image": "",
                 "allow_public": "on"
             },
             "8620097775563362": {
                 "release_title": "Mobile Application for Android",
                 "release_file": "\/var\/www\/hostshare\/clients\/mobile\/platforms\/android\/build\/outputs\/apk\/android-debug.apk",
+                "new_file_name": "",
                 "image": "",
                 "allow_public": "on"
             },
             "7347037031201154": {
                 "release_title": "Mobile Application for iOS",
                 "release_file": "\/var\/www\/hostshare\/clients\/mobile\/platforms\/android\/build\/outputs\/ipa\/ios-release-unsigned.apk",
+                "new_file_name": "",
                 "image": "",
                 "allow_public": "on"
             },
             "5734845226823665": {
                 "release_title": "Desktop Application for Linux x32",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-linux-ia32.zip",
+                "new_file_name": "",
                 "image": "",
                 "allow_public": "on"
             },
             "14818716633141804": {
                 "release_title": "Desktop Application for Mac OS",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-darwin-x64\/isophpexampleapplication.app.zip",
+                "new_file_name": "",
                 "image": "",
                 "allow_public": "on"
             }

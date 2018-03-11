@@ -48,7 +48,7 @@ fs.writeFileSync(
     'module.exports = ' + JSON.stringify(file_index) + ';'
 );
 
-// File index
+// File index PHP
 
 console.log("\n\nfile_index\n", JSON.stringify(file_index)) ;
 
@@ -62,6 +62,6 @@ file_string += '\n) ;' ;
 file_string += '\n\n\\ISOPHP\\core::$file_index = $file_index ;\n' ;
 
 fs.writeFileSync(
-    __dirname + '/www/uniter_bundle/file_index.php',
+    __dirname + '/uniter_bundle/file_index.php',
     file_string
 );

@@ -1,6 +1,13 @@
 RunCommand execute
   label "Update NPM"
-  command "npm update -g --silent"
+  command "npm update -g --silent || true"
+  ignore_errors
+  guess
+
+RunCommand execute
+  label "Install Global NPM Packages"
+  command "npm install -g uglify-js browserify cordova@7.0.1 || true"
+  ignore_errors
   guess
 
 RunCommand execute
@@ -62,18 +69,28 @@ RunCommand execute
   command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova platform remove {{ loop }}"
   guess
   loop "ios,android"
+  ignore_errors
 
 RunCommand execute
   label "Force install the platforms"
-  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova platform add {{ loop }}"
+  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova platform add android"
   guess
-  loop "ios,android"
 
 RunCommand execute
-  label "Force install the cordova plugins"
-  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova plugin add cordova-plugin-{{ loop }}"
+  label "Force install the platforms"
+  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova platform add ios"
   guess
-  loop "splashscreen,whitelist"
+  when "{{{ param::create_ipa_only }}}"
+
+RunCommand execute
+  label "Force install the cordova splashscreen plugin"
+  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova plugin add cordova-plugin-splashscreen"
+  guess
+
+RunCommand execute
+  label "Force install the cordova whitelist plugin"
+  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova plugin add cordova-plugin-whitelist"
+  guess
 
 RunCommand execute
   label "Build and run the executable applications"
@@ -82,20 +99,49 @@ RunCommand execute
   when "{{{ param::emulator }}}"
 
 RunCommand execute
+  label "Remove any existing ios executable applications"
+  command "cd {{{ param::start-dir }}}/clients/mobile && rm -f platforms/ios/build/emulator/*.app"
+  guess
+  when "{{{ param::create_ipa_only }}}"
+
+RunCommand execute
   label "Remove any existing android executable applications"
   command "cd {{{ param::start-dir }}}/clients/mobile && rm -f platforms/android/build/outputs/apk/*.apk"
   guess
   when "{{{ param::create_apk_only }}}"
 
 RunCommand execute
-  label "Just create the android executable applications"
+  label "Just create the android executable applications source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile"
   command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova build android"
   guess
   when "{{{ param::create_apk_only }}}"
 
 RunCommand execute
   label "Just create the iOS executable applications"
-  command "(source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova build ios)"
+  command "source /etc/profile && cd {{{ param::start-dir }}}/clients/mobile && cordova build ios > /tmp/ios_logme"
+  guess
+  when "{{{ param::create_ipa_only }}}"
+
+Mkdir path
+  label "Ensure Temp Directory before using"
+  path "/tmp/exe-mobile/"
+  recursive
+
+RunCommand execute
+  label "Empty Temp Directory before using"
+  command "rm -rf /tmp/exe-mobile/* "
+  guess
+  when "{{{ param::create_ipa_only }}}"
+
+RunCommand execute
+  label "Move the iOS executable applications to expected location cd {{{ param::start-dir }}}/clients/mobile/platforms/ios/build/emulator/ && mv *.app /tmp/exe-mobile/"
+  command "cd {{{ param::start-dir }}}/clients/mobile/platforms/ios/build/emulator/ && mv *.app /tmp/exe-mobile/ "
+  guess
+  when "{{{ param::create_ipa_only }}}"
+
+RunCommand execute
+  label "Zip the iOS executable application"
+  command "cd /tmp/exe-mobile/ && zip -q -r $$env_level.{{{ param::repo_slug }}}.ipa.app.zip {{{ param::repo_slug }}}.app "
   guess
   when "{{{ param::create_ipa_only }}}"
 

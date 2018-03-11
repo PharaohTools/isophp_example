@@ -5,6 +5,8 @@ $variables['vmname'] = $variables['application_slug'] ;
 $variables['domain'] = $variables['vmname'].'.vm' ;
 $variables['desktop_app_slug'] = $variables['vmname'] ;
 $variables['android_shell_script'] = 'vm-android-shell.bash' ;
+$variables['custom_branch'] = 'development' ;
+$variables['env_level'] = 'dev' ;
 
 if (isset($params['backendenv'])) {
     $variables['backendenv'] = $params['backendenv'] ;

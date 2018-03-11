@@ -76,7 +76,7 @@
 		<div id="fh5co-services" class="fh5co-bg-section">
 			<div class="container">
 				<div>
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<div class="col-md-12 text-center fh5co-heading">
 						<h2>How do I create an ISOPHP Project?</h2>
 						<p class="larger_paragraph">
 							You can create a new project at the command line with the following:
@@ -89,7 +89,7 @@
                          ISOPHP project in a single line:</p>
 						<pre> ptdeploy isophp create -yg --email="example@isophp.org.uk" --web_link="http://isophp.example.com" --project_name="A New Example Project" --domainid="com.example.isophp" --author_name="Dave the Developer" --description="An Example of a new test Application being created" </pre>
 					</div>
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<div class="col-md-12 text-center fh5co-heading">
 						<h2>I want to run an ISOPHP Project</h2>
 						<p class="larger_paragraph">
 							First you should use your command line to navigate to the directory your project is in.
@@ -130,7 +130,7 @@ In Pharaoh Virtualize Up
 ******************************
 </pre>
 					</div>
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<div class="col-md-ls text-center fh5co-heading">
 						<h2> I want to update the ISOPHP version in my project?</h2>
 						<p class="larger_paragraph">
 							Navigate to the directory containing your project. Then,

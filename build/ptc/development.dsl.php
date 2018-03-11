@@ -113,7 +113,7 @@ RunCommand execute
   label "Import the Development Build pipes"
   command "ptbuild importexport import -yg --source=/var/www/hostshare/build/ptbuild/pipes/{{ loop }}"
   guess
-  loop "$$build_pipe_names"
+  loop "{{{ param::build_pipe_names }}}"
 
 RunCommand execute
   label "Create a default admin user"

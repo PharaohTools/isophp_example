@@ -109,18 +109,29 @@ span#send_chat_message {
 .fh5co-nav ul li span.link {
     color: rgba(255, 255, 255, 0.5);
     font-size: 13px;
-    letter-spacing: 2px;
     padding: 30px 15px;
     text-transform: uppercase;
     transition: all 0.5s ease 0s;
 }
 
 .link, .link_standard {
-    transition: 0.5s;
-    font-size: 120%;
-    color: #000;
-    text-decoration: none;
+    /*transition: 0.5s;*/
+    /*font-size: 120%;*/
     display: inline !important;
+    font-size: 18px !important;
+    text-transform: none !important;
+    letter-spacing: 0px !important;
+    line-height: 1.5;
+    color: #FC5185;
+    margin: 0 0 10px;
+    font-family: "Work Sans", Arial, sans-serif;
+    font-weight: 400;
+}
+
+footer.link {
+    color: #000 ;
+    font-size: 16px;
+    line-height: 1.7;
 }
 
 .link_menu {
@@ -129,11 +140,9 @@ span#send_chat_message {
 }
 
 .link:hover,
+.link_standard:hover,
 .link_menu:hover {
     cursor: pointer;
-}
-
-.link_menu:hover {
     text-decoration: underline;
 }
 
