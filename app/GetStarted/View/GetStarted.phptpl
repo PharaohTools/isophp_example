@@ -6,6 +6,8 @@
     if ($current_env_level == null) {
         $current_env_level = 'dev' ;
     }
+    // FORCE TO DEV SO WE CAN PUSH SITE TO PROD AND LINKS WORK
+    $current_env_level = 'dev' ;
     $html = '
     		
 		<div class="fh5co-loader"></div>
