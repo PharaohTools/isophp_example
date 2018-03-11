@@ -51,7 +51,7 @@ RunCommand execute
   guess
 
 RunCommand execute
-  label "Install Gradle using SDKManager"
+  label "Install Gradle using SDKManager, output to file as progress bar breaks execution"
   command "echo ptv | sudo -S su -c 'source /home/ptbuild/.sdkman/bin/sdkman-init.sh && sdk install gradle 4.0.2' - ptbuild"
   guess
 
