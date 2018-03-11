@@ -137,6 +137,9 @@ footer.link {
 .link_menu {
     transition: 0.5s;
     color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
 }
 
 .link:hover,

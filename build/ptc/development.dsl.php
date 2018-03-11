@@ -51,7 +51,7 @@ RunCommand execute
   guess
 
 RunCommand execute
-  label "Install Gradle using SDKManager"
+  label "Install Gradle using SDKManager, output to file as progress bar breaks execution"
   command "echo ptv | sudo -S su -c 'source /home/ptbuild/.sdkman/bin/sdkman-init.sh && sdk install gradle 4.0.2' - ptbuild"
   guess
 
@@ -109,11 +109,15 @@ RunCommand execute
   guess
   register "build_pipe_names"
 
+Logging log
+  log-message "build pipe names are {{{ param::build_pipe_names }}}"
+  source Autopilot
+
 RunCommand execute
   label "Import the Development Build pipes"
   command "ptbuild importexport import -yg --source=/var/www/hostshare/build/ptbuild/pipes/{{ loop }}"
-  guess
   loop "{{{ param::build_pipe_names }}}"
+  guess
 
 RunCommand execute
   label "Create a default admin user"
