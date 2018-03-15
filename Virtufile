@@ -61,7 +61,8 @@ class Virtufile extends VirtufileBase {
             [   "provisioner" => "Shell",
                 "tool" => "shell",
                 "target" => "guest",
-                "default" => "PTConfigureInit" ];
+                "default" => "PTConfigureInit",
+                "force" => true ];
 
         $i_path = dirname(__FILE__).DS ;
 
