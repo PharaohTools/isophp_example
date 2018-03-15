@@ -45,14 +45,14 @@ PTBuild ensure
   version latest
   guess
 
-RunCommand execute
-  label "Install SDKManager for Gradle"
-  command 'echo ptv | sudo -S su -c "(export SDKMAN_DIR=/home/ptbuild/.sdkman && curl -s https://get.sdkman.io | bash > /dev/null)" - ptbuild'
-  guess
+Download file
+  label "Download Gradle"
+  source "https://services.gradle.org/distributions/gradle-4.6-bin.zip"
+  target "/opt/gradle.zip"
 
 RunCommand execute
-  label "Install Gradle using SDKManager, output to file as progress bar breaks execution"
-  command "echo ptv | sudo -S su -c 'source /home/ptbuild/.sdkman/bin/sdkman-init.sh && sdk install gradle 4.0.2' - ptbuild"
+  label "Unzip Gradle"
+  command 'cd /opt && unzip gradle > /dev/null'
   guess
 
 RunCommand execute
