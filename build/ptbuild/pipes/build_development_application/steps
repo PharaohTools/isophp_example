@@ -13,5 +13,10 @@
         "module": "Shell",
         "steptype": "shelldata",
         "data": "if [ \"$INCLUDE_DESKTOP_ASSETS\" == \"on\" ] ; then\r\n    # For the Desktop Build\r\n    cd \/var\/www\/hostshare\/ ;\r\n    sudo ptconfigure auto x --af=build\/ptc\/build-desktop-application.dsl.php --start-dir=\/var\/www\/hostshare --vars=vars\/vm.php --include-linux --include-osx --step-times --step-numbers ;\r\nfi"
+    },
+    "2825944115950285": {
+        "module": "Shell",
+        "steptype": "shelldata",
+        "data": "cd \/var\/www\/hostshare\/ ;\r\n\r\nif [ \"$INCLUDE_DESKTOP_LINUX_APPLICATION\" == \"on\" ] ; then\r\n    sudo ptconfigure auto x --af=build\/ptc\/build-desktop-application.dsl.php --start-dir=\/var\/www\/hostshare --vars=vars\/vm.php --include-linux --step-times --step-numbers ;\r\nfi\r\n\r\nif [ \"$INCLUDE_DESKTOP_OSX_APPLICATION\" == \"on\" ] ; then\r\n    sudo ptconfigure auto x --af=build\/ptc\/build-desktop-application.dsl.php --start-dir=\/var\/www\/hostshare --vars=vars\/vm.php --include-osx --step-times --step-numbers ;\r\nfi\r\n\r\nif [ \"$INCLUDE_DESKTOP_WINDOWS_APPLICATION\" == \"on\" ] ; then\r\n    sudo ptconfigure auto x --af=build\/ptc\/build-desktop-application.dsl.php --start-dir=\/var\/www\/hostshare --vars=vars\/vm.php --include-windows --step-times --step-numbers ;\r\nfi"
     }
 }

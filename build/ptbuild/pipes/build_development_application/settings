@@ -61,6 +61,33 @@
                 "param_options": "",
                 "param_description": "Select this to include rebuilding of the Desktop Assets "
             },
+            "24854413726101975": {
+                "param_type": "boolean",
+                "param_original_options": "text,boolean,textarea,options",
+                "param_name": "INCLUDE_DESKTOP_LINUX_APPLICATION",
+                "param_default": "",
+                "param_textarea_default": "",
+                "param_options": "",
+                "param_description": "Use this to enable building the Desktop Linux Application"
+            },
+            "7147997117118676": {
+                "param_type": "boolean",
+                "param_original_options": "text,boolean,textarea,options",
+                "param_name": "INCLUDE_DESKTOP_OSX_APPLICATION",
+                "param_default": "",
+                "param_textarea_default": "",
+                "param_options": "",
+                "param_description": "Use this to enable building the Desktop OSX Application"
+            },
+            "355335138416101": {
+                "param_type": "boolean",
+                "param_original_options": "text,boolean,textarea,options",
+                "param_name": "INCLUDE_DESKTOP_WINDOWS_APPLICATION",
+                "param_default": "",
+                "param_textarea_default": "",
+                "param_options": "",
+                "param_description": "Use this to enable building the Desktop Windows Application"
+            },
             "8484146419219623": {
                 "param_type": "boolean",
                 "param_original_options": "text,boolean,textarea,options",
@@ -128,20 +155,6 @@
         "enabled": "on",
         "allow_public": "on",
         "custom_release": {
-            "3506207020156906": {
-                "release_title": "Desktop Application for Linux x64",
-                "release_file": "\/tmp\/exe\/isophpexampleapplication-linux-x64.zip",
-                "new_file_name": "",
-                "image": "",
-                "allow_public": "on"
-            },
-            "9868886922805767": {
-                "release_title": "Desktop Application for Windows",
-                "release_file": "\/tmp\/exe\/isophpexampleapplication-windows\/isophpexampleapplication.exe",
-                "new_file_name": "",
-                "image": "",
-                "allow_public": "on"
-            },
             "8620097775563362": {
                 "release_title": "Mobile Application for Android",
                 "release_file": "\/var\/www\/hostshare\/clients\/mobile\/platforms\/android\/build\/outputs\/apk\/android-debug.apk",
@@ -163,9 +176,30 @@
                 "image": "",
                 "allow_public": "on"
             },
+            "3506207020156906": {
+                "release_title": "Desktop Application for Linux x64",
+                "release_file": "\/tmp\/exe\/isophpexampleapplication-linux-x64.zip",
+                "new_file_name": "",
+                "image": "",
+                "allow_public": "on"
+            },
             "14818716633141804": {
                 "release_title": "Desktop Application for Mac OS",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-darwin-x64\/isophpexampleapplication.app.zip",
+                "new_file_name": "",
+                "image": "",
+                "allow_public": "on"
+            },
+            "9868886922805767": {
+                "release_title": "Desktop Application for Windows 32 Bit",
+                "release_file": "\/tmp\/exe\/isophpexampleapplication-windows-ia32\/isophpexampleapplication.exe",
+                "new_file_name": "",
+                "image": "",
+                "allow_public": "on"
+            },
+            "1234679126478124": {
+                "release_title": "Desktop Application for Windows",
+                "release_file": "\/tmp\/exe\/isophpexampleapplication-windows-x64\/isophpexampleapplication.exe",
                 "new_file_name": "",
                 "image": "",
                 "allow_public": "on"
