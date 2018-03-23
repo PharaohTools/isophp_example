@@ -4,6 +4,9 @@ GitKeySafe ensure
 Composer ensure
   guess
 
+Behat ensure
+  guess
+
 NodeJS install
 
 RunCommand execute
@@ -45,15 +48,33 @@ PTBuild ensure
   version latest
   guess
 
+RunCommand execute
+  label "Check if Gradle is installed "
+  command 'ISINST=`ls /opt/gradle/bin/gradle` && if [ "$ISINST" = "/opt/gradle/bin/gradle" ] ; then echo "true" ; fi '
+  guess
+  ignore_errors
+  register "gradle_is_installed"
+
 Download file
   label "Download Gradle"
   source "https://services.gradle.org/distributions/gradle-4.6-bin.zip"
   target "/opt/gradle.zip"
+  not_when "{{{ param::gradle_is_installed }}}"
+  equals "true"
 
 RunCommand execute
   label "Unzip Gradle"
-  command 'cd /opt && unzip gradle > /dev/null'
+  command 'cd /opt && unzip -qq -o gradle.zip'
   guess
+  not_when "{{{ param::gradle_is_installed }}}"
+  equals "true"
+
+RunCommand execute
+  label "Move to generic gradle dir name and path"
+  command 'cd /opt && mv gradle-* gradle'
+  guess
+  not_when "{{{ param::gradle_is_installed }}}"
+  equals "true"
 
 RunCommand execute
   label "Check if the Android SDK tools are installed"
