@@ -1,0 +1,7 @@
+{
+    "8844517621955183": {
+        "module": "Shell",
+        "steptype": "shelldata",
+        "data": "cd $WORKSPACE ;\r\ncd  \/var\/www\/hostshare\/ ;\r\ncd build\/tests\/behat ;\r\nbehat --version ;\r\nbehat --format=junit --out=behat.xml ;"
+    }
+}
