@@ -17,10 +17,8 @@ class BasicContext implements Context {
     /**
      * @Given /^I go to the start page$/
      */
-    public function iRunTheApplicationCommandInTheShell()
+    public function iGoToTheStartPage()
     {
-        $command = PTCCOMM ;
-        exec($command, $output);
-        $this->output = trim(implode("\n", $output));
+
     }
 }

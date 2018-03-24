@@ -6,8 +6,6 @@ Feature: Executing the Application
 
   Scenario: See the Logo
     Given I go to the start page
-    Given I run the application command in the shell
-    Then I should see all of the modules which are not hidden
 
 #  Scenario: Execute with no parameters
 #    Given I run the application command in the shell
