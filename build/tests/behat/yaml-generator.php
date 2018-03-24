@@ -5,7 +5,7 @@ echo "Generating Yaml for executing Behat".PHP_EOL ;
 // find and collate feature dirs
 define("DS", DIRECTORY_SEPARATOR) ;
 
-$findSource = dirname(dirname(dirname(__DIR__))).DS."src".DS."Modules".DS ;
+$findSource = dirname(dirname(dirname(__DIR__))).DS."app".DS ;
 $comm = "find ".$findSource." -path '*/Tests/behat/features' -type d" ;
 echo $comm."\n" ;
 $behat_dirs = exec($comm, $output) ;
@@ -14,7 +14,7 @@ $feature_paths[] = __DIR__."/features" ;
 $feature_paths = array_merge($feature_paths, $output) ;
 $feature_path_string = implode(",", $feature_paths) ;
 
-$findSource = dirname(dirname(dirname(__DIR__))).DS."src".DS."Modules".DS ;
+$findSource = dirname(dirname(dirname(__DIR__))).DS."app".DS ;
 $comm2 = "find ".$findSource." -path '*/Tests/behat/bootstrap' -type d" ;
 echo $comm2."\n" ;
 $bootstrap_dirs = exec($comm2, $output2) ;

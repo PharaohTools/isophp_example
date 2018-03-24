@@ -1,8 +1,8 @@
 
 default:
     autoload:
-        '' : %paths.base%/bootstrap,/opt/ptconfigure/ptconfigure/build/tests/behat/bootstrap
+        '' : %paths.base%/bootstrap,/var/www/hostshare/build/tests/behat/bootstrap,/var/www/hostshare/app/LandingPage/Tests/behat/bootstrap
     suites:
         core_features:
-            paths: [ %paths.base%/features,/opt/ptconfigure/ptconfigure/build/tests/behat/features ]
-            contexts: [ FeatureContext,AnyModuleActionsContext ]
+            paths: [ %paths.base%/features,/var/www/hostshare/build/tests/behat/features,/var/www/hostshare/app/LandingPage/Tests/behat/features ]
+            contexts: [ FeatureContext,AnyModuleActionsContext,BasicContext ]
