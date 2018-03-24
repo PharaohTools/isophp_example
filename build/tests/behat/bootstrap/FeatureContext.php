@@ -31,23 +31,13 @@ class FeatureContext  implements Context
     }
 
     private function setup() {
-//        $bd = dirname(dirname(dirname(dirname(dirname(__FILE__))))).DIRECTORY_SEPARATOR ;
-//        var_dump($bd) ;
 //        try {
-////            require_once ($bd.'src'.DIRECTORY_SEPARATOR. 'AutoLoad.php') ;
-//            require_once ($bd.'src'.DIRECTORY_SEPARATOR. 'AutoLoad.php') ;
-//            $autoLoader = new \Core\autoLoader();
-//            $autoLoader->launch(); }
-//        catch (\Exception $e) {
-//            echo "Setup cant load autoloader\n" ;
-//            echo 'Message: ' .$e->getMessage(); }
-//        try {
-//            require_once ($bd.'src'.DIRECTORY_SEPARATOR. 'Constants.php') ; }
+//            require_once ($bd.'src'.DS. 'Constants.php') ; }
 //        catch (\Exception $e) {
 //            echo "Setup cant load constants\n" ;
 //            echo 'Message: ' .$e->getMessage(); }
 //        try {
-//            require_once ($bd.'src'.DIRECTORY_SEPARATOR. 'BootstrapCore.php') ; }
+//            require_once ($bd.'src'.DS. 'BootstrapCore.php') ; }
 //        catch (\Exception $e) {
 //            echo "Setup cant load Bootstrap Core Class\n" ;
 //            echo 'Message: ' .$e->getMessage(); }
