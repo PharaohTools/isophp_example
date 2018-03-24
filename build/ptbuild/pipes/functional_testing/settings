@@ -43,6 +43,16 @@
         "git_privkey_path": "",
         "cron_string": ""
     },
+    "PublishHTMLreports": {
+        "enabled": "on",
+        "reports": {
+            "5287433939322797": {
+                "Report_Directory": "behat.html",
+                "Index_Page": "index.html",
+                "Report_Title": "Behat Reports"
+            }
+        }
+    },
     "SCMPublishOnSave": {
         "target_repository": ""
     },
