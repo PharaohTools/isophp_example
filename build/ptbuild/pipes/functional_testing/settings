@@ -3,8 +3,12 @@
         "no_to_keep": ""
     },
     "BuildQueue": {
-        "build_queue_max": "",
+        "enabled": "on",
+        "build_queue_max": "20",
         "build_queue_delay": ""
+    },
+    "ClearWorkspace": {
+        "enable_clear_workspace_before_build": "on"
     },
     "CopyOnSave": {
         "enabled": "on",
