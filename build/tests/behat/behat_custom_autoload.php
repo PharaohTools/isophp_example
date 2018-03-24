@@ -1,17 +1,29 @@
 <?php
 
-$default_dir = dirname(dirname(dirname(__DIR__))).DIRECTORY_SEPARATOR."build".DIRECTORY_SEPARATOR."tests".DIRECTORY_SEPARATOR."behat".DIRECTORY_SEPARATOR."bootstrap" ;
+if (!defined('DS')) {
+    define('DS', DIRECTORY_SEPARATOR) ;
+}
+$bd = dirname(dirname(dirname(dirname(__FILE__)))).DS ;
 
-$findSource = dirname(dirname(dirname(__DIR__))).DIRECTORY_SEPARATOR."src".DIRECTORY_SEPARATOR."Modules".DIRECTORY_SEPARATOR ;
-$comm2 = "find ".$findSource." -path '*/Tests/behat/bootstrap' -type d" ;
-echo $comm2."\n" ;
-$bootstrap_dirs = exec($comm2, $output2) ;
-$output2[] = $default_dir ;
+try {
 
-foreach ($output2 as $file_dir) {
-    $files = scandir ($file_dir) ; {
-        foreach ($files as $file) {
-            if (!in_array($file, array(".", ".."))) {
-                $full_path = $file_dir.DIRECTORY_SEPARATOR.$file ;
-                echo "Autoloading {$full_path}... ".PHP_EOL ;
-                require_once ($full_path) ; } } } }
+    $app_path = $bd.'app' ;
+    $mods = scandir ($app_path) ;
+    foreach ($mods as $mod) {
+        if (!in_array($mod, array('.', '..', '.git', '.gitkeep'))) {
+            $context_path = $app_path.DS.$mod.DS.'Tests'.DS.'behat'.DS.'bootstrap' ;
+            if (is_dir($context_path)) {
+                $context_path_files = scandir($context_path) ;
+                foreach ($context_path_files as $context_path_file) {
+                    if (!in_array($mod, array('.', '..'))) {
+                        if (substr($context_path_file, strlen($context_path_file)-4) === '.php') {
+                            require_once ($context_path.DS.$context_path_file) ;
+                        }
+                    }
+                }
+            }
+        }
+    } }
+catch (\Exception $e) {
+    echo "Setup cant load auto load Contexts from Modules\n" ;
+    echo 'Message: ' .$e->getMessage(); }
