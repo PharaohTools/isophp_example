@@ -2,6 +2,6 @@
     "8844517621955183": {
         "module": "Shell",
         "steptype": "shelldata",
-        "data": "pwd ;\r\nmkdir -p behat.xml ;\r\nrm -rf behat.xml\/* ;\r\nmkdir -p behat.html ;\r\nrm -rf behat.html\/* ;\r\ncd  \/var\/www\/hostshare\/build\/tests\/behat ;\r\npwd ;\r\nbehat --version ;\r\nphp yaml-generator.php ;\r\nbehat --format=junit --out=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.xml ;\r\njunit-viewer --results=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.xml --save=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.html\/index.html ;"
+        "data": "pwd ;\r\nmkdir -p behat.xml ;\r\nrm -rf behat.xml\/* ;\r\nmkdir -p behat.html ;\r\nrm -rf behat.html\/* ;\r\ncd  \/var\/www\/hostshare\/build\/tests\/behat ;\r\npwd ;\r\nbehat --version ;\r\nphp yaml-generator.php ;\r\ncp behat_gen.yml behat.yml ;\r\nbehat --format=junit --out=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.xml ;\r\njunit-viewer --results=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.xml --save=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.html\/index.html ;"
     }
 }
