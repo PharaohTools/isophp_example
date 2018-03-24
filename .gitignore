@@ -1,3 +1,4 @@
+build/tests/behat/vendor
 clients/mobile/www/app/*
 clients/mobile/www/core/*
 clients/web/app/*
