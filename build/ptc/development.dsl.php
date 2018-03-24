@@ -4,14 +4,14 @@ GitKeySafe ensure
 Composer ensure
   guess
 
-Behat ensure
+Behat install
   guess
 
 NodeJS install
 
 RunCommand execute
   label "Install prequisite packages"
-  command "apt-get install -y apache2 libapache2-mod-php5 sqlite3 php5-sqlite zip unzip"
+  command "apt-get install -y apache2 libapache2-mod-php7.0 sqlite3 php5-sqlite zip unzip"
   guess
 
 RunCommand execute
