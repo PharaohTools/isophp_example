@@ -28,7 +28,7 @@ RunCommand execute
 
 RunCommand execute
   label "NPM Install Electron Packager and cordova"
-  command "npm install --silent -g electron-packager cordova browserify uglifyjs uglify-js cordova-icon > /dev/null"
+  command "npm install --silent -g electron-packager cordova browserify uglifyjs uglify-js cordova-icon junit-viewer > /dev/null"
   guess
   not_when "{{{ param::electron_cordova_are_installed }}}"
   equals "true"
@@ -40,7 +40,7 @@ Java install
 PTDeploy ensure
   guess
 
-PTBuild ensure
+PTBuild install
   guess
   label "Lets ensure Pharaoh Build"
   vhe-url "build.{{{ var::vmname }}}.vm"
