@@ -20,6 +20,11 @@ RunCommand execute
   guess
 
 RunCommand execute
+  label "NPM Install General Packages"
+  command "npm install --silent -g browserify uglifyjs uglify-js cordova-icon junit-viewer > /dev/null"
+  guess
+
+RunCommand execute
   label "Check if Electron Packager and cordova are installed"
   command 'ISINSTEP=`which electron-packager > /dev/null && echo $?` && ISINSTC=`which cordova > /dev/null && echo $?` && BOTH_INST=`! (( $ISINSTEP | $ISINSTC )); echo $?` && if [ "$BOTH_INST" = "0" ] ; then echo "true" ; fi'
   guess
@@ -28,7 +33,7 @@ RunCommand execute
 
 RunCommand execute
   label "NPM Install Electron Packager and cordova"
-  command "npm install --silent -g electron-packager cordova browserify uglifyjs uglify-js cordova-icon junit-viewer > /dev/null"
+  command "npm install --silent -g electron-packager cordova > /dev/null"
   guess
   not_when "{{{ param::electron_cordova_are_installed }}}"
   equals "true"
