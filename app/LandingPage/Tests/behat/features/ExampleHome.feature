@@ -6,19 +6,12 @@ Feature: Executing the Application
 
   Scenario: See the Logo
     Given I go to the start page
+    Then I find the logo
 
-#  Scenario: Execute with no parameters
-#    Given I run the application command in the shell
-#    Then I should see the application description
-#
-#  Scenario: Execute with no parameters
-#    Given I run the application command in the shell
-#    Then I should see the cli text "www.pharaohtools.com"
-#
-#  Scenario: Execute with "--only-compatible" parameter
-#    Given I run the application command in the shell with parameter string "--only-compatible"
-#    Then I should see only the modules which are compatible with this system
-#
-#  Scenario: Execute with "--compatible-only" parameter
-#    Given I run the application command in the shell with parameter string "--compatible-only"
-#    Then I should see only the modules which are compatible with this system
+  Scenario: See some standard text
+    Given I go to the start page
+    Then I should see "Isophp example application"
+    Then I should see "The Web application"
+    Then I should see "How it works"
+    Then I should see "Why it's useful"
+    Then I should see "Lets get started"
