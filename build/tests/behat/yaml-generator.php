@@ -5,45 +5,51 @@ echo "Generating Yaml for executing Behat".PHP_EOL ;
 // find and collate feature dirs
 define("DS", DIRECTORY_SEPARATOR) ;
 
-$findSource = dirname(dirname(dirname(__DIR__))).DS."app".DS ;
-$comm = "find ".$findSource." -path '*/Tests/behat/features' -type d" ;
-echo $comm."\n" ;
-$behat_dirs = exec($comm, $output) ;
-$feature_paths[] = "%paths.base%/features" ;
-$feature_paths[] = __DIR__."/features" ;
-$feature_paths = array_merge($feature_paths, $output) ;
-$feature_path_string = implode(",", $feature_paths) ;
-
-$findSource = dirname(dirname(dirname(__DIR__))).DS."app".DS ;
-$comm2 = "find ".$findSource." -path '*/Tests/behat/bootstrap' -type d" ;
-echo $comm2."\n" ;
-$bootstrap_dirs = exec($comm2, $output2) ;
-$bootstrap_paths[] = "%paths.base%/bootstrap" ;
-$bootstrap_paths[] = __DIR__."/bootstrap" ;
-$bootstrap_paths = array_merge($bootstrap_paths, $output2) ;
-$bootstrap_path_string = implode(",", $bootstrap_paths) ;
-
-// find and collate bootstrap dirs, to scan files for Context Classes
+$contexts = array() ;
 $contexts[] = "FeatureContext" ;
 $contexts[] = "AnyModuleActionsContext" ;
-foreach ($output2 as $file_dir) {
-    $files = scandir ($file_dir) ; {
-        foreach ($files as $file) {
-            if (!in_array($file, array(".", ".."))) {
-                $contexts[] = str_replace(".php", "", basename($file)) ; } } } }
+$feature_paths = array('%paths.base%/features') ;
+
+$app_dir = dirname(dirname(dirname(__DIR__))).DS."app".DS ;
+$mods = scandir ($app_dir) ;
+
+foreach ($mods as $mod) {
+    if (!in_array($mod, array('.', '..', '.git', '.gitkeep'))) {
+        $context_path = $app_dir.$mod.DS.'Tests'.DS.'behat'.DS.'bootstrap' ;
+        $feature_path = $app_dir.$mod.DS.'Tests'.DS.'behat'.DS."features" ;
+        if (is_dir($feature_path)) {
+            $feature_paths[] = $feature_path ;
+        }
+        if (is_dir($context_path)) {
+            $context_path_files = scandir($context_path) ;
+            foreach ($context_path_files as $context_path_file) {
+                if (!in_array($context_path_file, array('.', '..'))) {
+                    $context_class = substr($context_path_file, 0, strlen($context_path_file)-4 ) ;
+                    $context_class_with_namespace = $mod.'\\'.$context_class ;
+                    var_dump($context_class_with_namespace) ;
+                    $contexts[] = $context_class_with_namespace ;
+                }
+            }
+        }
+    }
+}
+
+
+
 $contexts_string = implode(",", $contexts) ;
-
-
-//var_dump("fps", $feature_path_string, "bps", $bootstrap_path_string, "cs", $contexts_string) ;
+$fps = '' ;
+foreach ($feature_paths as $feature_path) {
+    $fps .= "                - {$feature_path}\n" ;
+}
 
     $start_yaml = "
 default:
     autoload:
-        '' : {$bootstrap_path_string}
+        - %paths.base%/bootstrap
     suites:
         core_features:
-            paths: [ {$feature_path_string} ]
-            contexts: [ {$contexts_string} ]
+            paths: 
+{$fps}            contexts: [ {$contexts_string} ]
 " ;
 
 $res = file_put_contents(__DIR__.DS."behat_gen.yml", $start_yaml) ;
