@@ -18,6 +18,7 @@ class FeatureContext  implements Context
 {
 
     private $output;
+    public static $session ;
 
     /**
      * Initializes context. Every scenario gets it's own context object.
@@ -25,22 +26,11 @@ class FeatureContext  implements Context
      * @param array $parameters Suite parameters (set them up through behat.yml)
      */
     public function __construct() {
-        $this->setup();
-//        $this->useContext('noactions', new \NoActionsContext()) ;
-//        $this->useContext('anymods', new \AnyModuleActionsContext()) ;
+        $this->setup() ;
     }
 
     private function setup() {
-//        try {
-//            require_once ($bd.'src'.DS. 'Constants.php') ; }
-//        catch (\Exception $e) {
-//            echo "Setup cant load constants\n" ;
-//            echo 'Message: ' .$e->getMessage(); }
-//        try {
-//            require_once ($bd.'src'.DS. 'BootstrapCore.php') ; }
-//        catch (\Exception $e) {
-//            echo "Setup cant load Bootstrap Core Class\n" ;
-//            echo 'Message: ' .$e->getMessage(); }
+
     }
 
 }
