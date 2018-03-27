@@ -108,16 +108,16 @@
 The Example Application for the ISO PHP Framework
 
 
-            You now have the following urls:
+You now have the following urls:
 
 
-                http://build.isophpexampleapplication.vm:8076/ - Build Server
+http://build.isophpexampleapplication.vm:8078/ - Build Server
 
-                http://www.isophpexampleapplication.vm:8076/ - Web Client Application
+http://www.isophpexampleapplication.vm:8078/ - Web Client Application
 
-                http://www.isophpexampleapplication.vm:8876/ - Mobile Application Web Emulator 
+http://www.isophpexampleapplication.vm:8878/ - Mobile Application Web Emulator 
 
-                http://server.isophpexampleapplication.vm:8076/ - Web Server Application
+http://server.isophpexampleapplication.vm:8078/ - Web Server Application
 
 
 ******************************
