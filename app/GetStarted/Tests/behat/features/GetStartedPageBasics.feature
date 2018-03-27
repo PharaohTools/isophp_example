@@ -9,7 +9,7 @@ Feature: Executing the Get Started Page
     Then I find the logo
 
   Scenario: See some standard text
-    Given I go to the start page
+    Given I go to the page "/GetStarted"
     Then I should see "Isophp example application"
     Then I should see "The Web application"
     Then I should see "How it works"

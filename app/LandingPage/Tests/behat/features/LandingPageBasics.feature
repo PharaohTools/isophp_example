@@ -1,8 +1,8 @@
-@home
-Feature: Executing the Application
+@landing @basics
+Feature: Executing the Landing Page
   As an interface user
-  I want to execute the home page
-  To see overview information about the application
+  I want to view the home page
+  To see overview information about the product
 
   Scenario: See the Logo
     Given I go to the start page
