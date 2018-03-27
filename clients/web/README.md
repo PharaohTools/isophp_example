@@ -27,6 +27,10 @@ To build for Desktop
 ``
 ptconfigure auto x --af=build/build-assets.dsl.php --start-dir=`pwd` --vars=vars/default.php
 ``
+To package latest Virtual Machine
+``
+ptvirtualize box package -yg --name="ISO PHP Ubuntu 16.04.2 64 Bit Server" --vmname="iso_php_example_application" --group="ptvirtualize" --description="ISO PHP with its dependencies, running on Ubuntu Server, 64 Bit, with Pharaoh Configure, Build and more"
+``
 
 
 
