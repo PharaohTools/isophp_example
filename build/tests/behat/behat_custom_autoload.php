@@ -26,4 +26,5 @@ try {
     } }
 catch (\Exception $e) {
     echo "Setup cant load auto load Contexts from Modules\n" ;
-    echo 'Message: ' .$e->getMessage(); }
+    echo 'Message: ' .$e->getMessage() ;
+}
