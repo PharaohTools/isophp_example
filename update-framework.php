@@ -26,7 +26,7 @@ $other_files = array(
     "build/ptc/virtual-machine.dsl.php",
     "clients/desktop/app.js",
     "clients/desktop/fs.js",
-    "clients/mobile/config.xml",
+//    "clients/mobile/config.xml",
     "clients/mobile/app.js",
     "clients/mobile/fs.js",
     "clients/mobile/www/js/index.js",
@@ -104,31 +104,48 @@ foreach ($files_to_update as $file_to_update) {
 
 }
 
+
+if ($to_from === 'to') {
+    configMobileXml($isophp_example_application_home, $isophp_home) ;
+} else {
+    configMobileXml($isophp_home, $isophp_example_application_home) ;
+}
+
 function getDirContents($path) {
     $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path));
-
     $files = array();
     foreach ($rii as $file)
         if (!$file->isDir())
             $files[] = $file->getPathname();
-
     return $files;
 }
 
-//function recursive_copy($source, $dest) {
-////    $source = "dir/dir/dir";
-////    $dest= "dest/dir";
-//
-//    mkdir($dest, 0755);
-//    foreach (
-//        $iterator = new \RecursiveIteratorIterator(
-//            new \RecursiveDirectoryIterator($source, \RecursiveDirectoryIterator::SKIP_DOTS),
-//            \RecursiveIteratorIterator::SELF_FIRST) as $item
-//    ) {
-//        if ($item->isDir()) {
-//            mkdir($dest . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
-//        } else {
-//            copy($item, $dest . DIRECTORY_SEPARATOR . $iterator->getSubPathName());
-//        }
-//    }
-//}
+
+function configMobileXml($source, $target) {
+
+    echo "Now configuring Mobile client XML\n" ;
+    $source_config_xml_location = $source . DIRECTORY_SEPARATOR . 'clients/mobile/config.xml' ;
+    $override_config_xml_location = $target . DIRECTORY_SEPARATOR . 'config-overrides.xml' ;
+    $new_file_location = $target . DIRECTORY_SEPARATOR . 'config-new.xml' ;
+    echo "Source XML: $source_config_xml_location\n" ;
+    echo "Override XML: $override_config_xml_location\n" ;
+    echo "Target XML: $new_file_location\n" ;
+
+    $agg_xml_object = simplexml_load_file($source_config_xml_location) ;
+    $override_xml_object = simplexml_load_file($override_config_xml_location) ;
+
+    // update widget element attributes
+    $new_attributes = $override_xml_object->attributes() ;
+    $agg_xml_object->attributes()->id = $new_attributes->id ;
+    $agg_xml_object->attributes()->version = $new_attributes->version ;
+
+    // update anything else defined entirely
+    foreach ($override_xml_object as $key => $child_element) {
+        $agg_xml_object->$key = $child_element ;
+    }
+
+//    var_dump($agg_xml_object) ;
+    $string = $agg_xml_object->asXML();
+
+    file_put_contents($new_file_location, $string) ;
+}
