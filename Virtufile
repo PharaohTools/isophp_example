@@ -25,7 +25,7 @@ class Virtufile extends VirtufileBase {
         $this->config["vm"]["box_url"] = $bu ;
 //        $this->config["vm"]["box_url"] = '/opt/ptvirtualize/boxes/isophpexampleapp.box' ;
 //        $this->config["vm"]["box"] = "vanillaubuntu16042bitserver" ;
-        $this->config["vm"]["box"] = "isophpexampleapp" ;
+        $this->config["vm"]["box"] = "isophpexampleapplication" ;
 
         $random_port_suffix = '78' ;
         $this->config["vm"]["cpus"] = "2" ;
