@@ -64,6 +64,9 @@ $files_to_update = array_merge($pipe_files, $other_files) ;
 
 if ( isset($argv[1]) && ($argv[1] != '' || $argv[1] != false) ) {
     $isophp_home = $argv[1] ;
+    if (substr($isophp_home, -1, 1) !== DIRECTORY_SEPARATOR) {
+        $isophp_home .= DIRECTORY_SEPARATOR ;
+    }
 } else {
     echo "ISO PHP Home Dir should be first parameter to this script\n" ;
     exit (1) ;
@@ -76,6 +79,7 @@ if ( isset($argv[2]) && ($argv[2] == 'to' || $argv[2] == 'from') ) {
     echo "to or from must be the second parameter to this script\n" ;
     exit (1) ;
 }
+
 
 $isophp_example_application_home = getcwd().DIRECTORY_SEPARATOR ;
 
@@ -105,10 +109,19 @@ foreach ($files_to_update as $file_to_update) {
 }
 
 
-if ($to_from === 'to') {
-    configMobileXml($isophp_example_application_home, $isophp_home) ;
+
+if ( isset($argv[3]) && ($argv[3] == 'run') ) {
+    echo "run parameter included, updating mobile config for real\n" ;
+
+    if ($to_from === 'to') {
+        configMobileXml($isophp_example_application_home, $isophp_home) ;
+    } else {
+        configMobileXml($isophp_home, $isophp_example_application_home) ;
+    }
 } else {
-    configMobileXml($isophp_home, $isophp_example_application_home) ;
+    if (!isset($runny)) {
+        echo "run parameter not included, not updating mobile config...\n" ;
+    }
 }
 
 function getDirContents($path) {
@@ -124,28 +137,31 @@ function getDirContents($path) {
 function configMobileXml($source, $target) {
 
     echo "Now configuring Mobile client XML\n" ;
-    $source_config_xml_location = $source . DIRECTORY_SEPARATOR . 'clients/mobile/config.xml' ;
-    $override_config_xml_location = $target . DIRECTORY_SEPARATOR . 'config-overrides.xml' ;
-    $new_file_location = $target . DIRECTORY_SEPARATOR . 'config-new.xml' ;
+    $source_config_xml_location = $source  . 'clients'. DIRECTORY_SEPARATOR .'mobile'. DIRECTORY_SEPARATOR .'config.xml' ;
+    $override_config_xml_location = $target . 'config-overrides.xml' ;
+    $target_file_location = $target . 'clients'. DIRECTORY_SEPARATOR .'mobile'. DIRECTORY_SEPARATOR .'config.xml' ;
     echo "Source XML: $source_config_xml_location\n" ;
     echo "Override XML: $override_config_xml_location\n" ;
-    echo "Target XML: $new_file_location\n" ;
+    echo "Target XML: $target_file_location\n" ;
 
     $agg_xml_object = simplexml_load_file($source_config_xml_location) ;
-    $override_xml_object = simplexml_load_file($override_config_xml_location) ;
+    if (file_exists($override_config_xml_location)) {
 
-    // update widget element attributes
-    $new_attributes = $override_xml_object->attributes() ;
-    $agg_xml_object->attributes()->id = $new_attributes->id ;
-    $agg_xml_object->attributes()->version = $new_attributes->version ;
+        $override_xml_object = simplexml_load_file($override_config_xml_location) ;
 
-    // update anything else defined entirely
-    foreach ($override_xml_object as $key => $child_element) {
-        $agg_xml_object->$key = $child_element ;
+        // update widget element attributes
+        $new_attributes = $override_xml_object->attributes() ;
+        $agg_xml_object->attributes()->id = $new_attributes->id ;
+        $agg_xml_object->attributes()->version = $new_attributes->version ;
+
+        // update anything else defined entirely
+        foreach ($override_xml_object as $key => $child_element) {
+            $agg_xml_object->$key = $child_element ;
+        }
+
+        $string = $agg_xml_object->asXML();
+        file_put_contents($target_file_location, $string) ;
+    } else {
+        echo "No Overrides to merge available in target location {$override_config_xml_location}\n" ;
     }
-
-//    var_dump($agg_xml_object) ;
-    $string = $agg_xml_object->asXML();
-
-    file_put_contents($new_file_location, $string) ;
 }
