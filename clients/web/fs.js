@@ -32,9 +32,15 @@ files.forEach(function (filePath) {
     var short_path = filePath.replace(root, '') ;
     short_path = short_path.replace('www/', '') ;
     console.log(short_path) ;
-    // file_data[short_path] = fs.readFileSync(filePath).toString() ;
+    file_data[short_path] = fs.readFileSync(filePath).toString() ;
     file_index.push(short_path) ;
 });
+
+console.log("\n\nfile_data\n", JSON.stringify(file_data)) ;
+fs.writeFileSync(
+    __dirname + '/uniter_bundle/file_data.js',
+    'module.exports = ' + JSON.stringify(file_data) + ' ;'
+);
 
 console.log("\n\nfile_index\n", JSON.stringify(file_index)) ;
 fs.writeFileSync(
