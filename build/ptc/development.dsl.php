@@ -18,7 +18,7 @@ RunCommand execute
 
 RunCommand execute
   label "NPM Install General Packages"
-  command "npm install --silent -g browserify uglifyjs uglify-js cordova-icon junit-viewer > /dev/null"
+  command "npm install --silent -g browserify uglifyjs uglify-js cordova-icon junit-viewer npx webpack webpack-cli > /dev/null"
   guess
 
 RunCommand execute
