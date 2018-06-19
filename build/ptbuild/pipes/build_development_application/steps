@@ -2,7 +2,7 @@
     "3516689872682579": {
         "module": "Shell",
         "steptype": "shelldata",
-        "data": "if [ \"$INCLUDE_WEB_ASSETS\" = \"on\" ] ; then\r\n    # For all Web Assets at Once\r\n    cd \/var\/www\/hostshare\/\r\n    sudo ptconfigure auto x --af=build\/ptc\/all-vm-web-assets.dsl.php --start-dir=\/var\/www\/hostshare --vars=vars\/vm.php --step-times --step-numbers\r\nfi\r\n"
+        "data": "if [ \"$INCLUDE_WEB_ASSETS\" = \"on\" ] ; then\r\n    # For all Web Assets at Once\r\n    cd \/var\/www\/hostshare\/\r\n    sudo ptconfigure auto x --af=build\/ptc\/all-vm-web-assets.dsl.php --start-dir=\/var\/www\/hostshare --vars=vars\/vm.php --step-times --step-numbers --uniter_build_level=$UNITER_BUILD_LEVEL\r\nfi\r\n"
     },
     "2995431567737701": {
         "module": "Shell",

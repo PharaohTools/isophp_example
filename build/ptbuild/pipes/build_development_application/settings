@@ -142,6 +142,15 @@
                 "param_textarea_default": "",
                 "param_options": "",
                 "param_description": "Use this to Build an iOS IPA File as a Release"
+            },
+            "5337334683639387": {
+                "param_type": "options",
+                "param_original_options": "text,boolean,textarea,options",
+                "param_name": "UNITER_BUILD_LEVEL",
+                "param_default": "development",
+                "param_textarea_default": "",
+                "param_options": "development\r\nproduction",
+                "param_description": "The type of build process for the Uniter PHP Assets"
             }
         }
     },
@@ -159,6 +168,7 @@
                 "release_title": "Mobile Application for Android",
                 "release_file": "\/var\/www\/hostshare\/clients\/mobile\/platforms\/android\/build\/outputs\/apk\/android-debug.apk",
                 "new_file_name": "",
+                "remote_file_url": "",
                 "image": "",
                 "allow_public": "on"
             },
@@ -166,6 +176,7 @@
                 "release_title": "Mobile Application for iOS",
                 "release_file": "\/var\/www\/hostshare\/clients\/mobile\/platforms\/android\/build\/outputs\/ipa\/ios-release-unsigned.apk",
                 "new_file_name": "",
+                "remote_file_url": "",
                 "image": "",
                 "allow_public": "on"
             },
@@ -173,6 +184,7 @@
                 "release_title": "Desktop Application for Linux x32",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-linux-ia32.zip",
                 "new_file_name": "",
+                "remote_file_url": "",
                 "image": "",
                 "allow_public": "on"
             },
@@ -180,6 +192,7 @@
                 "release_title": "Desktop Application for Linux x64",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-linux-x64.zip",
                 "new_file_name": "",
+                "remote_file_url": "",
                 "image": "",
                 "allow_public": "on"
             },
@@ -187,6 +200,7 @@
                 "release_title": "Desktop Application for Mac OS",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-darwin-x64\/isophpexampleapplication.app.zip",
                 "new_file_name": "",
+                "remote_file_url": "",
                 "image": "",
                 "allow_public": "on"
             },
@@ -194,6 +208,7 @@
                 "release_title": "Desktop Application for Windows 32 Bit",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-windows-ia32\/isophpexampleapplication.exe",
                 "new_file_name": "",
+                "remote_file_url": "",
                 "image": "",
                 "allow_public": "on"
             },
@@ -201,6 +216,7 @@
                 "release_title": "Desktop Application for Windows",
                 "release_file": "\/tmp\/exe\/isophpexampleapplication-windows-x64\/isophpexampleapplication.exe",
                 "new_file_name": "",
+                "remote_file_url": "",
                 "image": "",
                 "allow_public": "on"
             }
@@ -227,5 +243,14 @@
     },
     "SendEmail": {
         "send_postbuild_email_address": ""
+    },
+    "WebsiteDisplayLink": {
+        "enabled": "on",
+        "websites": {
+            "8098335812649871": {
+                "url": "http:\/\/www.isophpexampleapplication.vm:8078\/",
+                "title": "Development Site"
+            }
+        }
     }
 }
