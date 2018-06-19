@@ -1,5 +1,10 @@
 RunCommand execute
   label "Run the Node NPM Install"
+  command "cd {{{ param::start-dir }}}/clients/web && sudo npm install --save-dev phpify source-map-loader transform-loader babel-loader babel-core babel-preset-env webpack webpack-cli"
+  guess
+
+RunCommand execute
+  label "Run the Node NPM Install"
   command "cd {{{ param::start-dir }}}/clients/web && sudo npm install --no-bin-links"
   guess
 
@@ -14,22 +19,59 @@ RunCommand execute
   guess
 
 RunCommand execute
-  label "Build to our Target Client"
-  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php web > /dev/null"
+  label "Build to our Target Client - Uniter Development Settings"
+  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php web fephp > /dev/null"
   guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "Build to our Target Client - Uniter Production Settings"
+  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php web php > /dev/null"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
 
 Logging log
   log-message "Our Custom Branch is : $$custom_branch"
 
-RunCommand execute
-  label "Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.fephp"
-  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.fephp"
-  guess
+Logging log
+  log-message "Our Uniter build level is : $$uniter_build_level"
 
 RunCommand execute
-  label "Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.fephp "
+  label "(fephp ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.fephp"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.fephp"
+  guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "(php ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.php"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.php"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "(fephp ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.fephp "
   command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.fephp "
   guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "(php ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.php "
+  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.php "
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "Webpack build for production"
+  command "cd {{{ param::start-dir }}}/clients/web && npx webpack "
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
 
 RunCommand execute
   command "cd {{{ param::start-dir }}}/clients/web && ptdeploy vhe add -yg --vhe-url=$$webclientsubdomain.$$domain --vhe-ip-port=0.0.0.0:80 --vhe-default-template-name=docroot-no-suffix"
