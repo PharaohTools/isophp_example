@@ -1,5 +1,6 @@
 <?php
 
+$variables = $params ;
 $variables['application_slug'] = 'isophpexampleapplication' ;
 $variables['description'] = 'The Example Application for the ISO PHP Framework' ;
 $variables['subdomain'] = 'www' ;
