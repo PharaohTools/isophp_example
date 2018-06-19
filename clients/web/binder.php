@@ -1,11 +1,14 @@
 <?php
-print 'Hello from binder.fephp!';
+print 'Hello from binder.php!';
 return function ($document) {
-    $messageBox = $document->getElementById('myMessage');
-    $document->getElementById('helloButton')->addEventListener('click', function () use ($messageBox) {
-        $messageBox->textContent = 'You clicked Hello!';
-    });
-    $document->getElementById('worldButton')->addEventListener('click', function () use ($messageBox) {
-        $messageBox->textContent = 'You clicked World!';
-    });
+    require("core/constants.fephp") ;
+    require("core/app_vars.php") ;
+    require("/core/isophp.php") ;
+//    \\ISOPHP\\core::$php = $php ;
+//    \\ISOPHP\\core::$file_index = $file_index ;
+    require("/core/init.php") ;
+    require("/core/WindowMessage.php") ;
+    require("/core/bootstrap.php") ;
+    require("/core/index.php") ;
 };
+
