@@ -14,9 +14,18 @@ RunCommand execute
   guess
 
 RunCommand execute
-  label "Run the Node NPM Build"
+  label "Run the Development Node NPM Build"
   command "cd {{{ param::start-dir }}}/clients/web && sudo npm run build"
   guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "Run the Production Node NPM Build"
+  command "cd {{{ param::start-dir }}}/clients/web && sudo npm run build-production"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
 
 RunCommand execute
   label "Build to our Target Client - Uniter Development Settings"
