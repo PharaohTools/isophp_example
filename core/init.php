@@ -13,7 +13,9 @@ if (isset($jQuery)) {
 }
 
 if (\ISOPHP\core::$php == NULL) {
-    define('ISOPHP_EXECUTION_ENVIRONMENT', 'ZEND') ;
+    if (!defined('ISOPHP_EXECUTION_ENVIRONMENT')) {
+        define('ISOPHP_EXECUTION_ENVIRONMENT', 'ZEND') ;
+    }
     \ISOPHP\core::$php = new \ISOPHP\PHPWrapper() ;
     \ISOPHP\core::$php->error_log("This is running in Zend ") ;
 } else {
@@ -45,36 +47,49 @@ if (CURRENT_TARGET === 'desktop') {
 }
 
 function __autoload($classname) {
+    $target_extension = 'php' ;
+    if (ISOPHP_EXECUTION_ENVIRONMENT === 'ZEND') {
+        $target_extension = 'php' ;
+    }
+    if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
+        if (UNITER_BUILD_LEVEL == 'production') {
+            $target_extension = 'php' ;
+        }
+        if (UNITER_BUILD_LEVEL !== 'production') {
+            $target_extension = 'fephp' ;
+        }
+    }
+
     if ($classname === 'ISOPHP\core') {
         return ;
     } else if ($classname === 'ISOPHP\js_core') {
         return ;
     } else if ($classname === 'Controller\Base') {
-        $path = '/core/Core/Base/Controller/Base.fephp' ;
+        $path = '/core/Core/Base/Controller/Base.'.$target_extension ;
         require_once (REQUIRE_PREFIX.$path) ;
         return ;
     } else if ($classname === 'Controller\Result') {
-        $path = '/core/Core/Base/Controller/Result.fephp' ;
+        $path = '/core/Core/Base/Controller/Result.'.$target_extension ;
         require_once (REQUIRE_PREFIX.$path) ;
         return ;
     } else if ($classname === 'Model\Base') {
-        $path = '/core/Core/Base/Model/Base.fephp' ;
+        $path = '/core/Core/Base/Model/Base.'.$target_extension ;
         require_once (REQUIRE_PREFIX.$path) ;
         return ;
     } else if ($classname === 'Model\Configuration') {
-        $path = '/core/app_vars.fephp' ;
+        $path = '/core/app_vars.'.$target_extension ;
         require_once (REQUIRE_PREFIX.$path) ;
         return ;
     } else if ($classname === 'Model\Navigate') {
-        $path = '/core/Core/Base/Model/Navigate.fephp' ;
+        $path = '/core/Core/Base/Model/Navigate.'.$target_extension ;
         require_once (REQUIRE_PREFIX.$path) ;
         return ;
     } else if ($classname === 'Model\RegistryStore') {
-        $path = '/core/Core/Base/Model/RegistryStore.fephp' ;
+        $path = '/core/Core/Base/Model/RegistryStore.'.$target_extension ;
         require_once (REQUIRE_PREFIX.$path) ;
         return ;
     } else if ($classname === 'Info\Base') {
-        $path = '/core/Core/Base/Info/Base.fephp' ;
+        $path = '/core/Core/Base/Info/Base.'.$target_extension ;
         require_once (REQUIRE_PREFIX.$path) ;
         return ;
     } else if ($classname === 'stdClass') {
@@ -83,13 +98,14 @@ function __autoload($classname) {
     // \ISOPHP\core::$php->error_log("Autoloading " . $classname) ;
     $parts = \ISOPHP\core::$php->explode('\\', $classname) ;
     if ($parts[0] === 'Core') {
+        $target_extension = 'php' ;
             // \ISOPHP\core::$php->error_log('Looking in core') ;
         if ($classname == 'Core\Router') {
-            $path = '/core/Core/Router.fephp' ;
+            $path = '/core/Core/Router.'.$target_extension ;
         } else if ($classname == 'Core\Control') {
-            $path = '/core/Core/Control.fephp' ;
+            $path = '/core/Core/Control.'.$target_extension ;
         } else if ($classname == 'Core\View') {
-            $path = '/core/Core/View.fephp' ;
+            $path = '/core/Core/View.'.$target_extension ;
         }
         if (isset($path)) {
             // \ISOPHP\core::$php->error_log('found a path ' . $path) ;
@@ -100,7 +116,7 @@ function __autoload($classname) {
     if ($parts[0] === 'Controller') {
         // \ISOPHP\core::$php->error_log('Looking in Controller') ;
         $module = \ISOPHP\core::$php->str_replace('Controller', '', $parts[1]) ;
-        $path = '/app/'.$module.'/Controller/'.$parts[1].'.fephp' ;
+        $path = '/app/'.$module.'/Controller/'.$parts[1].'.'.$target_extension ;
         if (isset($path)) {
             // \ISOPHP\core::$php->error_log('found a controller path ' . $path) ;
             require_once (REQUIRE_PREFIX.$path) ;
@@ -109,7 +125,7 @@ function __autoload($classname) {
     else if ($parts[0] === 'Model') {
         // \ISOPHP\core::$php->error_log('Looking in Model') ;
         $module = \ISOPHP\core::$php->str_replace('Model', '', $parts[1]) ;
-        $path = '/app/'.$module.'/Model/'.$parts[1].$parts[2].'.fephp' ;
+        $path = '/app/'.$module.'/Model/'.$parts[1].$parts[2].'.'.$target_extension ;
         if (isset($path)) {
             // \ISOPHP\core::$php->error_log('found a model path ' . $path) ;
             require_once (REQUIRE_PREFIX.$path) ;
@@ -118,7 +134,7 @@ function __autoload($classname) {
     else if ($parts[0] === 'View') {
         // \ISOPHP\core::$php->error_log('Looking in View') ;
         $module = \ISOPHP\core::$php->str_replace('View', '', $parts[1]) ;
-        $path = '/app/'.$module.'/View/'.$parts[1].'.fephp' ;
+        $path = '/app/'.$module.'/View/'.$parts[1].'.'.$target_extension ;
         if (isset($path)) {
             // \ISOPHP\core::$php->error_log('found a view path ' . $path) ;
             require_once (REQUIRE_PREFIX.$path) ;
