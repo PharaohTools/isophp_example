@@ -77,7 +77,7 @@ RunCommand execute
 
 RunCommand execute
   label "Webpack build for production"
-  command "cd {{{ param::start-dir }}}/clients/web && npx webpack "
+  command "cd {{{ param::start-dir }}}/clients/web && npx webpack --display-modules"
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
