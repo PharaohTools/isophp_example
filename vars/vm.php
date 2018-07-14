@@ -26,3 +26,4 @@ $variables['pharaoh_repo_auth_url'] = '' ;
 # Developer build (Virtual Machine) can use a back end of either local (VM) or devcloud
 //var_dump('vm vars', __DIR__.DIRECTORY_SEPARATOR.'default.php', $variables) ;
 
+$variables['uniter_build_level'] = 'development' ;
