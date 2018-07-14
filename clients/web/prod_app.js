@@ -41,7 +41,6 @@ binderModule.expose(this_console, 'console');
 binderModule.expose(php, 'php');
 binderModule.expose(file_index, 'file_index');
 
-
 console.log('In prod app js: 7a') ;
 
 // Hook stdout and stderr up to the console
