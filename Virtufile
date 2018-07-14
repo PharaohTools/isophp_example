@@ -93,7 +93,7 @@ class Virtufile extends VirtufileBase {
                 "tool" => "ptconfigure",
                 "target" => "guest",
                 "script" => "/var/www/hostshare/build/ptc/build-web-client-application.dsl.php",
-                "params" => $dsl_params ] ;
+                "params" => array_merge($dsl_params, ['uniter_build_level' => 'development']) ] ;
 
         $this->config["vm"]["provision"][] =
             [   "provisioner" => "PharaohTools",
