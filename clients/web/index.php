@@ -1,12 +1,12 @@
 <?php
 
-require("constants-webclient-server.fephp") ;
-require("core/app_vars.fephp") ;
-require("core/isophp.fephp") ;
-require("core/init.fephp") ;
-require("core/WindowMessage.fephp") ;
-require("core/bootstrap.fephp") ;
-require("core/index.fephp") ;
+include("constants-webclient-server.fephp") ;
+include("core/app_vars.".ISOPHP_EXTENSION) ;
+include("core/isophp.".ISOPHP_EXTENSION) ;
+include("core/init.".ISOPHP_EXTENSION) ;
+include("core/WindowMessage.".ISOPHP_EXTENSION) ;
+include("core/bootstrap.".ISOPHP_EXTENSION) ;
+include("core/index.".ISOPHP_EXTENSION) ;
 
 ?>
 <!DOCTYPE html>
@@ -32,8 +32,14 @@ require("core/index.fephp") ;
                 echo \Core\View::$server_template ;
             ?>
         </div>
-    </body>
 
-    <script type="text/javascript" src="/uniter_bundle/bundle.js"></script>
+        <?php define ('UNITER_BUILD_LEVEL', 'production') ; ?>
+        <?php if (UNITER_BUILD_LEVEL == 'production') { ?>
+            <script type="text/javascript" src="/uniter_bundle/prod_bundle.js"></script>
+        <?php } else { ?>
+            <script type="text/javascript" src="/uniter_bundle/bundle.js"></script>
+        <?php } ?>
+
+    </body>
 
 </html>
