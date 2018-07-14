@@ -3,6 +3,7 @@ clients/mobile/www/app/*
 clients/mobile/www/core/*
 clients/web/app/*
 clients/web/core/*
+clients/web/uniter_build_level
 clients/desktop/app/*
 clients/desktop/core/*
 clients/desktop/exe
