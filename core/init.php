@@ -48,17 +48,17 @@ if (CURRENT_TARGET === 'desktop') {
 
 function __autoload($classname) {
     $target_extension = 'php' ;
-    if (ISOPHP_EXECUTION_ENVIRONMENT === 'ZEND') {
-        $target_extension = 'php' ;
-    }
-    if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
+//    if (ISOPHP_EXECUTION_ENVIRONMENT === 'ZEND') {
+//        $target_extension = 'php' ;
+//    }
+//    if (ISOPHP_EXECUTION_ENVIRONMENT === 'UNITER') {
         if (UNITER_BUILD_LEVEL == 'production') {
             $target_extension = 'php' ;
         }
         if (UNITER_BUILD_LEVEL !== 'production') {
             $target_extension = 'fephp' ;
         }
-    }
+//    }
 
     if ($classname === 'ISOPHP\core') {
         return ;
@@ -98,7 +98,6 @@ function __autoload($classname) {
     // \ISOPHP\core::$php->error_log("Autoloading " . $classname) ;
     $parts = \ISOPHP\core::$php->explode('\\', $classname) ;
     if ($parts[0] === 'Core') {
-        $target_extension = 'php' ;
             // \ISOPHP\core::$php->error_log('Looking in core') ;
         if ($classname == 'Core\Router') {
             $path = '/core/Core/Router.'.$target_extension ;
