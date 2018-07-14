@@ -375,8 +375,8 @@
 		<!-- Carousel -->
 		<script src="app/ISOPHPExample/Assets/js/owl.carousel.min.js"></script>
 
-        <script src="app/ISOPHPExample/Assets/js/socket.io-1.2.0.js"></script>
-
+        <script src="app/ISOPHPExample/Assets/js/socket.io-1.2.0.js"></script>      
+        
 		 <!--Main JS-->
 		<script src="app/ISOPHPExample/Assets/js/main.js"></script>
 
