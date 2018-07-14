@@ -75,6 +75,12 @@ RunCommand execute
   when "{{{ param::uniter_build_level }}}"
   equals "production"
 
+File create
+  label "Add or Overwrite the Uniter build level to web server settings file"
+  file "{{{ param::start-dir }}}/clients/web/uniter_build_level"
+  data "{{{ param::uniter_build_level }}}"
+  overwrite-existing
+
 RunCommand execute
   label "Webpack build for production"
   command "cd {{{ param::start-dir }}}/clients/web && npx webpack --display-modules"
