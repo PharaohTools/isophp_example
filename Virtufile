@@ -108,7 +108,11 @@ class Virtufile extends VirtufileBase {
     http://build.{$variables['domain']}:80{$random_port_suffix}/ - Build Server\n
     http://www.{$variables['domain']}:80{$random_port_suffix}/ - Web Client Application\n
     http://www.{$variables['domain']}:88{$random_port_suffix}/ - Mobile Application Web Emulator \n
-    http://server.{$variables['domain']}:80{$random_port_suffix}/ - Web Server Application\n\n";
+    http://server.{$variables['domain']}:80{$random_port_suffix}/ - Web Server Application\n
+    http://server.{$variables['domain']}:80{$random_port_suffix}/php_lite_admin/phpliteadmin.php - DB Admin Application\n\n
+        You can SSH into the VM with this:\n\n
+            ssh {$this->config['ssh']['user']}@127.0.0.1 -p22{$random_port_suffix} - SSH Connection\n
+            The password is {$this->config['ssh']['password']} \n";
     }
 
 }
