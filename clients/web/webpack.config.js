@@ -1,6 +1,6 @@
 module.exports = {
     context: __dirname,
-    entry: './prod_app.js',
+    entry: './prod_app_webpack.js',
     module: {
         rules: [
             {
@@ -8,7 +8,10 @@ module.exports = {
                 // so Webpack can include it in your JS bundle for you
                 // and it can be run in the browser.
                 test: /\.php$/,
-                use: 'transform-loader?phpify'
+                use: 'transform-loader?phpify',
+                include: [
+                    __dirname + '/app'
+                ]
             },
             {
                 // PHPify is (at the moment) a Browserify transform and not
@@ -16,7 +19,10 @@ module.exports = {
                 // it generates and apply it to Webpack's for it to work properly.
                 test: /\.php/,
                 use: 'source-map-loader',
-                enforce: 'post'
+                enforce: 'post',
+                include: [
+                    __dirname + '/app'
+                ]
             },
             {
                 // This is the standard Babel setup to enable ES5 support
@@ -27,6 +33,9 @@ module.exports = {
                 }
             }
         ]
+    },
+    node: {
+        fs: 'empty'
     },
     output: {
         path: __dirname + '/uniter_bundle/',
