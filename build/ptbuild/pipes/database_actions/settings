@@ -1,0 +1,84 @@
+{
+    "BuildCleanup": {
+        "build_cleanup_enabled": "on",
+        "trim_history_index": "on",
+        "no_to_keep": "3"
+    },
+    "BuildQueue": {
+        "build_queue_max": "",
+        "build_queue_delay": ""
+    },
+    "CopyOnSave": {
+        "enabled": "on",
+        "target_directory": "\/var\/www\/hostshare\/build\/ptbuild\/pipes"
+    },
+    "GoogleCalendar": {
+        "clientid": "",
+        "emailaddress": "",
+        "keyfilelocation": "",
+        "youremailid": ""
+    },
+    "Hipchat": {
+        "Token": "",
+        "Room Id or Name": "",
+        "From": ""
+    },
+    "Ironmq": {
+        "token": "",
+        "projectid": "",
+        "queuename": ""
+    },
+    "Logstash": {
+        "ipaddress": "",
+        "port": ""
+    },
+    "Mongodb": {
+        "host": "",
+        "dbname": "",
+        "collection": "",
+        "path": "",
+        "title": ""
+    },
+    "PipeRunParameters": {
+        "piperun_parameters_enabled": "on",
+        "parameters": {
+            "10258097275952915": {
+                "param_type": "options",
+                "param_original_options": "text,boolean,textarea,options",
+                "param_name": "phinx_action",
+                "param_default": "migrate",
+                "param_textarea_default": "",
+                "param_options": "migrate\r\nrollback\r\nseed:run",
+                "param_description": "Choose the type of Phinx Database action you'd like"
+            }
+        }
+    },
+    "PollSCM": {
+        "git_repository_url": "",
+        "git_branch": "",
+        "git_privkey_path": "",
+        "cron_string": ""
+    },
+    "SCMPublishOnSave": {
+        "target_repository": ""
+    },
+    "SSH": {
+        "username": "",
+        "password": "",
+        "ipaddress": "",
+        "sourcefilepath": "",
+        "destinationfilepath": ""
+    },
+    "SVN": {
+        "Repository": "",
+        "TargetPath": "",
+        "Username": "",
+        "Password": ""
+    },
+    "ScheduledBuild": {
+        "cron_string": ""
+    },
+    "SendEmail": {
+        "send_postbuild_email_address": ""
+    }
+}

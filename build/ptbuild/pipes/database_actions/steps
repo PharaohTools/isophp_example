@@ -1,0 +1,7 @@
+{
+    "6834014738919412": {
+        "module": "Shell",
+        "steptype": "shelldata",
+        "data": "cd \/var\/www\/hostshare\/server ;\r\necho $PWD ;\r\necho \"Performing action: $phinx_action\" ;\r\n\r\nif [ \"$phinx_action\" == \"migrate\" ] ;\r\nthen\r\n    rm -rf data\/base.db\r\nfi\r\n\r\nif [ \"$phinx_action\" == \"rollback\" ] ;\r\nthen\r\n    php vendor\/bin\/phinx $phinx_action -e development -t 0\r\nelse\r\n    php vendor\/bin\/phinx $phinx_action -e development\r\nfi\r\n\r\necho \"Fix permissions\"\r\nchmod 777 \/var\/www\/hostshare\/server\/data\/base.db"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "project-name": "Database Actions",
+    "project-slug": "database_actions",
+    "project-description": "This will save a copy of your local database in its current state to the repository",
+    "default-scm-url": null,
+    "email-id": null,
+    "parameter-status": null,
+    "parameter-name": null,
+    "parameter-dvalue": null,
+    "parameter-input": "",
+    "parameter-description": null
+}
