@@ -18,6 +18,7 @@ class FeatureContext  implements Context {
 
     private $output;
     public static $session ;
+    public $config ;
 
     /**
      * Initializes context. Every scenario gets it's own context object.
@@ -29,7 +30,11 @@ class FeatureContext  implements Context {
     }
 
     private function setup() {
-
+        $variables = $params = [] ;
+        $vars_dir = dirname(dirname(dirname(dirname(__DIR__)))) ;
+        $vm_vars_file = $vars_dir.DS.'vars'.DS.'vm.php' ;
+        require ($vm_vars_file) ;
+        $this->config = $variables ;
     }
 
     /**
@@ -43,7 +48,8 @@ class FeatureContext  implements Context {
         $session = new \Behat\Mink\Session($driver);
         \FeatureContext::$session = $session ;
         $session->start();
-        $session->visit('http://www.isophpexampleapplication.vm');
+        $start_page = 'http://'.$this->config['webclientsubdomain'].'.'.$this->config['domain'] ;
+        $session->visit($start_page);
     }
 
     /**
@@ -57,7 +63,8 @@ class FeatureContext  implements Context {
         $session = new \Behat\Mink\Session($driver);
         \FeatureContext::$session = $session ;
         $session->start();
-        $session->visit('http://www.isophpexampleapplication.vm'.$arg1);
+        $start_page = 'http://'.$this->config['webclientsubdomain'].'.'.$this->config['domain'] ;
+        $session->visit($start_page.$arg1);
     }
 
     /**
@@ -95,7 +102,6 @@ class FeatureContext  implements Context {
         $page = $session->getPage();
         $text = $page->getText();
         if (stripos($text, $arg1) == false) {
-            var_dump($text) ;
             throw new \Exception('Unable to see "'.$arg1.'"');
         }
     }
