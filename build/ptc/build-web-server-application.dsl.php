@@ -5,12 +5,12 @@ RunCommand execute
 
 RunCommand execute
   label "Run DB Migrations to create a new DB"
-  command "cd {{{ param::start-dir }}}/server && sudo php vendor/bin/phinx migrate -e development"
+  command "cd {{{ param::start-dir }}}/server && sudo vendor/bin/phinx migrate -e development"
   guess
 
 RunCommand execute
   label "Run DB Seed for DB Sample Data"
-  command "cd {{{ param::start-dir }}}/server && sudo php vendor/bin/phinx seed:run -e development"
+  command "cd {{{ param::start-dir }}}/server && sudo vendor/bin/phinx seed:run -e development"
   guess
 
 RunCommand execute
