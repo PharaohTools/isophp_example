@@ -14,11 +14,21 @@ RunCommand execute
 PackageManager pkg-ensure
   package-name "{{ loop }}"
   packager Apt
-  loop "php7.0,php7.0-cli,php7.0-fpm,php7.0-gd,php7.0-json,php7.0-mysql,php7.0-readline,php7.0-xml"
+  loop "php7.1,php7.1-cli,php7.1-fpm,php7.1-gd,php7.1-json,php7.1-mysql,php7.1-readline,php7.1-xml,php7.1-pdo-sqlite,php7.1-sqlite3"
 
 RunCommand execute
   label "Install prequisite packages"
-  command "apt-get install -y apache2 libapache2-mod-php7.0 sqlite3 php-sqlite zip unzip"
+  command "apt-get install -y apache2 libapache2-mod-php7.1 sqlite3 php-sqlite zip unzip"
+  guess
+
+RunCommand execute
+  label "Enable PHP 7 for FPM"
+  command "a2enmod proxy_fcgi setenvif && a2enconf php7.1-fpm"
+  guess
+
+RunCommand execute
+  label "Set the Apache php module to 7"
+  command "a2dismod php5 || true && a2enmod php7.1 || true && service apache2 restart || true && a2enmod proxy_fcgi setenvif"
   guess
 
 RunCommand execute
