@@ -10,8 +10,6 @@ Feature: Executing the Get Started Page
 
   Scenario: See some standard text
     Given I go to the page "/GetStarted"
-    Then I should see "Isophp example application"
-    Then I should see "The Web application"
-    Then I should see "How it works"
-    Then I should see "Why it's useful"
-    Then I should see "Lets get started"
+    Then I should see "Try out the Demo Apps"
+    Then I should see "Build an Application"
+    Then I should see "See other Applications built with ISO PHP"
