@@ -10,8 +10,8 @@ Feature: Executing the Landing Page
 
   Scenario: See some standard text
     Given I go to the start page
-    Then I should see "Isophp example application"
+    Then I should see "Isomorphic php"
     Then I should see "The Web application"
     Then I should see "How it works"
-    Then I should see "Why it's useful"
+    Then I should see "Why its useful"
     Then I should see "Lets get started"
