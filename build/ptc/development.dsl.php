@@ -7,6 +7,16 @@ Composer ensure
 NodeJS install
 
 RunCommand execute
+  label "Add the Ondrej PPA"
+  command "add-apt-repository ppa:ondrej/php -y"
+  guess
+
+PackageManager pkg-ensure
+  package-name "{{ loop }}"
+  packager Apt
+  loop "php7.0,php7.0-cli,php7.0-fpm,php7.0-gd,php7.0-json,php7.0-mysql,php7.0-readline,php7.0-xml"
+
+RunCommand execute
   label "Install prequisite packages"
   command "apt-get install -y apache2 libapache2-mod-php7.0 sqlite3 php-sqlite zip unzip"
   guess
