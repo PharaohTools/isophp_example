@@ -11,11 +11,11 @@ var $ = require('jquery'),
     php = require('phpjs'),
     hasOwn = {}.hasOwnProperty,
     uniter = require('uniter'),
-    phpEngine = uniter.createEngine('PHP'),
-    file_data = require('./uniter_bundle/file_data.js'),
-    app_data = require('./uniter_bundle/app_file_data.js'),
-    core_data = require('./uniter_bundle/core_file_data.js'),
-    file_index = require('./uniter_bundle/file_index.js') ;
+    phpEngine = uniter.createEngine('PHP') ;
+    // file_data = require('./uniter_bundle/file_data.js'),
+    // app_data = require('./uniter_bundle/app_file_data.js'),
+    // core_data = require('./uniter_bundle/core_file_data.js'),
+    // file_index = require('./uniter_bundle/file_index.js') ;
 
 // console.log('In prod app webpack js: 1b - Superrequire', file_index) ;
 //
@@ -56,10 +56,10 @@ var $ = require('jquery'),
 
 
 
-console.log('In prod app webpack js: 1bx file index: ', file_index) ;
-console.log('In prod app webpack js: 1by file data: ', file_data) ;
-console.log('In prod app webpack js: 1by core data: ', core_data) ;
-console.log('In prod app webpack js: 1by app data: ', app_data) ;
+// console.log('In prod app webpack js: 1bx file index: ', file_index) ;
+// console.log('In prod app webpack js: 1by file data: ', file_data) ;
+// console.log('In prod app webpack js: 1by core data: ', core_data) ;
+// console.log('In prod app webpack js: 1by app data: ', app_data) ;
 
 var file_require_string = 'require("/core/constants.php") ; ' ;
 file_require_string += 'require("/core/app_vars.php") ; ' ;
