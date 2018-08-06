@@ -8,10 +8,7 @@ module.exports = {
                 // so Webpack can include it in your JS bundle for you
                 // and it can be run in the browser.
                 test: /\.php$/,
-                use: 'transform-loader?phpify',
-                include: [
-                    __dirname + '/app'
-                ]
+                use: 'transform-loader?phpify'
             },
             {
                 // PHPify is (at the moment) a Browserify transform and not
@@ -19,17 +16,24 @@ module.exports = {
                 // it generates and apply it to Webpack's for it to work properly.
                 test: /\.php/,
                 use: 'source-map-loader',
-                enforce: 'post',
-                include: [
-                    __dirname + '/app'
-                ]
+                enforce: 'post'
             },
             {
                 // This is the standard Babel setup to enable ES5 support
                 test: /\.js$/,
-                exclude: /\bnode_modules\b/,
                 use: {
                     loader: 'babel-loader?presets=env'
+                },
+                exclude: [
+                    /\bnode_modules\b/,
+                    /\bvendor\b/
+                ]
+            },
+            {
+                // This is the standard Babel setup to enable ES5 support
+                test: /\.css$/,
+                use: {
+                    loader: 'raw'
                 }
             }
         ]
