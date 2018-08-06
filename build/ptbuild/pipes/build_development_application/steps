@@ -1,8 +1,13 @@
 {
+    "40974893859951878": {
+        "module": "PHPScript",
+        "steptype": "phpscriptdata",
+        "data": "echo \"Some build parameters include...\\n\" ;\r\necho \"Uniter build level: \".var_export($UNITER_BUILD_LEVEL, true) . \"\\n\" ;\r\necho \"INCLUDE_WEB_ASSETS : $INCLUDE_WEB_ASSETS ...\\n\" ;"
+    },
     "3516689872682579": {
         "module": "Shell",
         "steptype": "shelldata",
-        "data": "if [ \"$INCLUDE_WEB_ASSETS\" = \"on\" ] ; then\r\n    # For all Web Assets at Once\r\n    cd \/var\/www\/hostshare\/\r\n    sudo ptconfigure auto x --af=build\/ptc\/all-vm-web-assets.dsl.php --start-dir=\/var\/www\/hostshare --vars=vars\/vm.php --step-times --step-numbers --uniter_build_level=$UNITER_BUILD_LEVEL\r\nfi\r\n"
+        "data": "if [ \"$INCLUDE_WEB_ASSETS\" = \"on\" ] ; then\r\n    # For all Web Assets at Once\r\n    cd \/var\/www\/hostshare\/\r\n    echo \"Uniter build level: $UNITER_BUILD_LEVEL ...\\n\" ;\r\n    sudo ptconfigure auto x --af=build\/ptc\/all-vm-web-assets.dsl.php --start-dir=\/var\/www\/hostshare --vars=vars\/vm.php --step-times --step-numbers --uniter_build_level=$UNITER_BUILD_LEVEL\r\nfi\r\n"
     },
     "2995431567737701": {
         "module": "Shell",
