@@ -32,8 +32,13 @@ RunCommand execute
   guess
 
 RunCommand execute
+  label "Latest version of NPM"
+  command "npm install -g npm@latest"
+  guess
+
+RunCommand execute
   label "NPM Install Node Version 6"
-  command "npm cache clean -f && npm install -g n && n 6.0.0 && ln -sf /usr/local/n/versions/node/6.0.0/bin/node /usr/bin/nodejs"
+  command "npm cache clean -f && npm install -g n && n 8.9.4 && ln -sf /usr/local/n/versions/node/6.0.0/bin/node /usr/bin/nodejs"
   guess
 
 RunCommand execute
