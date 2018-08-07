@@ -13,6 +13,40 @@ RunCommand execute
   command "cd {{{ param::start-dir }}}/clients/web && sudo composer install"
   guess
 
+Logging log
+  log-message "Our Custom Branch is : $$custom_branch"
+
+Logging log
+  log-message "Our Uniter build level is : $$uniter_build_level"
+
+RunCommand execute
+  label "(fephp ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.fephp"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.fephp"
+  guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "(php ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.php"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.php"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "(fephp ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.fephp "
+  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.fephp "
+  guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "(php ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.php "
+  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.php "
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
 RunCommand execute
   label "Run the Development Node NPM Build"
   command "cd {{{ param::start-dir }}}/clients/web && sudo npm run build"
@@ -44,40 +78,6 @@ RunCommand execute
 RunCommand execute
   label "Build to our Target Client - Uniter Production Settings"
   command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php web php > /dev/null"
-  guess
-  when "{{{ param::uniter_build_level }}}"
-  equals "production"
-
-Logging log
-  log-message "Our Custom Branch is : $$custom_branch"
-
-Logging log
-  log-message "Our Uniter build level is : $$uniter_build_level"
-
-RunCommand execute
-  label "(fephp ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.fephp"
-  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.fephp"
-  guess
-  not_when "{{{ param::uniter_build_level }}}"
-  equals "production"
-
-RunCommand execute
-  label "(php ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.php"
-  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.php"
-  guess
-  when "{{{ param::uniter_build_level }}}"
-  equals "production"
-
-RunCommand execute
-  label "(fephp ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.fephp "
-  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.fephp "
-  guess
-  not_when "{{{ param::uniter_build_level }}}"
-  equals "production"
-
-RunCommand execute
-  label "(php ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.php "
-  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/web/core/default.php "
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
