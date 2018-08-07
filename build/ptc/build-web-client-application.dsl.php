@@ -1,6 +1,6 @@
 RunCommand execute
-  label "Run the Node NPM Install"
-  command "cd {{{ param::start-dir }}}/clients/web && sudo npm install --save-dev phpify source-map-loader transform-loader babel-loader babel-core babel-preset-env webpack webpack-cli"
+  label "Remove the node modules directory"
+  command "cd {{{ param::start-dir }}}/clients/web && sudo rm -rf node_modules"
   guess
 
 RunCommand execute
@@ -21,8 +21,15 @@ RunCommand execute
   equals "production"
 
 RunCommand execute
+  label "Ensure Webpack is executable"
+  command "cd {{{ param::start-dir }}}/clients/web && chmod +x ./node_modules/webpack/bin/webpack.js"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
   label "Run the Production Node NPM Build"
-  command "cd {{{ param::start-dir }}}/clients/web && sudo npm run build-production"
+  command "cd {{{ param::start-dir }}}/clients/web && sudo npm run build-webpack"
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
@@ -80,13 +87,6 @@ File create
   file "{{{ param::start-dir }}}/clients/web/uniter_build_level"
   data "{{{ param::uniter_build_level }}}"
   overwrite-existing
-
-RunCommand execute
-  label "Webpack build for production"
-  command "cd {{{ param::start-dir }}}/clients/web && npx webpack --display-modules"
-  guess
-  when "{{{ param::uniter_build_level }}}"
-  equals "production"
 
 RunCommand execute
   command "cd {{{ param::start-dir }}}/clients/web && ptdeploy vhe add -yg --vhe-url=$$webclientsubdomain.$$domain --vhe-ip-port=0.0.0.0:80 --vhe-default-template-name=docroot-no-suffix"
