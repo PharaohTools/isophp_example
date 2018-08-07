@@ -4,12 +4,14 @@
   "version": "1.0.0",
   "author": "Pharaoh Tools",
   "license": "none",
-  "description": "The ISO PHP Framework Web Client Applicatiion",
+  "description": "The ISO PHP Framework Web Client Application",
   "main": "main.js",
   "scripts": {
     "build": "node fs development > /dev/null && ( browserify app --standalone=isophp | uglifyjs > uniter_bundle/bundle.js)",
-    "build-production": "node fs production > /dev/null && ( browserify app --standalone=isophp | uglifyjs > uniter_bundle/bundle.js)",
-    "webpack": "webpack --display-modules --devtool source-map",
+    "build-production-old": "node fs production > /dev/null && ( browserify app --standalone=isophp | uglifyjs > uniter_bundle/bundle.js)",
+    "build-production-x": "node fs production > /dev/null && browserify prod_app_webpack_requires.js > uniter_bundle/prod_bundle.js",
+    "build-production": "node fs production > /dev/null && browserify prod_app_webpack.js > uniter_bundle/prod_bundle.js",
+    "build-webpack": "cp webpack.config.js ./node_modules/webpack/bin/ && rm -rf ./uniter_bundle/* && node fs production > /dev/null && ./node_modules/webpack/bin/webpack.js --display-modules --devtool source-map",
     "npxpack": "npx webpack --display-modules --mode=development --devtool source-map"
   },
   "repository": "https://anon:any@source.internal.pharaohtools.com/git/public/isophp",
@@ -21,39 +23,36 @@
     "fs"
   ],
   "devDependencies": {
-    "async": "^2.1.4",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "browserify": "^10.2.0",
-    "globby": "^2.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
     "jquery": "^2.1.4",
-    "json-loader": "^0.5.1",
-    "node-libs-browser": "^0.5.0",
-    "npx": "^10.2.0",
     "phpify": "^4.0.0",
     "phpjs": "^1.3.2",
     "socket.io": "1.2.0",
     "source-map-loader": "^0.2.3",
     "transform-loader": "^0.2.4",
-    "uglify-js": "^2.4.23",
-    "uglifyify": "^3.0.1",
-    "uniter": "^1.0",
     "uuid": "^3.0.0",
-    "webpack": "^3.12.0",
-    "webpack-cli": "^3.0.8"
+    "webpack": "^3.10.0"
   },
   "browserify": {
     "transform": [
-      "uglifyify"
+      "phpify"
     ]
   },
   "phpify": {
     "phpToJS": {
-      "sync": true
+      "sync": true,
+      "include": [
+        "app/**/*.php",
+        "core/**/*.php"
+      ],
+      "exclude": [
+        "vendor/**",
+        "node_modules/**",
+        "uniter_bundle/**"
+      ]
     }
   },
-  "dependencies": {
-    "webpack-cli": "^3.0.6"
-  }
+  "dependencies": {}
 }
