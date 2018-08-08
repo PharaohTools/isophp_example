@@ -98,7 +98,7 @@ function __autoload($classname) {
     // \ISOPHP\core::$php->error_log("Autoloading " . $classname) ;
     $parts = \ISOPHP\core::$php->explode('\\', $classname) ;
     if ($parts[0] === 'Core') {
-            // \ISOPHP\core::$php->error_log('Looking in core') ;
+        \ISOPHP\js_core::$console->log('Looking in core') ;
         if ($classname == 'Core\Router') {
             $path = '/core/Core/Router.'.$target_extension ;
         } else if ($classname == 'Core\Control') {
@@ -107,17 +107,17 @@ function __autoload($classname) {
             $path = '/core/Core/View.'.$target_extension ;
         }
         if (isset($path)) {
-            // \ISOPHP\core::$php->error_log('found a path ' . $path) ;
+            \ISOPHP\js_core::$console->log('found a path ' . $path) ;
             require_once (REQUIRE_PREFIX.$path) ;
         }
     }
 
     if ($parts[0] === 'Controller') {
-        // \ISOPHP\core::$php->error_log('Looking in Controller') ;
+        \ISOPHP\js_core::$console->log('Looking in Controller') ;
         $module = \ISOPHP\core::$php->str_replace('Controller', '', $parts[1]) ;
         $path = '/app/'.$module.'/Controller/'.$parts[1].'.'.$target_extension ;
         if (isset($path)) {
-            // \ISOPHP\core::$php->error_log('found a controller path ' . $path) ;
+            \ISOPHP\js_core::$console->log('found a controller path ' . $path) ;
             require_once (REQUIRE_PREFIX.$path) ;
         }
     }

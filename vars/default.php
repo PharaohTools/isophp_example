@@ -1,6 +1,6 @@
 <?php
 
-$variables = $params ;
+$variables = (isset($params)) ? $params : null ;
 $variables['application_slug'] = 'isophpexampleapplication' ;
 $variables['description'] = 'The Example Application for the ISO PHP Framework' ;
 $variables['subdomain'] = 'www' ;

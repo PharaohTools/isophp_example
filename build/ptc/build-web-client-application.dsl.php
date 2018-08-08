@@ -20,6 +20,20 @@ Logging log
   log-message "Our Uniter build level is : $$uniter_build_level"
 
 RunCommand execute
+  label "Build to our Target Client - Uniter Development Settings"
+  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php web fephp > /dev/null"
+  guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "Build to our Target Client - Uniter Production Settings"
+  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php web php > /dev/null"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
   label "(fephp ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.fephp"
   command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/ && mv {{{ param::start-dir }}}/clients/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/web/core/app_vars.fephp"
   guess
@@ -64,20 +78,6 @@ RunCommand execute
 RunCommand execute
   label "Run the Production Node NPM Build"
   command "cd {{{ param::start-dir }}}/clients/web && sudo npm run build-webpack"
-  guess
-  when "{{{ param::uniter_build_level }}}"
-  equals "production"
-
-RunCommand execute
-  label "Build to our Target Client - Uniter Development Settings"
-  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php web fephp > /dev/null"
-  guess
-  not_when "{{{ param::uniter_build_level }}}"
-  equals "production"
-
-RunCommand execute
-  label "Build to our Target Client - Uniter Production Settings"
-  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php web php > /dev/null"
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
