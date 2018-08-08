@@ -2,11 +2,11 @@
 
 return function ($jQuery, $window, $console, $php, $file_index) {
 
-    print 'Binder Loaded!';
+    $console->log('Binder Loaded!') ;
     define('UNITER_BUILD_LEVEL', 'production') ;
     define('REQUIRE_PREFIX', '.') ;
-    print "ReqPref: " . REQUIRE_PREFIX ;
-    print "UBL: " . UNITER_BUILD_LEVEL ;
+    $console->log( "ReqPref: " . REQUIRE_PREFIX) ;
+    $console->log("UBL: " . UNITER_BUILD_LEVEL)  ;
 
     require(REQUIRE_PREFIX."/core/constants.php") ;
     require(REQUIRE_PREFIX."/core/app_vars.php") ;
