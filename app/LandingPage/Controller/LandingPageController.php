@@ -1,6 +1,5 @@
 <?php
 
-
 Namespace Controller ;
 
 class LandingPageController extends \Controller\Base {
@@ -22,7 +21,3 @@ class LandingPageController extends \Controller\Base {
     }
 
 }
-
-
-echo "in controller file" ;
-var_dump("in controller file") ;
