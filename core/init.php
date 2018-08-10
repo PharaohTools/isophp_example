@@ -118,7 +118,10 @@ function __autoload($classname) {
         $path = '/app/'.$module.'/Controller/'.$parts[1].'.'.$target_extension ;
         if (isset($path)) {
             \ISOPHP\js_core::$console->log('found a controller path ' . $path) ;
-            require_once (REQUIRE_PREFIX.$path) ;
+            \ISOPHP\js_core::$console->log('rp ' . REQUIRE_PREFIX) ;
+            $full_path = REQUIRE_PREFIX.$path ;
+            \ISOPHP\js_core::$console->log('full path ' . $full_path) ;
+            require_once ($full_path) ;
         }
     }
     else if ($parts[0] === 'Model') {
