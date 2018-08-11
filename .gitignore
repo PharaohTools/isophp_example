@@ -16,3 +16,4 @@ clients/*/composer.lock
 clients/*/package-lock.json
 server/node_socket_server/node_modules/*
 server/data/base.db
+server/vendor
