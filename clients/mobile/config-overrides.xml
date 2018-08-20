@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="uk.org.isophp.example_ovr" version="1.0.0">
+    <name>iso_php_example_application</name>
+    <description>
+        The Example Application for the ISO PHP Framework
+    </description>
+    <author email="dave@isophp.org.uk" href="http://www.isophp.org.uk">
+        Isomorphic PHP from Pharaoh Tools
+    </author>
+</widget>

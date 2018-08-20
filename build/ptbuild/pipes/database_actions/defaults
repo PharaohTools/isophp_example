@@ -1,6 +1,6 @@
 {
-    "project-name": "Local Application Database Save",
-    "project-slug": "local_application_database_save",
+    "project-name": "Database Actions",
+    "project-slug": "database_actions",
     "project-description": "This will save a copy of your local database in its current state to the repository",
     "default-scm-url": null,
     "email-id": null,

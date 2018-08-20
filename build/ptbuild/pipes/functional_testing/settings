@@ -1,0 +1,82 @@
+{
+    "BuildCleanup": {
+        "no_to_keep": ""
+    },
+    "BuildQueue": {
+        "enabled": "on",
+        "build_queue_max": "20",
+        "build_queue_delay": ""
+    },
+    "ClearWorkspace": {
+        "enable_clear_workspace_before_build": "on"
+    },
+    "CopyOnSave": {
+        "enabled": "on",
+        "target_directory": "\/var\/www\/hostshare\/build\/ptbuild\/pipes\/"
+    },
+    "GoogleCalendar": {
+        "clientid": "",
+        "emailaddress": "",
+        "keyfilelocation": "",
+        "youremailid": ""
+    },
+    "Hipchat": {
+        "Token": "",
+        "Room Id or Name": "",
+        "From": ""
+    },
+    "Ironmq": {
+        "token": "",
+        "projectid": "",
+        "queuename": ""
+    },
+    "Logstash": {
+        "ipaddress": "",
+        "port": ""
+    },
+    "Mongodb": {
+        "host": "",
+        "dbname": "",
+        "collection": "",
+        "path": "",
+        "title": ""
+    },
+    "PollSCM": {
+        "git_repository_url": "",
+        "git_branch": "",
+        "git_privkey_path": "",
+        "cron_string": ""
+    },
+    "PublishHTMLreports": {
+        "enabled": "on",
+        "reports": {
+            "5287433939322797": {
+                "Report_Directory": "behat.html",
+                "Index_Page": "index.html",
+                "Report_Title": "Behat Reports"
+            }
+        }
+    },
+    "SCMPublishOnSave": {
+        "target_repository": ""
+    },
+    "SSH": {
+        "username": "",
+        "password": "",
+        "ipaddress": "",
+        "sourcefilepath": "",
+        "destinationfilepath": ""
+    },
+    "SVN": {
+        "Repository": "",
+        "TargetPath": "",
+        "Username": "",
+        "Password": ""
+    },
+    "ScheduledBuild": {
+        "cron_string": ""
+    },
+    "SendEmail": {
+        "send_postbuild_email_address": ""
+    }
+}

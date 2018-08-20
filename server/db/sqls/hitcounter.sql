@@ -1,0 +1,1 @@
+INSERT INTO "hit_counter" ("timestamp") VALUES ('0000000001');

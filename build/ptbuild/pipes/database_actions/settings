@@ -4,9 +4,13 @@
         "trim_history_index": "on",
         "no_to_keep": "3"
     },
+    "BuildQueue": {
+        "build_queue_max": "",
+        "build_queue_delay": ""
+    },
     "CopyOnSave": {
         "enabled": "on",
-        "target_directory": "\/var\/www\/pharaohtools\/build\/config\/ptbuild\/pipes"
+        "target_directory": "\/var\/www\/hostshare\/build\/ptbuild\/pipes"
     },
     "GoogleCalendar": {
         "clientid": "",
@@ -38,14 +42,14 @@
     "PipeRunParameters": {
         "piperun_parameters_enabled": "on",
         "parameters": {
-            "233741182370418": {
-                "param_type": "text",
+            "10258097275952915": {
+                "param_type": "options",
                 "param_original_options": "text,boolean,textarea,options",
-                "param_name": "site_directory",
-                "param_default": "\/var\/www\/pharaohtools",
+                "param_name": "phinx_action",
+                "param_default": "migrate",
                 "param_textarea_default": "",
-                "param_options": "",
-                "param_description": "This is the File System Path of the directory containing our Site."
+                "param_options": "migrate\r\nrollback\r\nseed:run",
+                "param_description": "Choose the type of Phinx Database action you'd like"
             }
         }
     },

@@ -168,3 +168,13 @@ img.download_app_logo {
     max-width: 200px;
     max-height: 200px;
 }
+
+
+#fh5co-header .display-tc h1, #fh5co-header .display-tc h2,
+#fh5co-counter .display-tc h1,
+#fh5co-counter .display-tc h2,
+.fh5co-cover .display-tc h1,
+.fh5co-cover .display-tc h2 {
+    margin: 0;
+    padding: 0;
+}

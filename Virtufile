@@ -7,6 +7,8 @@ class Virtufile extends VirtufileBase {
     public $config ;
 
     public function __construct() {
+        ini_set('display_errors', 0) ;
+        error_reporting(E_ALL & ~E_NOTICE);
         $this->setConfig();
     }
 
@@ -19,13 +21,10 @@ class Virtufile extends VirtufileBase {
         $this->config["vm"]["name"] = 'iso_php_example_application' ;
 //        $this->config["vm"]["name"] = strtolower(basename(dirname(__FILE__))) ;
         $this->config["vm"]["gui_mode"] = "gui" ;
-        $this->config["vm"]["box"] = "pharaohubuntu14041amd64" ;
-        $this->config["vm"]["box"] = "standard_ubuntu" ;
 
-//        $bu = '/opt/ptvirtualize/boxes/vanillaubuntu1604264bitserver.box' ;
-        $bu = 'https://www.pharaohtools.com/virtualize/boxes/standardubuntu1404264bitserveredition' ;
+        $bu = 'https://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_virtualize_boxes_-_ubuntu_16.04_server' ;
         $this->config["vm"]["box_url"] = $bu ;
-        $this->config["vm"]["box"] = "standardubuntu1404264bitserveredition" ;
+        $this->config["vm"]["box"] = "isophpexampleapp" ;
 
         $random_port_suffix = '78' ;
         $this->config["vm"]["cpus"] = "2" ;
@@ -42,6 +41,7 @@ class Virtufile extends VirtufileBase {
         $this->config["ssh"]["password"] = "ptv" ;
         $this->config["ssh"]["target"] = "127.0.0.1" ;
         $this->config["ssh"]["port"] = "22{$random_port_suffix}" ;
+        $this->config["ssh"]["retries"] = "1000" ;
 
         # Shared folder - This should map to the workstation environment vhost path parent...
         $this->config["vm"]["shared_folders"][] =
@@ -61,7 +61,8 @@ class Virtufile extends VirtufileBase {
             [   "provisioner" => "Shell",
                 "tool" => "shell",
                 "target" => "guest",
-                "default" => "PTConfigureInit" ];
+                "default" => "PTConfigureInit",
+                "force" => true ];
 
         $i_path = dirname(__FILE__).DS ;
 
@@ -94,7 +95,7 @@ class Virtufile extends VirtufileBase {
                 "tool" => "ptconfigure",
                 "target" => "guest",
                 "script" => "/var/www/hostshare/build/ptc/build-web-client-application.dsl.php",
-                "params" => $dsl_params ] ;
+                "params" => array_merge($dsl_params, ['uniter_build_level' => 'development']) ] ;
 
         $this->config["vm"]["provision"][] =
             [   "provisioner" => "PharaohTools",
@@ -109,7 +110,11 @@ class Virtufile extends VirtufileBase {
     http://build.{$variables['domain']}:80{$random_port_suffix}/ - Build Server\n
     http://www.{$variables['domain']}:80{$random_port_suffix}/ - Web Client Application\n
     http://www.{$variables['domain']}:88{$random_port_suffix}/ - Mobile Application Web Emulator \n
-    http://server.{$variables['domain']}:80{$random_port_suffix}/ - Web Server Application\n\n";
+    http://server.{$variables['domain']}:80{$random_port_suffix}/ - Web Server Application\n
+    http://server.{$variables['domain']}:80{$random_port_suffix}/php_lite_admin/phpliteadmin.php - DB Admin Application\n\n
+        You can SSH into the VM with this:\n\n
+            ssh {$this->config['ssh']['user']}@127.0.0.1 -p22{$random_port_suffix} - SSH Connection\n
+            The password is {$this->config['ssh']['password']} \n";
     }
 
 }

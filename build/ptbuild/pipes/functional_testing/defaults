@@ -1,0 +1,12 @@
+{
+    "project-name": "Functional Testing",
+    "project-slug": "functional_testing",
+    "project-description": "Run Behat for something",
+    "default-scm-url": null,
+    "email-id": null,
+    "parameter-status": null,
+    "parameter-name": null,
+    "parameter-dvalue": null,
+    "parameter-input": "",
+    "parameter-description": null
+}

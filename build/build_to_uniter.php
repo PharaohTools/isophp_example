@@ -9,6 +9,14 @@ if (!in_array($target_client, $available_clients)) {
     exit(1) ;
 }
 
+$target_extension = $argv[2] ;
+if ($target_extension == null) {
+    echo "Using default target extension of fephp\n" ;
+    $target_extension = 'fephp' ;
+} else {
+    echo "Using parameter supplied target extension of: $target_extension\n" ;
+}
+
 $client_parent = $client_root = dirname(__DIR__).DIRECTORY_SEPARATOR."clients".DIRECTORY_SEPARATOR.$target_client.DIRECTORY_SEPARATOR ;
 if ($target_client === "mobile") {
     $client_root = dirname(__DIR__).DIRECTORY_SEPARATOR."clients".DIRECTORY_SEPARATOR.'mobile'.DIRECTORY_SEPARATOR.'www'.DIRECTORY_SEPARATOR ; }
@@ -34,8 +42,8 @@ foreach ($app_and_core as $app_or_core) {
             echo "\n Found File {$module_name}\n" ;
             $new_file = $client_directory . $module_name;
             if (substr($one_item, -4, 4) === '.php') {
-                echo "    Switching .php to .fephp\n";
-                $new_file = str_replace('.php', '.fephp', $new_file);
+                echo "    Switching .php to .$target_extension\n";
+                $new_file = str_replace('.php', ".{$target_extension}", $new_file);
             }
             echo "        Copying File {$one_item} to {$new_file} \n";
             copy($one_item, $new_file);
@@ -51,8 +59,8 @@ foreach ($app_and_core as $app_or_core) {
                     $original_file = "$item_path";
                     $new_file = $client_directory . $module_name . DIRECTORY_SEPARATOR . $module_root_file_or_dir;
                     if (substr($new_file, -4, 4) === '.php') {
-                        echo "   Switching .php to .fephp\n";
-                        $new_file = str_replace('.php', '.fephp', $new_file);
+                        echo "   Switching .php to .{$target_extension}\n";
+                        $new_file = str_replace('.php', ".{$target_extension}", $new_file);
                     }
                     copy($original_file, $new_file);
                 } else if (is_dir($item_path)) {
@@ -78,8 +86,8 @@ foreach ($app_and_core as $app_or_core) {
                                     $new_file = $client_directory . $module_name . DIRECTORY_SEPARATOR . $module_root_file_or_dir . DIRECTORY_SEPARATOR . $code_directory_file . DIRECTORY_SEPARATOR . $core_base_directory_file;
 
                                     if (substr($new_file, -4, 4) === '.php') {
-                                        echo "   Switching .php to .fephp\n";
-                                        $new_file = str_replace('.php', '.fephp', $new_file);
+                                        echo "   Switching .php to .{$target_extension}\n";
+                                        $new_file = str_replace('.php', ".{$target_extension}", $new_file);
                                     }
                                     echo "Copying File {$temp_original_file} to {$new_file}\n";
                                     copy($temp_original_file, $new_file);
@@ -112,8 +120,8 @@ foreach ($app_and_core as $app_or_core) {
                                 $temp_original_file = $item_path . DIRECTORY_SEPARATOR . $code_directory_file;
                                 $new_file = $client_directory . $module_name . DIRECTORY_SEPARATOR . $module_root_file_or_dir . DIRECTORY_SEPARATOR . $code_directory_file;
                                 if (substr($new_file, -4, 4) === '.php') {
-                                    echo "    Switching .php to .fephp\n";
-                                    $new_file = str_replace('.php', '.fephp', $new_file);
+                                    echo "    Switching .php to .{$target_extension}\n";
+                                    $new_file = str_replace('.php', ".{$target_extension}", $new_file);
                                 }
                                 echo "        Copying File {$temp_original_file} to {$new_file}\n";
                                 copy($temp_original_file, $new_file);
@@ -143,5 +151,5 @@ foreach ($app_and_core as $app_or_core) {
     }
 }
 
-echo "        Copying constants from {$client_parent}constants.fephp to {$client_root}core/constants.fephp \n";
-system("cp -r {$client_parent}constants.fephp {$client_root}core/constants.fephp");
+echo "        Copying constants from {$client_parent}constants.fephp to {$client_root}core/constants.{$target_extension} \n";
+system("cp -r {$client_parent}constants.fephp {$client_root}core/constants.{$target_extension}");

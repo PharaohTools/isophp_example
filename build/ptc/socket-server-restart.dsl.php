@@ -25,3 +25,4 @@ RunCommand execute
   label "Show any running socketserve.js server"
   command "lsof -i :3000"
   guess
+  ignore_errors

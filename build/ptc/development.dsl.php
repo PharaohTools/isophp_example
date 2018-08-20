@@ -7,13 +7,43 @@ Composer ensure
 NodeJS install
 
 RunCommand execute
+  label "Add the Ondrej PPA"
+  command "add-apt-repository ppa:ondrej/php -y"
+  guess
+
+PackageManager pkg-ensure
+  package-name "{{ loop }}"
+  packager Apt
+  loop "php7.1,php7.1-cli,php7.1-fpm,php7.1-gd,php7.1-json,php7.1-mysql,php7.1-readline,php7.1-xml,php7.1-pdo-sqlite,php7.1-sqlite3"
+
+RunCommand execute
   label "Install prequisite packages"
-  command "apt-get install -y apache2 libapache2-mod-php5 sqlite3 php5-sqlite zip unzip"
+  command "apt-get install -y apache2 libapache2-mod-php7.1 sqlite3 php-sqlite zip unzip"
+  guess
+
+RunCommand execute
+  label "Enable PHP 7 for FPM"
+  command "a2enmod proxy_fcgi setenvif && a2enconf php7.1-fpm"
+  guess
+
+RunCommand execute
+  label "Set the Apache php module to 7"
+  command "a2dismod php5 || true && a2enmod php7.1 || true && service apache2 restart || true && a2enmod proxy_fcgi setenvif"
+  guess
+
+RunCommand execute
+  label "Latest version of NPM"
+  command "npm install -g npm@latest"
   guess
 
 RunCommand execute
   label "NPM Install Node Version 6"
-  command "npm cache clean -f && npm install -g n && n 6.0.0 && ln -sf /usr/local/n/versions/node/6.0.0/bin/node /usr/bin/nodejs"
+  command "npm cache clean -f && npm install -g n && n 8.9.4 && ln -sf /usr/local/n/versions/node/6.0.0/bin/node /usr/bin/nodejs"
+  guess
+
+RunCommand execute
+  label "NPM Install General Packages"
+  command "npm install --silent -g browserify uglifyjs uglify-js cordova-icon junit-viewer npx webpack webpack-cli > /dev/null"
   guess
 
 RunCommand execute
@@ -25,7 +55,7 @@ RunCommand execute
 
 RunCommand execute
   label "NPM Install Electron Packager and cordova"
-  command "npm install --silent -g electron-packager cordova browserify uglifyjs uglify-js cordova-icon > /dev/null"
+  command "npm install --silent -g electron-packager cordova > /dev/null"
   guess
   not_when "{{{ param::electron_cordova_are_installed }}}"
   equals "true"
@@ -37,7 +67,7 @@ Java install
 PTDeploy ensure
   guess
 
-PTBuild ensure
+PTBuild install
   guess
   label "Lets ensure Pharaoh Build"
   vhe-url "build.{{{ var::vmname }}}.vm"
@@ -46,14 +76,32 @@ PTBuild ensure
   guess
 
 RunCommand execute
-  label "Install SDKManager for Gradle"
-  command 'echo ptv | sudo -S su -c "(export SDKMAN_DIR=/home/ptbuild/.sdkman && curl -s https://get.sdkman.io | bash > /dev/null)" - ptbuild'
+  label "Check if Gradle is installed "
+  command 'ISINST=`ls /opt/gradle/bin/gradle` && if [ "$ISINST" = "/opt/gradle/bin/gradle" ] ; then echo "true" ; fi '
   guess
+  ignore_errors
+  register "gradle_is_installed"
+
+Download file
+  label "Download Gradle"
+  source "https://services.gradle.org/distributions/gradle-4.6-bin.zip"
+  target "/opt/gradle.zip"
+  not_when "{{{ param::gradle_is_installed }}}"
+  equals "true"
 
 RunCommand execute
-  label "Install Gradle using SDKManager, output to file as progress bar breaks execution"
-  command "echo ptv | sudo -S su -c 'source /home/ptbuild/.sdkman/bin/sdkman-init.sh && sdk install gradle 4.0.2' - ptbuild"
+  label "Unzip Gradle"
+  command 'cd /opt && unzip -qq -o gradle.zip'
   guess
+  not_when "{{{ param::gradle_is_installed }}}"
+  equals "true"
+
+RunCommand execute
+  label "Move to generic gradle dir name and path"
+  command 'cd /opt && mv gradle-* gradle'
+  guess
+  not_when "{{{ param::gradle_is_installed }}}"
+  equals "true"
 
 RunCommand execute
   label "Check if the Android SDK tools are installed"

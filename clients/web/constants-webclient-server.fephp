@@ -4,3 +4,12 @@ define('CURRENT_TARGET', "web") ;
 define('IMAGE_ASSET_PREFIX', '/') ;
 define('CSS_ASSET_PREFIX', '/') ;
 define('REQUIRE_PREFIX', dirname(__DIR__).DIRECTORY_SEPARATOR.'web') ;
+$uniter_build_level = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'uniter_build_level') ;
+$uniter_build_level = trim($uniter_build_level) ;
+define('UNITER_BUILD_LEVEL', $uniter_build_level) ;
+define('ISOPHP_EXECUTION_ENVIRONMENT', 'ZEND') ;
+if (UNITER_BUILD_LEVEL === 'production') {
+    define('ISOPHP_EXTENSION', 'php') ;
+} else {
+    define('ISOPHP_EXTENSION', 'fephp') ;
+}

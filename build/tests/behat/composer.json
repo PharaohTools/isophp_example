@@ -1,0 +1,22 @@
+{
+  "autoload" : {
+    "files": ["behat_custom_autoload.php"]
+  },
+  "require-dev": {
+    "behat/behat": "3.*@stable",
+    "behat/mink": "1.6.*@stable",
+    "behat/mink-extension": "@stable",
+    "behat/mink-goutte-driver": "@stable",
+    "behat/mink-selenium2-driver": "@stable",
+    "behat/mink-zombie-driver": "@stable",
+    "postcon/bootstrap-extension": "^1.1",
+    "naroga/php-junit-parser": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "git",
+
+      "url":  "https://anon:any@source.internal.pharaohtools.com/git/public/junit_parser"
+    }
+  ]
+}

@@ -1,10 +1,13 @@
+build/tests/behat/vendor
 clients/mobile/www/app/*
 clients/mobile/www/core/*
 clients/web/app/*
 clients/web/core/*
+clients/web/uniter_build_level
 clients/desktop/app/*
 clients/desktop/core/*
 clients/desktop/exe
+clients/desktop/web/core
 clients/*/vendor
 clients/*/uniter_bundle
 clients/*/node_modules
@@ -12,3 +15,5 @@ clients/*/vendor
 clients/*/composer.lock
 clients/*/package-lock.json
 server/node_socket_server/node_modules/*
+server/data/base.db
+server/vendor

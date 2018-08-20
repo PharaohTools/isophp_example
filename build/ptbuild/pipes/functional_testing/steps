@@ -1,0 +1,7 @@
+{
+    "8844517621955183": {
+        "module": "Shell",
+        "steptype": "shelldata",
+        "data": "pwd ;\r\nmkdir -p behat.xml ;\r\nrm -rf behat.xml\/* ;\r\nmkdir -p behat.html ;\r\nrm -rf behat.html\/* ;\r\ncd  \/var\/www\/hostshare\/build\/tests\/behat ;\r\nrm -f behat_gen.yml ;\r\nrm -f behat.yml ;\r\npwd ;\r\n.\/vendor\/bin\/behat --version ;\r\nphp yaml-generator.php ;\r\necho \"Copying generated Behat config into place\"\r\ncp behat_gen.yml behat.yml ;\r\necho \"Executing Behat\" ;\r\n.\/vendor\/bin\/behat --format=pretty --out=std --format=junit --out=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.xml --no-snippets  ;\r\necho \"Listing output xml directory\" ;\r\nls -lah \/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.xml ;\r\n# sudo npm install junit-viewer --no-bin-links ;\r\njunit-viewer --results=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.xml --save=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.html\/index.html ;\r\n# php junit-viewer.php --results=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.xml --save=\/opt\/ptbuild\/pipes\/functional_testing\/workspace\/behat.html\/index.html ;"
+    }
+}

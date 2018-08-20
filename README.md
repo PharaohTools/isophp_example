@@ -57,6 +57,13 @@ Web Client code, Building an installable Mobile Package, building a Desktop Pack
 Running Tests and more.
 
 
+## Other Commands
+
+To package your current Virtual Machine and push it to a Pharaoh Repositories Cloud
+
+``
+ptconfigure auto x --af=build/ptc/push-to-cloud.dsl.php --vars=vm.dsl.php
+``
 
 ## Development
 
