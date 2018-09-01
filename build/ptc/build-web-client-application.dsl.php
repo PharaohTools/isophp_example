@@ -63,7 +63,7 @@ RunCommand execute
 
 RunCommand execute
   label "Run the Development Node NPM Build"
-  command "cd {{{ param::start-dir }}}/clients/web && sudo npm run build"
+  command "cd {{{ param::start-dir }}}/clients/web && sudo npm run build-development"
   guess
   not_when "{{{ param::uniter_build_level }}}"
   equals "production"
