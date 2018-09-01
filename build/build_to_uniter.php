@@ -112,7 +112,6 @@ foreach ($app_and_core as $app_or_core) {
                                 }
                             } else {
                                 $new_dir = $client_directory . $module_name . DIRECTORY_SEPARATOR . $module_root_file_or_dir . DIRECTORY_SEPARATOR;
-
                                 if (!is_dir($new_dir)) {
                                     echo "      Creating non existent directory {$new_dir}\n";
                                     passthru('mkdir -p ' . $new_dir);
@@ -126,28 +125,21 @@ foreach ($app_and_core as $app_or_core) {
                                 echo "        Copying File {$temp_original_file} to {$new_file}\n";
                                 copy($temp_original_file, $new_file);
                             }
-
                         }
-
                     } else {
                         echo "    Found Raw File Directory {$module_root_file_or_dir}, Copying\n";
                         $new_file = $client_directory . $module_name . DIRECTORY_SEPARATOR . $module_root_file_or_dir;
                         echo "        Copying Raw Directory {$item_path} to {$new_file}\n";
-
                         $new_dir = $client_directory . $module_name . DIRECTORY_SEPARATOR . $module_root_file_or_dir . DIRECTORY_SEPARATOR;
-
                         if (!is_dir($new_dir)) {
                             echo "      Creating non existent directory {$new_dir}\n";
                             passthru('mkdir -p ' . $new_dir);
                         }
-
                         system("cp -r ".$item_path."/* ".$new_dir);
                     }
                 }
             }
-
         }
-
     }
 }
 
