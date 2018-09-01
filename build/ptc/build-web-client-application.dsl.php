@@ -77,7 +77,7 @@ RunCommand execute
 
 RunCommand execute
   label "Run the Production Node NPM Build"
-  command "cd {{{ param::start-dir }}}/clients/web && sudo npm run build-webpack"
+  command "cd {{{ param::start-dir }}}/clients/web && sudo npm run build-production"
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
