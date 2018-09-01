@@ -8,7 +8,7 @@
   "main": "main.js",
   "scripts": {
     "build-development": "node fs development > /dev/null && ( browserify dev_app --standalone=isophp | uglifyjs > uniter_bundle/bundle.js ) ",
-    "build-production": "cp webpack.config.js ./node_modules/webpack/bin/ && rm -rf ./uniter_bundle/* && node fs production > /dev/null && ./node_modules/webpack/bin/webpack.js --display-modules --devtool source-map",
+    "build-production": "cp webpack.config.js ./node_modules/webpack/bin/ && rm -rf ./uniter_bundle/* && node fs production > /dev/null && ./node_modules/webpack/bin/webpack.js --display-modules --devtool source-map"
   },
   "repository": "https://anon:any@source.internal.pharaohtools.com/git/public/isophp",
   "keywords": [
