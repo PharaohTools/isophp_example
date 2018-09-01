@@ -3,7 +3,4 @@
 define('CURRENT_TARGET', "web") ;
 define('IMAGE_ASSET_PREFIX', '/') ;
 define('CSS_ASSET_PREFIX', '/') ;
-
-if (!defined('REQUIRE_PREFIX')){
-    define('REQUIRE_PREFIX', '') ;
-}
+define('REQUIRE_PREFIX', '') ;
