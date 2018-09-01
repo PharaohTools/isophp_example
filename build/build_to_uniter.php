@@ -151,5 +151,5 @@ foreach ($app_and_core as $app_or_core) {
     }
 }
 
-echo "        Copying constants from {$client_parent}constants.fephp to {$client_root}core/constants.{$target_extension} \n";
-system("cp -r {$client_parent}constants.fephp {$client_root}core/constants.{$target_extension}");
+echo "        Copying uniter constants from {$client_parent}constants.fephp to {$client_root}core".DIRECTORY_SEPARATOR."constants_uniter.{$target_extension} \n";
+system("cp -r {$client_parent}constants.fephp {$client_root}core".DIRECTORY_SEPARATOR."constants_uniter.{$target_extension}");
