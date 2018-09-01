@@ -7,13 +7,8 @@
   "description": "The ISO PHP Framework Web Client Application",
   "main": "main.js",
   "scripts": {
-    "build": "node fs development > /dev/null && ( browserify dev_app --standalone=isophp | uglifyjs > uniter_bundle/bundle.js ) ",
-    "build-old": "node fs development > /dev/null && ( browserify app --standalone=isophp | uglifyjs > uniter_bundle/bundle.js) ",
-    "build-production-old": "node fs production > /dev/null && ( browserify app --standalone=isophp | uglifyjs > uniter_bundle/bundle.js) ",
-    "build-production-x": "node fs production > /dev/null && browserify prod_app_webpack_requires.js > uniter_bundle/prod_bundle.js",
-    "build-production": "node fs production > /dev/null && browserify prod_app_webpack.js > uniter_bundle/prod_bundle.js",
-    "build-webpack": "cp webpack.config.js ./node_modules/webpack/bin/ && rm -rf ./uniter_bundle/* && node fs production > /dev/null && ./node_modules/webpack/bin/webpack.js --display-modules --devtool source-map",
-    "npxpack": "npx webpack --display-modules --mode=development --devtool source-map"
+    "build-development": "node fs development > /dev/null && ( browserify dev_app --standalone=isophp | uglifyjs > uniter_bundle/bundle.js ) ",
+    "build-production": "cp webpack.config.js ./node_modules/webpack/bin/ && rm -rf ./uniter_bundle/* && node fs production > /dev/null && ./node_modules/webpack/bin/webpack.js --display-modules --devtool source-map",
   },
   "repository": "https://anon:any@source.internal.pharaohtools.com/git/public/isophp",
   "keywords": [
