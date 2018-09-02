@@ -5,6 +5,14 @@
  */
     'use strict';
 
+console.log("Filesystem building") ;
+var fstype = process.argv[2] ;
+if (fstype === 'production') {
+    var extension = 'php' ;
+} else {
+    var extension = 'fephp' ;
+}
+
 var fs = require('fs'),
     globby = require('globby'),
     path = require('path'),
@@ -13,50 +21,32 @@ var fs = require('fs'),
         __dirname + '/app/*/View/mobile/*.phptpl',
         __dirname + '/app/*/View/web/*.phptpl',
         __dirname + '/app/*/View/*.phptpl',
-        __dirname + '/app/*.fephp',
-        __dirname + '/app/*/*.fephp',
-        __dirname + '/app/*/*/*.fephp',
-        __dirname + '/app/*/*/*.fephp',
-        __dirname + '/app/*/View/*.fephp',
-        __dirname + '/app/*.php',
-        __dirname + '/app/*/*.php',
-        __dirname + '/app/*/*/*.php',
-        __dirname + '/app/*/*/*.php',
-        __dirname + '/app/*/View/*.php',
-        __dirname + '/core/*.fephp',
-        __dirname + '/core/*/*.fephp',
-        __dirname + '/core/*/*/*.fephp',
-        __dirname + '/core/*/*/*/*.fephp',
-        __dirname + '/core/*.php',
-        __dirname + '/core/*/*.php',
-        __dirname + '/core/*/*/*.php',
-        __dirname + '/core/*/*/*/*.php'
+        __dirname + '/app/*.' + extension ,
+        __dirname + '/app/*/*.' + extension ,
+        __dirname + '/app/*/*/*.' + extension ,
+        __dirname + '/app/*/*/*.' + extension ,
+        __dirname + '/app/*/View/*.' + extension ,
+        __dirname + '/core/*.' + extension ,
+        __dirname + '/core/*/*.' + extension ,
+        __dirname + '/core/*/*/*.' + extension ,
+        __dirname + '/core/*/*/*/*.' + extension
     ]),
     app_files = globby.sync([
         __dirname + '/app/*/View/desktop/*.phptpl',
         __dirname + '/app/*/View/mobile/*.phptpl',
         __dirname + '/app/*/View/web/*.phptpl',
         __dirname + '/app/*/View/*.phptpl',
-        __dirname + '/app/*.fephp',
-        __dirname + '/app/*/*.fephp',
-        __dirname + '/app/*/*/*.fephp',
-        __dirname + '/app/*/*/*.fephp',
-        __dirname + '/app/*/View/*.fephp',
-        __dirname + '/app/*.php',
-        __dirname + '/app/*/*.php',
-        __dirname + '/app/*/*/*.php',
-        __dirname + '/app/*/*/*.php',
-        __dirname + '/app/*/View/*.php'
+        __dirname + '/app/*.' + extension ,
+        __dirname + '/app/*/*.' + extension ,
+        __dirname + '/app/*/*/*.' + extension ,
+        __dirname + '/app/*/*/*.' + extension ,
+        __dirname + '/app/*/View/*.' + extension
     ]),
     core_files = globby.sync([
-        __dirname + '/core/*.fephp',
-        __dirname + '/core/*/*.fephp',
-        __dirname + '/core/*/*/*.fephp',
-        __dirname + '/core/*/*/*/*.fephp',
-        __dirname + '/core/*.php',
-        __dirname + '/core/*/*.php',
-        __dirname + '/core/*/*/*.php',
-        __dirname + '/core/*/*/*/*.php'
+        __dirname + '/core/*.' + extension ,
+        __dirname + '/core/*/*.' + extension ,
+        __dirname + '/core/*/*/*.' + extension ,
+        __dirname + '/core/*/*/*/*.' + extension
     ]),
     file_index = [],
     file_data = {},
@@ -87,32 +77,21 @@ app_files.forEach(function (filePath) {
 });
 
 
-
-
 console.log("\n\napp_data\n", JSON.stringify(app_file_data)) ;
 fs.writeFileSync(
     __dirname + '/uniter_bundle/app_file_data.js',
     'module.exports = ' + JSON.stringify(app_file_data) + ';'
 );
-
 console.log("\n\ncore_data\n", JSON.stringify(core_file_data)) ;
 fs.writeFileSync(
     __dirname + '/uniter_bundle/core_file_data.js',
     'module.exports = ' + JSON.stringify(core_file_data) + ';'
 );
-
 console.log("\n\nfile_data\n", JSON.stringify(file_data)) ;
 fs.writeFileSync(
     __dirname + '/uniter_bundle/file_data.js',
     'module.exports = ' + JSON.stringify(file_data) + ';'
 );
-
-
-
-
-
-
-
 console.log("\n\nfile_index\n", JSON.stringify(file_index)) ;
 fs.writeFileSync(
     __dirname + '/uniter_bundle/file_index.js',
@@ -120,34 +99,19 @@ fs.writeFileSync(
 );
 
 
-
-
-
-
-
-
-
-
-
-
 // File index
-
 console.log("\n\nfile_index\n", JSON.stringify(file_index)) ;
-
 var file_string = '' ;
 file_string += '<?php\n\n$file_index = array(\n' ;
-
 file_index.forEach(function (one_short_path) {
     file_string += '\t"' + one_short_path + '",\n' ;
 }) ;
 file_string += '\n) ;' ;
 file_string += '\n\n\\ISOPHP\\core::$file_index = $file_index ;\n' ;
-
 fs.writeFileSync(
     __dirname + '/uniter_bundle/file_index.fephp',
     file_string
 );
-
 fs.writeFileSync(
     __dirname + '/uniter_bundle/file_index.php',
     file_string
