@@ -121,9 +121,9 @@ function __autoload($classname) {
             \ISOPHP\js_core::$console->log('Require Prefix' . REQUIRE_PREFIX) ;
             $full_path = REQUIRE_PREFIX.$path ;
             \ISOPHP\js_core::$console->log('path, one line b4 require (Controller)' . $path) ;
-            require_once ($path) ;
+            include_once ($path) ;
             \ISOPHP\js_core::$console->log('full path, one line b4 require (Controller)' . $full_path) ;
-            require_once ($full_path) ;
+            include_once ($full_path) ;
         }
     }
     else if ($parts[0] === 'Model') {
