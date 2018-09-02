@@ -3,4 +3,5 @@
 define('CURRENT_TARGET', "web") ;
 define('IMAGE_ASSET_PREFIX', '/') ;
 define('CSS_ASSET_PREFIX', '/') ;
-define('REQUIRE_PREFIX', '') ;
+define('UNITER_BUILD_LEVEL', 'production') ;
+define('REQUIRE_PREFIX', '.') ;
