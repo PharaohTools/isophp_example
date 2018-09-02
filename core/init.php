@@ -107,8 +107,9 @@ function __autoload($classname) {
             $path = '/core/Core/View.'.$target_extension ;
         }
         if (isset($path)) {
-            \ISOPHP\js_core::$console->log('found a path ' . $path) ;
-            require_once (REQUIRE_PREFIX.$path) ;
+            $full_path = REQUIRE_PREFIX.$path ;
+            \ISOPHP\js_core::$console->log('Core path, one line b4 require: ' . $full_path) ;
+            require_once ($full_path) ;
         }
     }
 
@@ -117,13 +118,11 @@ function __autoload($classname) {
         $module = \ISOPHP\core::$php->str_replace('Controller', '', $parts[1]) ;
         $path = '/app/'.$module.'/Controller/'.$parts[1].'.'.$target_extension ;
         if (isset($path)) {
-            \ISOPHP\js_core::$console->log('found a controller path ' . $path) ;
-            \ISOPHP\js_core::$console->log('Require Prefix' . REQUIRE_PREFIX) ;
+            \ISOPHP\js_core::$console->log('Found a controller path ' . $path) ;
+            \ISOPHP\js_core::$console->log('Require Prefix: ' . REQUIRE_PREFIX) ;
             $full_path = REQUIRE_PREFIX.$path ;
-            \ISOPHP\js_core::$console->log('path, one line b4 require (Controller)' . $path) ;
-            include_once ($path) ;
-            \ISOPHP\js_core::$console->log('full path, one line b4 require (Controller)' . $full_path) ;
-            include_once ($full_path) ;
+            \ISOPHP\js_core::$console->log('Controller path, one line b4 require: ' . $full_path) ;
+            require_once ($full_path) ;
         }
     }
     else if ($parts[0] === 'Model') {
