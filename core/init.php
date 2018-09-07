@@ -98,7 +98,7 @@ function __autoload($classname) {
     // \ISOPHP\core::$php->error_log("Autoloading " . $classname) ;
     $parts = \ISOPHP\core::$php->explode('\\', $classname) ;
     if ($parts[0] === 'Core') {
-        \ISOPHP\js_core::$console->log('Looking in core') ;
+        \ISOPHP\js_core::$console->log('Looking in core for '.$classname) ;
         if ($classname == 'Core\Router') {
             $path = '/core/Core/Router.'.$target_extension ;
         } else if ($classname == 'Core\Control') {
@@ -114,7 +114,7 @@ function __autoload($classname) {
     }
 
     if ($parts[0] === 'Controller') {
-        \ISOPHP\js_core::$console->log('Looking in Controller') ;
+        \ISOPHP\js_core::$console->log('Looking in Controller for '.$classname) ;
         $module = \ISOPHP\core::$php->str_replace('Controller', '', $parts[1]) ;
         $path = '/app/'.$module.'/Controller/'.$parts[1].'.'.$target_extension ;
         if (isset($path)) {
@@ -125,7 +125,7 @@ function __autoload($classname) {
             require_once ($full_path) ;
         }
     }
-    else if ($parts[0] === 'Model') {
+    if ($parts[0] === 'Model') {
         // \ISOPHP\core::$php->error_log('Looking in Model') ;
         $module = \ISOPHP\core::$php->str_replace('Model', '', $parts[1]) ;
         $path = '/app/'.$module.'/Model/'.$parts[1].$parts[2].'.'.$target_extension ;
@@ -134,7 +134,7 @@ function __autoload($classname) {
             require_once (REQUIRE_PREFIX.$path) ;
         }
     }
-    else if ($parts[0] === 'View') {
+    if ($parts[0] === 'View') {
         // \ISOPHP\core::$php->error_log('Looking in View') ;
         $module = \ISOPHP\core::$php->str_replace('View', '', $parts[1]) ;
         $path = '/app/'.$module.'/View/'.$parts[1].'.'.$target_extension ;
