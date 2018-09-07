@@ -5,3 +5,4 @@ define('IMAGE_ASSET_PREFIX', '/') ;
 define('CSS_ASSET_PREFIX', '/') ;
 define('UNITER_BUILD_LEVEL', 'development') ;
 define('REQUIRE_PREFIX', '') ;
+define('NAMESPACE_PREFIX', '\\') ;
