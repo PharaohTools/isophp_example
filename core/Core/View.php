@@ -34,7 +34,7 @@ class View {
 
     public function loadTemplate ($module, $view, Array $pageVars) {
         $viewFileName = \ISOPHP\core::$php->ucfirst($view)  ;
-        // \ISOPHP\js_core::$console->log('before load template', $module, $view, $pageVars) ;
+         \ISOPHP\js_core::$console->log('before load template', $module, $view, $pageVars) ;
         $lvf = $this->loadViewFile($module, $viewFileName, $pageVars) ;
         // \ISOPHP\js_core::$console->log('Template loaded', $lvf, $view) ;
         if ($lvf !== false) {
@@ -53,8 +53,8 @@ class View {
         $view_client_path = '/app/'.$module.'/View/'.CURRENT_TARGET.'/'.$viewFileName ;
         $view_default_path = '/app/'.$module.'/View/'.$viewFileName ;
         \ISOPHP\js_core::$console->log("Current Target is ".CURRENT_TARGET) ;
-        \ISOPHP\js_core::$console->log("View Looking for $view_client_path") ;
-        \ISOPHP\js_core::$console->log("And looking for $view_default_path") ;
+        \ISOPHP\js_core::$console->log("View Looking for ".$view_client_path) ;
+        \ISOPHP\js_core::$console->log("And looking for ".$view_default_path) ;
 
         if ($this->templateExists($view_client_path) === true) {
             include(REQUIRE_PREFIX.$view_client_path) ;
@@ -63,7 +63,7 @@ class View {
             include(REQUIRE_PREFIX.$view_default_path) ;
             return true ;
         } else {
-             \ISOPHP\js_core::$console->log("Unable to find view template $view_client_path or default $view_default_path") ;
+             \ISOPHP\js_core::$console->log("Unable to find view template ".$view_client_path." or default ".$view_default_path) ;
             return false ;
         }
     }
@@ -98,6 +98,11 @@ class View {
     public function templateExists($path) {
         $php = \ISOPHP\core::$php ;
         $file_index = \ISOPHP\core::$file_index ;
+
+        //        if (ISOPHP_EXECUTION_ENVIRONMENT === 'ZEND') {
+        //            var_dump('dump index:', $file_index) ;
+        //        }
+
         \ISOPHP\js_core::$console->log('view: file index in templateExists', $file_index) ;
         \ISOPHP\js_core::$console->log($file_index) ;
         if ($php->in_array($path, \ISOPHP\core::$file_index)){
