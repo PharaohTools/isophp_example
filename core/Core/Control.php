@@ -8,7 +8,7 @@ class Control {
         // \ISOPHP\js_core::$console->log('raw control', $control) ;
         $ucf_control = \ISOPHP\core::$php->ucfirst($control);
         // \ISOPHP\js_core::$console->log('ucf control', $ucf_control) ;
-        $className = '\\Controller\\' . $ucf_control.'Controller' ;
+        $className = NAMESPACE_PREFIX.'Controller\\' . $ucf_control.'Controller' ;
         $controlObject = new $className;
         return $controlObject->execute($pageVars);
     }
