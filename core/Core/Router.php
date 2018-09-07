@@ -9,10 +9,8 @@ class Router {
     private $availableRoutes = array() ;
 
     public function run($bootstrapParams) {
-
         // \ISOPHP\js_core::$console->log('Running router with the following') ;
         // \ISOPHP\js_core::$console->log($bootstrapParams) ;
-
         $this->bootstrapParams = $bootstrapParams;
         $this->setCurrentRoute();
         // \ISOPHP\js_core::$console->log('route is:', $this->route) ;
