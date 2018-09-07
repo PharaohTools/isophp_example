@@ -30,7 +30,7 @@ class BootStrap {
         $controlResult = $control->executeControl($controlToExecute, $pageVars);
         \ISOPHP\js_core::$console->log('control res 1', $controlResult) ;
         if ($controlResult->type == "view") {
-            $viewClass = '\View\\'.$controlResult->view_control.'View' ;
+            $viewClass = NAMESPACE_PREFIX.'View\\'.$controlResult->view_control.'View' ;
             \ISOPHP\js_core::$console->log('View Class Name Is:', $viewClass) ;
             $view =  new $viewClass() ;
 
