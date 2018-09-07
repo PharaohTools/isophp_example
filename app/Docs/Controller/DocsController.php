@@ -11,7 +11,7 @@ class DocsController extends \Controller\Base {
         \ISOPHP\js_core::$window->document->title = 'ISOPHP Documentation - The Isomorphic PHP Framework' ;
         $res = new \Controller\Result() ;
         $res->page = $page ;
-        $res->view = 'Docs.phptpl' ;
+        $res->view = 'Docs.php' ;
         $res->type = 'view' ;
         $res->view_control = 'Docs' ;
         $res->post_template[] = $page_model->bindButtons() ;

@@ -10,7 +10,7 @@ class LandingPageController extends \Controller\Base {
         $page = $page_model->getPage() ;
         $res = new \Controller\Result() ;
         $res->page = $page ;
-        $res->view = 'LandingPage.phptpl' ;
+        $res->view = 'LandingPage.php' ;
         $res->type = 'view' ;
         $res->view_control = 'LandingPage' ;
         $post_template = $res->post_template ;
