@@ -8,6 +8,7 @@ $uniter_build_level = file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'uniter_buil
 $uniter_build_level = trim($uniter_build_level) ;
 define('UNITER_BUILD_LEVEL', $uniter_build_level) ;
 define('ISOPHP_EXECUTION_ENVIRONMENT', 'ZEND') ;
+define('NAMESPACE_PREFIX', '\\') ;
 if (UNITER_BUILD_LEVEL === 'production') {
     define('ISOPHP_EXTENSION', 'php') ;
 } else {
