@@ -33,7 +33,6 @@ include("core/index.".ISOPHP_EXTENSION) ;
             ?>
         </div>
 
-        <?php define ('UNITER_BUILD_LEVEL', 'production') ; ?>
         <?php if (UNITER_BUILD_LEVEL == 'production') { ?>
             <script type="text/javascript" src="/uniter_bundle/prod_bundle.js"></script>
         <?php } else { ?>
