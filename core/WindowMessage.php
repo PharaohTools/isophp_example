@@ -40,9 +40,13 @@ class WindowMessage {
 
     public static function randomNum() {
 //        $to_floor = \ISOPHP\js_core::$window->Math->random() * $hi;
-        $r = \ISOPHP\js_core::$window->Math->random() ;
-        $to_floor = $r * 62;
-        return \ISOPHP\js_core::$window->Math->floor($to_floor);
+//        $window = \ISOPHP\js_core::$window ;
+//        $math = $window->Math ;
+//        $r = $math->random() ;
+//        $to_floor = $r * 62;
+        $random = \ISOPHP\core::$php->mt_rand() ;
+        \ISOPHP\js_core::$console->log('random number '. $random);
+        return $random ;
     }
 
     public static function randomChar(){
