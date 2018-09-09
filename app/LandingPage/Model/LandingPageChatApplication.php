@@ -29,8 +29,8 @@ class ChatApplication {
         });
         $jQuery('#choose_chat_msg')->on('click', function () {
             \ISOPHP\console::log('Clicked the #choose_chat_msg span button') ;
-            $is_valid = (self::$chat_name !== null) ;
-            if ( $is_valid ) {
+            $is_valid = (self::$chat_name !== null) ? true : false ;
+            if ( $is_valid === true ) {
                 self::chooseChatMessage() ;
             } else {
                 \Core\WindowMessage::showMessage('Please pick a name before a message', 'bad') ;
@@ -38,8 +38,8 @@ class ChatApplication {
         });
         $jQuery('#send_chat_message')->on('click', function () {
             \ISOPHP\console::log('Clicked the #send_chat_message span button') ;
-            $is_valid = ( (self::$chat_name !== null) && (self::$chat_msg !== null) ) ;
-            if ( $is_valid ) {
+            $is_valid = ( (self::$chat_name !== null) && (self::$chat_msg !== null) ) ? true : false ;
+            if ( $is_valid === true ) {
                 self::submitForm() ;
             } else {
                 \Core\WindowMessage::showMessage('Please pick a name and message to send', 'bad') ;
