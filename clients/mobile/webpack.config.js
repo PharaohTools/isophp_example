@@ -1,6 +1,6 @@
 module.exports = {
     context: __dirname,
-    entry: './prod_app_webpack.js',
+    entry: './www/index_prod.js',
     module: {
         rules: [
             {
@@ -42,7 +42,7 @@ module.exports = {
         fs: 'empty'
     },
     output: {
-        path: __dirname + '/uniter_bundle/',
-        filename: 'prod_bundle.js'
+        path: __dirname + '/www/uniter_bundle/',
+        filename: 'bundle.js'
     }
 };
