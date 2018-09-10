@@ -49,6 +49,7 @@ class Virtufile extends VirtufileBase {
                 "name" => "host_www",
                 "host_path" => getcwd().DIRECTORY_SEPARATOR,
                 "guest_path" => "/var/www/hostshare/",
+                "symlinks" => "enable"
             ) ;
         # Provisioning
         $this->config["vm"]["provision"][] =
