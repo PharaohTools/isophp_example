@@ -46,8 +46,8 @@
 								<li class="has-dropdown">
 									<a>Download</a>
 									<ul class="dropdown">
-										<li><a target="_blank" href="https://source.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Latest Package</a></li>
-										<li><a target="_blank" href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Pharaoh Cloud</a></li>
+										<li><a target="_blank" href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Latest Package</a></li>
+										<li><a target="_blank" href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Pharaoh Cloud</a></li>
 										<li><a target="_blank" href="http://github.com/PharaohTools">Github</a></li>
 									</ul>
 								</li>
@@ -126,7 +126,7 @@
 									<p>
 										We aim to provide simple helper classes for dealing with Sockets on both the
 										front and back end in PHP. The Chat application below is based on the
-<a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=uniter_php_socketio">
+<a href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=uniter_php_socketio">
                                             <strong>Uniter PHP Sockets Demo</strong>
                                         </a>. Use the Chat Application below to see an example of real time page updates
                                         using WebSockets. Open this page in multiple windows, browsers, or from multiple
@@ -295,11 +295,11 @@
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 						<h2>Lets Get Started</h2>
 						<p>We&apos;re building the Framework and
-			<a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">
+			<a href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">
 						<strong>hosting it here</strong></a>. Soon, well build you guys a simple but highly functional
 							Boilerplate that you can create <strong>Isomorphic</strong>, beautiful, smooth, fast Web
 							Experiences with in minutes. For now, you can
-	<a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=iso_php_example_application">
+	<a href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=iso_php_example_application">
         <strong>download the code for this Website</strong></a>, which
 							will include the parts as and when we make them. If youve made it this
 							far, you know you want to...</p>
@@ -339,8 +339,8 @@
 					<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 						<ul class="fh5co-footer-links">
 							<li><span class="link link_docs">Documentation</span></li>
-							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Downloads</a></li>
-							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Source Code</a></li>
+							<li><a href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Downloads</a></li>
+							<li><a href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Source Code</a></li>
 							<li><a href="https://github.com/asmblah/uniter">Uniter Github</a></li>
 							<li><a href="https://github.com/PharaohTools">Pharaoh Tools Github</a></li>
 						</ul>
