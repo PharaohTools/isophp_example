@@ -166,7 +166,7 @@
         "custom_release": {
             "8620097775563362": {
                 "release_title": "Mobile Application for Android",
-                "release_file": "\/var\/www\/hostshare\/clients\/mobile\/platforms\/android\/build\/outputs\/apk\/android-debug.apk",
+                "release_file": "\/var\/www\/hostshare\/clients\/mobile\/platforms\/android\/build\/outputs\/apk\/debug\/android-debug.apk",
                 "new_file_name": "",
                 "remote_file_url": "",
                 "image": "",
