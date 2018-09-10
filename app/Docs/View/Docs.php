@@ -3,7 +3,7 @@
 \Core\View::$template = function() {
     $html = '
     		
-		<div class="fh5co-loader"></div>
+		<div class="fh5co-loader app-loader"></div>
 		<div id="message_overlay"></div>
 
 		<div id="page">
@@ -47,8 +47,8 @@
 								<li class="has-dropdown">
 									<a>Download</a>
 									<ul class="dropdown">
-										<li><a target="_blank" href="https://source.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Latest Package</a></li>
-										<li><a target="_blank" href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Pharaoh Cloud</a></li>
+										<li><a target="_blank" href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Latest Package</a></li>
+										<li><a target="_blank" href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Pharaoh Cloud</a></li>
 										<li><a target="_blank" href="http://github.com/PharaohTools">Github</a></li>
 									</ul>
 								</li>
@@ -168,8 +168,8 @@ In Pharaoh Virtualize Up
 					<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 						<ul class="fh5co-footer-links">
 							<li><a class="link_get_started">Get Started</a></li>
-							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Downloads</a></li>
-							<li><a href="https://source.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Source Code</a></li>
+							<li><a href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryReleases&action=show&item=isophp">Downloads</a></li>
+							<li><a href="https://repositories.internal.pharaohtools.com/index.php?control=RepositoryHome&action=show&item=isophp">Source Code</a></li>
 							<li><a href="https://github.com/asmblah/uniter">Uniter Github</a></li>
 							<li><a href="https://github.com/PharaohTools">Pharaoh Github</a></li>
 						</ul>
