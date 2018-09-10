@@ -15,7 +15,7 @@ function on_device_ready() {
     var this_console = console ;
     var this_window = window ;
 
-    const binderModule = require('./binder.php')();
+    const binderModule = require('../binder.php')();
 
     // Hook stdout and stderr up to the console
     binderModule.getStdout().on('data', function (data) {
