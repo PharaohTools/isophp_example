@@ -1,18 +1,18 @@
 RunCommand execute
+  label "Empty the Node NPM Modules"
+  command "cd {{{ param::start-dir }}}/clients/mobile && rm -rf node_modules/*"
+  guess
+
+RunCommand execute
   label "Update NPM"
-  command "npm update -g --silent || true"
+  command "npm cache clean -f && npm install -g n & n stable"
   ignore_errors
   guess
 
 RunCommand execute
   label "Install Global NPM Packages"
-  command "npm install -g uglify-js browserify cordova@7.0.1 || true"
+  command "npm install -g uglify-js browserify cordova@7.1.0 || true"
   ignore_errors
-  guess
-
-RunCommand execute
-  label "Empty the Node NPM Modules"
-  command "cd {{{ param::start-dir }}}/clients/mobile && rm -rf node_modules/*"
   guess
 
 RunCommand execute
@@ -25,33 +25,80 @@ RunCommand execute
   command "cd {{{ param::start-dir }}}/clients/mobile && composer install"
   guess
 
-RunCommand execute
-  label "Build Uniter application to our Target Client"
-  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php mobile > /dev/null"
-  guess
-
 Logging log
   log-message "Our Custom Branch is : $$custom_branch"
 
+Logging log
+  log-message "Our Uniter build level is : $$uniter_build_level"
+
 RunCommand execute
-  label "Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/mobile/www/core/ && mv {{{ param::start-dir }}}/clients/mobile/www/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/mobile/www/core/app_vars.fephp"
+  label "Build to our Target Client - Uniter Development Settings"
+  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php mobile fephp > /dev/null"
+  guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "Build to our Target Client - Uniter Production Settings"
+  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php mobile php > /dev/null"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "(fephp ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/mobile/www/core/ && mv {{{ param::start-dir }}}/clients/mobile/www/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/mobile/www/core/app_vars.fephp"
   command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/mobile/www/core/ && mv {{{ param::start-dir }}}/clients/mobile/www/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/mobile/www/core/app_vars.fephp"
   guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
 
 RunCommand execute
-  label "Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/mobile/www/core/default.fephp "
+  label "(php ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/mobile/www/core/ && mv {{{ param::start-dir }}}/clients/mobile/www/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/mobile/www/core/app_vars.php"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/mobile/www/core/ && mv {{{ param::start-dir }}}/clients/mobile/www/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/mobile/www/core/app_vars.php"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "(fephp ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/mobile/www/core/default.fephp "
   command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/mobile/www/core/default.fephp "
   guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
 
 RunCommand execute
-  label "Run the Node FS "
-  command "cd {{{ param::start-dir }}}/clients/mobile && sudo node fs > /dev/null"
+  label "(php ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/mobile/www/core/default.php "
+  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/mobile/www/core/default.php "
   guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
 
 RunCommand execute
-  label "Run the Node NPM Build "
-  command "cd {{{ param::start-dir }}}/clients/mobile && npm run build "
+  label "Run the Development Node NPM Build"
+  command "cd {{{ param::start-dir }}}/clients/mobile && sudo npm run build-development"
   guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "Ensure Webpack is executable"
+  command "cd {{{ param::start-dir }}}/clients/mobile && chmod +x ./node_modules/webpack/bin/webpack.js"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "Run the Production Node NPM Build"
+  command "cd {{{ param::start-dir }}}/clients/mobile && sudo npm run build-production"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+File create
+  label "Add or Overwrite the Uniter build level to web server settings file"
+  file "{{{ param::start-dir }}}/clients/web/uniter_build_level"
+  data "{{{ param::uniter_build_level }}}"
+  overwrite-existing
 
 RunCommand execute
   label "Copy icons from application"
@@ -61,7 +108,7 @@ RunCommand execute
 
 RunCommand execute
   label "Tell Cordova no usage statistics"
-  command 'echo n | cordova > /dev/null'
+  command 'cordova > /dev/null | xargs echo'
   guess
 
 RunCommand execute
@@ -72,25 +119,16 @@ RunCommand execute
   ignore_errors
 
 RunCommand execute
-  label "Force install the platforms"
+  label "Force install the android platforms"
   command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova platform add android"
   guess
+  when "{{{ param::create_apk_only }}}"
 
 RunCommand execute
-  label "Force install the platforms"
+  label "Force install the ios platforms"
   command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova platform add ios"
   guess
   when "{{{ param::create_ipa_only }}}"
-
-RunCommand execute
-  label "Force install the cordova splashscreen plugin"
-  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova plugin add cordova-plugin-splashscreen"
-  guess
-
-RunCommand execute
-  label "Force install the cordova whitelist plugin"
-  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova plugin add cordova-plugin-whitelist"
-  guess
 
 RunCommand execute
   label "Build and run the executable applications"
@@ -111,8 +149,8 @@ RunCommand execute
   when "{{{ param::create_apk_only }}}"
 
 RunCommand execute
-  label "Just create the android executable applications source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile"
-  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova build android"
+  label "Just create the android executable applications source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova build android | xargs echo"
+  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova build android | xargs echo"
   guess
   when "{{{ param::create_apk_only }}}"
 
