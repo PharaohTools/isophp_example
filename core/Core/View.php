@@ -56,14 +56,25 @@ class View {
         \ISOPHP\js_core::$console->log("View Looking for ".$view_client_path) ;
         \ISOPHP\js_core::$console->log("And looking for ".$view_default_path) ;
 
+        $prefixed_view_client_path = REQUIRE_PREFIX.$view_client_path ;
+        $prefixed_view_default_path = REQUIRE_PREFIX.$view_default_path ;
+        $view_prefixed_view_client_path = VIEW_PREFIX.$view_client_path ;
+        $view_prefixed_view_default_path = VIEW_PREFIX.$view_default_path ;
+
         if ($this->templateExists($view_client_path) === true) {
-            include(REQUIRE_PREFIX.$view_client_path) ;
+            include($prefixed_view_client_path) ;
             return true ;
         } else if ($this->templateExists($view_default_path) === true) {
-            include(REQUIRE_PREFIX.$view_default_path) ;
+            include($prefixed_view_default_path) ;
+            return true ;
+        } else if ($this->templateExists($view_prefixed_view_client_path) === true) {
+            include($prefixed_view_client_path) ;
+            return true ;
+        } else if ($this->templateExists($view_prefixed_view_default_path) === true) {
+            include($prefixed_view_default_path) ;
             return true ;
         } else {
-             \ISOPHP\js_core::$console->log("Unable to find view template ".$view_client_path." or default ".$view_default_path) ;
+             \ISOPHP\js_core::$console->log("Unable to find view template ".$prefixed_view_client_path." or default ".$view_default_path) ;
             return false ;
         }
     }
