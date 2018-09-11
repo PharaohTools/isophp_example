@@ -2,41 +2,72 @@
   "name": "isophpexampleapplication",
   "displayName": "isophpexampleapplication",
   "version": "1.0.0",
-  "description": "The Example Application for the ISO PHP Framework",
-  "main": "index.js",
-  "scripts": {
-    "build": "browserify app --standalone=isophpexampleapplication/ | uglifyjs > www/uniter_bundle/bundle.js",
-    "webpack": "webpack"
-  },
   "author": "Pharaoh Tools",
   "license": "none",
-  "repository": "https://anon:any@source.internal.pharaohtools.com/git/public/isophpexampleapplication/",
-  "dependencies": {
+  "description": "The ISO PHP Framework Web Client Application",
+  "main": "main.js",
+  "scripts": {
+    "build-production": "cp webpack.config.js ./node_modules/webpack/bin/ && rm -rf ./www/uniter_bundle/* && node fs production > /dev/null && ./node_modules/webpack/bin/webpack.js --display-modules --devtool source-map",
+    "build-development": "node fs development > /dev/null && ( browserify app --standalone=isophpexampleapplication/ | uglifyjs > www/uniter_bundle/bundle.js ) ",
+    "webpack": "webpack"
+  },
+  "repository": "https://anon:any@source.internal.pharaohtools.com/git/public/isophp",
+  "keywords": [
+    "PharaohTools",
+    "uniter",
+    "php",
+    "browserify",
+    "fs",
+    "cordova"
+  ],
+  "devDependencies": {
     "async": "^2.1.4",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
     "browserify": "^10.2.0",
     "contacts": "^1.0.0",
-    "cordova-android": "^6.2.3",
-    "cordova-ios": "^4.5.1",
-    "cordova-plugin-splashscreen": "^4.0.3",
-    "cordova-plugin-whitelist": "^1.3.2",
-    "cordova-webos": "^3.7.0",
     "globby": "^2.0.0",
     "jquery": "^2.1.4",
     "json-loader": "^0.5.1",
     "node-libs-browser": "^0.5.0",
+    "phpify": "^4.0.0",
     "phpjs": "^1.3.2",
     "socket.io": "1.2.0",
+    "source-map-loader": "^0.2.3",
+    "transform-loader": "^0.2.4",
     "uglify-js": "^2.4.23",
     "uglifyify": "^3.0.1",
     "uniter": "^1.0",
     "uuid": "^3.0.0",
-    "webpack": "^1.9.7",
+    "webpack": "^3.10.0",
     "whitelist": "^1.0.2"
   },
   "browserify": {
     "transform": [
-      "uglifyify"
+      "uglifyify",
+      "phpify"
     ]
+  },
+  "phpify": {
+    "phpToJS": {
+      "sync": true,
+      "include": [
+        "www/app/**/*.php",
+        "www/core/**/*.php"
+      ],
+      "exclude": [
+        "vendor/**",
+        "node_modules/**",
+        "uniter_bundle/**"
+      ]
+    }
+  },
+  "dependencies": {
+    "cordova": "^7.0.1",
+    "cordova-android": "^6.4.0",
+    "cordova-plugin-splashscreen": "^4.0.3",
+    "cordova-plugin-whitelist": "^1.3.2"
   },
   "cordova": {
     "plugins": {
@@ -44,16 +75,7 @@
       "cordova-plugin-splashscreen": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "android"
     ]
-  },
-  "keywords": [
-    "PharaohTools",
-    "uniter",
-    "cordova",
-    "php",
-    "browserify",
-    "fs"
-  ]
+  }
 }
