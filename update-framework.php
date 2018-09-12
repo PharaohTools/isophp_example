@@ -29,7 +29,15 @@ $other_files = array(
 //    "clients/mobile/config.xml",
     "clients/mobile/app.js",
     "clients/mobile/fs.js",
-    "clients/mobile/www/js/index.js",
+    "clients/mobile/binder.php",
+    "clients/mobile/constants_uniter_prod.fephp",
+    "clients/mobile/constants_uniter.fephp",
+    "clients/mobile/constants-webclient-server.fephp",
+    "clients/mobile/dev_app.js",
+    "clients/mobile/prod_app_webpack.js",
+    "clients/mobile/uniter_build_level",
+    "clients/mobile/webpack.config.js",
+    "clients/mobile/www/index_prod.js",
     "clients/web/app.js",
     "clients/web/fs.js",
     "core/Core/Control.php",
@@ -56,6 +64,7 @@ $other_files = array(
     "vars/staging.php",
     "vars/vm.php",
     "update-framework.php",
+
 //    "Virtufile",
 ) ;
 
