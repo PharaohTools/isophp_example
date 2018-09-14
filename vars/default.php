@@ -9,6 +9,7 @@ $variables['server_subdomain'] = 'server' ;
 $variables['domain'] = $variables['application_slug'].'.vm' ;
 $variables['friendly_app_slug'] = 'ISOPHP' ;
 $variables['desktop_app_slug'] = $variables['friendly_app_slug'] ;
+$variables['random_port_suffix'] = '78' ;
 
 if (isset($params['backendenv'])) {
     $variables['backendenv'] = $params['backendenv'] ;
