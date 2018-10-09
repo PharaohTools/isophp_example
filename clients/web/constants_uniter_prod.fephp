@@ -6,3 +6,4 @@ define('CSS_ASSET_PREFIX', '/') ;
 define('UNITER_BUILD_LEVEL', 'production') ;
 define('REQUIRE_PREFIX', '.') ;
 define('NAMESPACE_PREFIX', '') ;
+define('VIEW_PREFIX', '') ;
