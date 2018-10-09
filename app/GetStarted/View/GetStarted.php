@@ -3,11 +3,9 @@
 \Core\View::$template = function() {
     $configuration = new \Model\Configuration() ;
     $current_env_level = $configuration->variable('env_level') ;
-    if ($current_env_level == null) {
-        $current_env_level = 'dev' ;
+    if ($current_env_level == null || $current_env_level == 'dev') {
+        $current_env_level = 'development' ;
     }
-    // FORCE TO DEV SO WE CAN PUSH SITE TO PROD AND LINKS WORK
-    $current_env_level = 'dev' ;
     $html = '
     		
 		<div class="fh5co-loader app-loader"></div>
@@ -100,84 +98,85 @@
 					<div class="col-md-12 fh5co-heading">
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.android.apk">
+                            
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_android_'.$current_env_level.'_application">
                                     Android Mobile Application
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.android.apk">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_android_'.$current_env_level.'_application">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/android-play-store.png" />
                                 </a>
                             </div>
 					    </div>
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.app.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_osx_'.$current_env_level.'_application">
                                     Apple MacOS Desktop Application
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.app.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_osx_'.$current_env_level.'_application"">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/mac.png" />
                                 </a>
                             </div>
 					    </div>
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.ipa.app.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_ios_'.$current_env_level.'_application"">
                                     IPhone Mobile Application
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.ipa.app.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_ios_'.$current_env_level.'_application"">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/iphone-app-store.png" />
                                 </a>
                             </div>
 					    </div>
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.linux-ia32.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_linux_ia32_'.$current_env_level.'_application">
                                     Linux Desktop Application (32 Bit)
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.linux-ia32.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_linux_ia32_'.$current_env_level.'_application">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/linux.png" />
                                 </a>
                             </div>
 					    </div>
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.linux-x64.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_linux_x64_'.$current_env_level.'_application">
                                     Linux Desktop Application (64 Bit)
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.linux-x64.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_linux_x64_'.$current_env_level.'_application">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/linux.png" />
                                 </a>
                             </div>
 					    </div>
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.windows-ia32.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_windows_ia32_'.$current_env_level.'_application">
                                     Windows Desktop Application (32 Bit)
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.windows-ia32.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_windows_ia32_'.$current_env_level.'_application">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/windows-logo.png" />
                                 </a>
                             </div>
 					    </div>
 					    <div class="panel panel-default col-md-4 text-center">
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.windows-x64.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_windows_x64_'.$current_env_level.'_application">
                                     Windows Desktop Application (64 Bit)
                                 </a>
                             </div>
                             <div class="col-sm-12 text-center">
-                                <a href="http://a7de4feaab3a51b91438-d31a4c8699d64853228accaf446014c6.r62.cf3.rackcdn.com/'.$current_env_level.'.iso_php_example_application.windows-x64.zip">
+                                <a href="http://repositories.internal.pharaohtools.com/index.php?control=BinaryServer&action=serve&item=iso_php_windows_x64_'.$current_env_level.'_application">
                                     <img class="download_app_logo" src="app/ISOPHPExample/Assets/images/app_logos/windows-logo.png" />
                                 </a>
                             </div>
