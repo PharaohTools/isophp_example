@@ -149,6 +149,11 @@ RunCommand execute
   when "{{{ param::create_apk_only }}}"
 
 RunCommand execute
+  label "Always turn Cordova Telemetry off"
+  command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova telemetry off"
+  guess
+
+RunCommand execute
   label "Just create the android executable applications source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova build android | xargs echo"
   command "source {{{ param::start-dir }}}/build/$$android_shell_script && cd {{{ param::start-dir }}}/clients/mobile && cordova build android | xargs echo"
   guess
