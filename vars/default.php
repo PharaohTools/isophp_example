@@ -21,6 +21,8 @@ if (isset($params['backendenv'])) {
     $variables['backendenv'] = $params['backendenv'] ;
 }
 
+$variables['uniter_build_level'] = 'production' ;
+
 if (ISOPHP_EXECUTION_ENVIRONMENT == 'UNITER') {
     \ISOPHP\js_core::$console->log('before loop') ;
     \ISOPHP\js_core::$console->log($variables) ;
