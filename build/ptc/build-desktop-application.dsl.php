@@ -16,7 +16,13 @@ RunCommand execute
 
 RunCommand execute
   label "Install Global NPM Packages"
-  command "npm install -g globby uglify-js uglifyify browserify electron-packager electron@1.6.2 || true"
+  command "npm install -g globby uglify-js uglifyify browserify electron-packager electron@1.6.2"
+  ignore_errors
+  guess
+
+RunCommand execute
+  label "Install Global NPM Packages"
+  command "npm install -g electron@1.6.2 --unsafe-perm=true --allow-root"
   ignore_errors
   guess
 
