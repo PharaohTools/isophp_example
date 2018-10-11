@@ -1,10 +1,10 @@
 {
-  "name": "isophp",
-  "displayName": "isophp",
+  "name": "isophpexampleapplication",
+  "displayName": "isophpexampleapplication",
   "version": "1.0.0",
   "author": "Pharaoh Tools",
   "license": "none",
-  "description": "The ISO PHP Framework Web Client Application",
+  "description": "The Example Application for the ISO PHP Framework",
   "main": "main.js",
   "scripts": {
     "build-development": "node fs development > /dev/null && ( browserify dev_app --standalone=isophp | uglifyjs > uniter_bundle/bundle.js ) ",
@@ -15,6 +15,7 @@
     "PharaohTools",
     "uniter",
     "php",
+    "Cordova",
     "browserify",
     "fs"
   ],
