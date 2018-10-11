@@ -1,16 +1,23 @@
 RunCommand execute
-  label "Update NPM"
-  command "npm update -g --silent || true"
-  guess
-
-RunCommand execute
   label "Empty the Node NPM Modules"
   command "cd {{{ param::start-dir }}}/clients/desktop && rm -rf node_modules/*"
   guess
 
 RunCommand execute
-  label "Install (Previously) Global NPM Packages"
-  command "npm install globby uglify-js uglifyify browserify electron-packager electron@1.6.2 || true"
+  label "Cache Clean NPM and install N"
+  command "npm cache clean -f && npm install -g n & n stable"
+  ignore_errors
+  guess
+
+RunCommand execute
+  label "Cache Clean NPM and install N"
+  command "n 8.9.4"
+  guess
+
+RunCommand execute
+  label "Install Global NPM Packages"
+  command "npm install -g globby uglify-js uglifyify browserify electron-packager electron@1.6.2 || true"
+  ignore_errors
   guess
 
 RunCommand execute
@@ -23,18 +30,16 @@ RunCommand execute
   command "cd {{{ param::start-dir }}}/clients/desktop && composer install"
   guess
 
+Logging log
+  log-message "Our Custom Branch is : $$custom_branch"
+
+Logging log
+  log-message "Our Uniter build level is : $$uniter_build_level"
+
 Mkdir path
   label "Ensure Directory before using"
   path "{{{ param::start-dir }}}/clients/desktop/uniter_bundle/"
   recursive
-
-RunCommand execute
-  label "Build to our Target Client"
-  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php desktop > /dev/null"
-  guess
-
-Logging log
-  log-message "Our Custom Branch is : $$custom_branch"
 
 Mkdir path
   label "Ensure Directory before using"
@@ -42,24 +47,73 @@ Mkdir path
   recursive
 
 RunCommand execute
-  label "Always Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/ && mv {{{ param::start-dir }}}/clients/desktop/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/app_vars.fephp"
-  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/ && mv {{{ param::start-dir }}}/clients/desktop/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/app_vars.fephp"
+  label "Build to our Target Client - Uniter Development Settings"
+  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php desktop fephp > /dev/null"
   guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
 
 RunCommand execute
-  label "Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/core/default.fephp "
-  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/core/default.fephp "
+  label "Build to our Target Client - Uniter Production Settings"
+  command "cd {{{ param::start-dir }}} && php build/build_to_uniter.php desktop php > /dev/null"
   guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
 
 RunCommand execute
-  label "Run the Node FS "
-  command "cd {{{ param::start-dir }}}/clients/desktop && node fs > /dev/null "
+  label "(fephp ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.fephp"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.fephp"
   guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
 
 RunCommand execute
-  label "Run the Node NPM Build"
-  command "cd {{{ param::start-dir }}}/clients/desktop && npm run build"
+  label "(php ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.php"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.php"
   guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "(fephp ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/web/core/default.fephp "
+  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/web/core/default.fephp "
+  guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "(php ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/web/core/default.php "
+  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/web/core/default.php "
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "Run the Development Node NPM Build"
+  command "cd {{{ param::start-dir }}}/clients/mobile && sudo npm run build-development"
+  guess
+  not_when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "Ensure Webpack is executable"
+  command "cd {{{ param::start-dir }}}/clients/mobile && chmod +x ./node_modules/webpack/bin/webpack.js"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+RunCommand execute
+  label "Run the Production Node NPM Build"
+  command "cd {{{ param::start-dir }}}/clients/mobile && sudo npm run build-production"
+  guess
+  when "{{{ param::uniter_build_level }}}"
+  equals "production"
+
+File create
+  label "Add or Overwrite the Uniter build level to web server settings file"
+  file "{{{ param::start-dir }}}/clients/web/uniter_build_level"
+  data "{{{ param::uniter_build_level }}}"
+  overwrite-existing
 
 RunCommand execute
   label "Build the OSx executable application"

@@ -1,6 +1,6 @@
 <?php
 
-define('CURRENT_TARGET', "web") ;
+define('CURRENT_TARGET', "desktop") ;
 define('IMAGE_ASSET_PREFIX', '/') ;
 define('CSS_ASSET_PREFIX', '/') ;
 define('UNITER_BUILD_LEVEL', 'production') ;
