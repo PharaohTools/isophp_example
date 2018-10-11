@@ -90,21 +90,21 @@ RunCommand execute
 
 RunCommand execute
   label "Run the Development Node NPM Build"
-  command "cd {{{ param::start-dir }}}/clients/mobile && sudo npm run build-development"
+  command "cd {{{ param::start-dir }}}clients/desktop && sudo npm run build-development"
   guess
   not_when "{{{ param::uniter_build_level }}}"
   equals "production"
 
 RunCommand execute
   label "Ensure Webpack is executable"
-  command "cd {{{ param::start-dir }}}/clients/mobile && chmod +x ./node_modules/webpack/bin/webpack.js"
+  command "cd {{{ param::start-dir }}}clients/desktop && chmod +x ./node_modules/webpack/bin/webpack.js"
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
 
 RunCommand execute
   label "Run the Production Node NPM Build"
-  command "cd {{{ param::start-dir }}}/clients/mobile && sudo npm run build-production"
+  command "cd {{{ param::start-dir }}}clients/desktop && sudo npm run build-production"
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
