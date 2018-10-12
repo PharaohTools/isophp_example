@@ -1,3 +1,7 @@
+SudoNoPass install
+  install-user-name "ptv"
+  guess
+
 GitKeySafe ensure
   guess
 
