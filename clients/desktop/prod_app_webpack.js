@@ -10,7 +10,9 @@ console.log('In prod app webpack js: 1a') ;
 var jQuery = require('jquery'),
     php = require('phpjs'),
     file_index = require('./uniter_bundle/file_index.js') ;
-
+    // electron = require('electron') ;
+// var electron_remote = electron.remote ;
+var electron_remote = null ;
 var this_console = console ;
 var this_window = window ;
 
@@ -29,5 +31,7 @@ binderModule.getStderr().on('data', function (data) {
 // and cast it to a JavaScript function we can call
 const binder = binderModule.execute().getNative();
 
+
+
 // Call the PHP closure function returned from binder.php, from JavaScript!
-binder(jQuery, this_window, this_console, php, file_index);
+binder(jQuery, this_window, this_console, php, file_index, electron_remote);
