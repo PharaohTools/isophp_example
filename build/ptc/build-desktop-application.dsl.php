@@ -1,34 +1,40 @@
 RunCommand execute
   label "Empty the Node NPM Modules"
-  command "cd {{{ param::start-dir }}}/clients/desktop && rm -rf node_modules/*"
+  command "cd {{{ param::start-dir }}}/clients/desktop && rm -rf node_modules"
   guess
 
 RunCommand execute
-  label "Cache Clean NPM and install N"
-  command "npm cache clean -f && npm install -g n & n stable"
+  label "Allow unsafe perms"
+  command "npm config set unsafe-perm true"
   ignore_errors
   guess
 
 RunCommand execute
   label "Cache Clean NPM and install N"
+  command "npm cache clean -f"
+  ignore_errors
+  guess
+
+RunCommand execute
+  label "Install N for Node"
+  command "npm install -g n & n stable"
+  ignore_errors
+  guess
+
+RunCommand execute
+  label "N install Node 8.9.4"
   command "n 8.9.4"
   guess
 
 RunCommand execute
   label "Install Global NPM Packages"
-  command "npm install -g globby uglify-js uglifyify browserify electron-packager electron@1.6.2"
-  ignore_errors
-  guess
-
-RunCommand execute
-  label "Install Global NPM Packages"
-  command "npm install -g electron@1.6.2 --unsafe-perm=true --allow-root"
+  command "npm install -g globby uglify-js uglifyify browserify electron-packager"
   ignore_errors
   guess
 
 RunCommand execute
   label "Run the Node NPM Install"
-  command "cd {{{ param::start-dir }}}/clients/desktop && npm install --silent > /dev/null"
+  command "cd {{{ param::start-dir }}}/clients/desktop && npm install --unsafe-perm --allow-root --no-bin-links --silent > /dev/null"
   guess
 
 RunCommand execute
@@ -49,7 +55,7 @@ Mkdir path
 
 Mkdir path
   label "Ensure Directory before using"
-  path "{{{ param::start-dir }}}/clients/desktop/web/core/"
+  path "{{{ param::start-dir }}}/clients/desktop/core/"
   recursive
 
 RunCommand execute
@@ -67,57 +73,57 @@ RunCommand execute
   equals "production"
 
 RunCommand execute
-  label "(fephp ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.fephp"
-  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.fephp"
+  label "(fephp ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/ && mv {{{ param::start-dir }}}/clients/desktop/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/app_vars.fephp"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/ && mv {{{ param::start-dir }}}/clients/desktop/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/app_vars.fephp"
   guess
   not_when "{{{ param::uniter_build_level }}}"
   equals "production"
 
 RunCommand execute
-  label "(php ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.php"
-  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/ && mv {{{ param::start-dir }}}/clients/desktop/web/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/web/core/app_vars.php"
+  label "(php ext) Add our back end application variable set, cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/ && mv {{{ param::start-dir }}}/clients/desktop/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/app_vars.php"
+  command "cp {{{ param::start-dir }}}/vars/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/ && mv {{{ param::start-dir }}}/clients/desktop/core/configuration_$$backendenv.php {{{ param::start-dir }}}/clients/desktop/core/app_vars.php"
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
 
 RunCommand execute
-  label "(fephp ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/web/core/default.fephp "
-  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/web/core/default.fephp "
+  label "(fephp ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/core/default.fephp "
+  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/core/default.fephp "
   guess
   not_when "{{{ param::uniter_build_level }}}"
   equals "production"
 
 RunCommand execute
-  label "(php ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/web/core/default.php "
-  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/web/core/default.php "
+  label "(php ext) Always add our default application variable set, cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/core/default.php "
+  command "cp {{{ param::start-dir }}}/vars/default.php {{{ param::start-dir }}}/clients/desktop/core/default.php "
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
 
 RunCommand execute
   label "Run the Development Node NPM Build"
-  command "cd {{{ param::start-dir }}}clients/desktop && sudo npm run build-development"
+  command "cd {{{ param::start-dir }}}/clients/desktop && sudo npm run build-development"
   guess
   not_when "{{{ param::uniter_build_level }}}"
   equals "production"
 
 RunCommand execute
   label "Ensure Webpack is executable"
-  command "cd {{{ param::start-dir }}}clients/desktop && chmod +x ./node_modules/webpack/bin/webpack.js"
+  command "cd {{{ param::start-dir }}}/clients/desktop && chmod +x ./node_modules/webpack/bin/webpack.js"
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
 
 RunCommand execute
   label "Run the Production Node NPM Build"
-  command "cd {{{ param::start-dir }}}clients/desktop && sudo npm run build-production"
+  command "cd {{{ param::start-dir }}}/clients/desktop && sudo npm run build-production"
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
 
 File create
   label "Add or Overwrite the Uniter build level to web server settings file"
-  file "{{{ param::start-dir }}}/clients/web/uniter_build_level"
+  file "{{{ param::start-dir }}}/clients/desktop/uniter_build_level"
   data "{{{ param::uniter_build_level }}}"
   overwrite-existing
 
@@ -135,7 +141,7 @@ RunCommand execute
 
 RunCommand execute
   label "Build the Linux ia32 executable application"
-  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32 --out=/tmp/exe --overwrite --platform=linux"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --icon=../../app/ISOPHPExample/Assets/images/iso_logo.png --arch=ia32 --out=/tmp/exe --overwrite --platform=linux --electron-version=1.6.2 --asar --prune --overwrite"
   guess
   when "{{{ param::include_linux }}}"
 
@@ -147,7 +153,7 @@ RunCommand execute
 
 RunCommand execute
   label "Build the Linux x64 executable application"
-  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=linux"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --icon=../../app/ISOPHPExample/Assets/images/iso_logo.png --arch=x64 --out=/tmp/exe --overwrite --platform=linux --electron-version=1.6.2 --asar --prune --overwrite"
   guess
   when "{{{ param::include_linux }}}"
 
