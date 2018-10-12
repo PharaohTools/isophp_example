@@ -1,0 +1,9 @@
+#application_controls {
+    display: block;
+    position: fixed;
+    z-index: 10000;
+}
+
+html {
+    -webkit-app-region: drag;
+}
