@@ -10,9 +10,15 @@ console.log('In prod app webpack js: 1a') ;
 var jQuery = require('jquery'),
     php = require('phpjs'),
     file_index = require('./uniter_bundle/file_index.js') ;
-    // electron = require('electron') ;
+
+console.log('In prod app webpack js: 2a') ;
+
+var electron_remote = window.require('electron').remote ;
+
+console.log('electron currently', electron_remote) ;
 // var electron_remote = electron.remote ;
-var electron_remote = null ;
+
+console.log('In prod app webpack js: 3') ;
 var this_console = console ;
 var this_window = window ;
 
