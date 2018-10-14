@@ -141,7 +141,7 @@ RunCommand execute
 
 RunCommand execute
   label "Build the Linux ia32 executable application"
-  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --icon=../../app/ISOPHPExample/Assets/images/iso_logo.png --arch=ia32 --out=/tmp/exe --overwrite --platform=linux --electron-version=1.6.2 --asar --prune --overwrite"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --icon=../../app/ISOPHPExample/Assets/images/iso_logo.png --arch=ia32 --out=/tmp/exe --overwrite --platform=linux --electron-version=3.0.2 --asar --prune --overwrite"
   guess
   when "{{{ param::include_linux }}}"
 
@@ -153,7 +153,7 @@ RunCommand execute
 
 RunCommand execute
   label "Build the Linux x64 executable application"
-  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --icon=../../app/ISOPHPExample/Assets/images/iso_logo.png --arch=x64 --out=/tmp/exe --overwrite --platform=linux --electron-version=1.6.2 --asar --prune --overwrite"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --icon=../../app/ISOPHPExample/Assets/images/iso_logo.png --arch=x64 --out=/tmp/exe --overwrite --platform=linux --electron-version=3.0.2 --asar --prune --overwrite"
   guess
   when "{{{ param::include_linux }}}"
 
