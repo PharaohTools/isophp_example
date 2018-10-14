@@ -116,7 +116,7 @@ RunCommand execute
 
 RunCommand execute
   label "Run the Production Node NPM Build"
-  command "cd {{{ param::start-dir }}}/clients/desktop && sudo npm run build-production"
+  command "cd {{{ param::start-dir }}}/clients/desktop && sudo npm run build-production > /dev/null"
   guess
   when "{{{ param::uniter_build_level }}}"
   equals "production"
@@ -129,7 +129,7 @@ File create
 
 RunCommand execute
   label "Build the OSx executable application"
-  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=darwin"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=darwin --electron-version=3.0.2 --asar --prune --overwrite"
   guess
   when "{{{ param::include_osx }}}"
 
@@ -165,7 +165,7 @@ RunCommand execute
 
 RunCommand execute
   label "Build the Windows ia32 executable application"
-  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32 --out=/tmp/exe --overwrite --platform=win32"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=ia32 --out=/tmp/exe --overwrite --platform=win32 --electron-version=3.0.2 --asar --prune --overwrite"
   guess
   when "{{{ param::include_windows }}}"
 
@@ -177,7 +177,7 @@ RunCommand execute
 
 RunCommand execute
   label "Build the Windows x64 executable application"
-  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=win32"
+  command "cd {{{ param::start-dir }}}/clients/desktop && electron-packager . $$desktop_app_slug --arch=x64 --out=/tmp/exe --overwrite --platform=win32 --electron-version=3.0.2 --asar --prune --overwrite"
   guess
   when "{{{ param::include_windows }}}"
 
