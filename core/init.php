@@ -35,12 +35,14 @@ if (\ISOPHP\core::$file_index == NULL) {
 if (CURRENT_TARGET === 'desktop') {
 
     $console->log("desktop init") ;
-    $electron_app = $window->require('electron')->remote ;
-    \ISOPHP\electron::$BrowserWindow = $electron_app ;
+    $console->log("electron", $electron) ;
+    $console->log("desktop init 2") ;
+    \ISOPHP\electron::$BrowserWindow = $electron ;
+    $console->log("desktop init 3") ;
 
-    \ISOPHP\js_core::$window->document->onreadystatechange = function () use ($electron_app) {
+    \ISOPHP\js_core::$window->document->onreadystatechange = function () use ($electron) {
         if (\ISOPHP\js_core::$window->document->readyState === "complete") {
-            \ISOPHP\electron::application_controls($electron_app);
+            \ISOPHP\electron::application_controls($electron);
         }
     } ;
 
