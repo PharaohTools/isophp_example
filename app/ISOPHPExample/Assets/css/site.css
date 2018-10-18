@@ -178,3 +178,14 @@ img.download_app_logo {
     margin: 0;
     padding: 0;
 }
+
+span.toggle_slider {
+    background-image: url("../images/arrow-down.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 4em;
+}
+
+.docs_title {
+    text-align: right ;
+}
