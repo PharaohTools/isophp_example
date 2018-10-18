@@ -36,8 +36,13 @@ RunCommand execute
   guess
 
 RunCommand execute
+  label "Setup latest node"
+  command "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -"
+  guess
+
+RunCommand execute
   label "Latest version of NPM"
-  command "npm install -g npm@latest"
+  command "apt-get install nodejs -y"
   guess
 
 RunCommand execute
