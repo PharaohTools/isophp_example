@@ -84,11 +84,12 @@
                     </div>
 				    <div class="slider_wrap">		    
                         <div class="col-md-12 text-center fh5co-heading">
-                            For Beginners
+                            <h2 class="col-md-7 docs_title">For Beginners</h2>
+                            <span class="toggle_slider col-md-5"></span>
                         </div>
                         <div class="col-md-12 text-center fh5co-heading slider_content slider_content_beginners">   
                             <div class="col-md-12 text-center fh5co-heading">
-                                <h2>How do I create an ISOPHP Project?</h2>
+                                <h4>How do I create an ISOPHP Project?</h4>
                                 <p class="larger_paragraph">
                                     You can create a new project at the command line with the following:
                                 </p>
@@ -101,7 +102,7 @@
                                 <pre> ptdeploy isophp create -yg --email="example@isophp.org.uk" --web_link="http://isophp.example.com" --project_name="A New Example Project" --domainid="com.example.isophp" --author_name="Dave the Developer" --description="An Example of a new test Application being created" </pre>
                             </div>
                             <div class="col-md-12 text-center fh5co-heading">
-                                <h2>I want to run an ISOPHP Project</h2>
+                                <h4>I want to run an ISOPHP Project</h4>
                                 <p class="larger_paragraph">
                                     First you should use your command line to navigate to the directory your project is in.
                                     There is a development Virtual Machine that can build and run your application; with the Web 
@@ -142,7 +143,7 @@ In Pharaoh Virtualize Up
 </pre>
                             </div>
                             <div class="col-md-ls text-center fh5co-heading">
-                                <h2> I want to update the ISOPHP version in my project?</h2>
+                                <h4> I want to update the ISOPHP version in my project?</h4>
                                 <p class="larger_paragraph">
                                     Navigate to the directory containing your project. Then,
                                     you can update your project at the command line with the following:
@@ -159,11 +160,12 @@ In Pharaoh Virtualize Up
                     
 				    <div class="slider_wrap">		    
                         <div class="col-md-12 text-center fh5co-heading">
-                            For DevOps
+                            <h2 class="col-md-7 docs_title">For DevOps</h2>
+                            <span class="toggle_slider col-md-5"></span>
                         </div>
                         <div class="col-md-12 text-center fh5co-heading slider_content slider_content_devops">   
                             <div class="col-md-12 text-center fh5co-heading">
-                                <h2>How do I provision a running machine?</h2>
+                                <h4>How do I provision a running machine?</h4>
                                 <p class="larger_paragraph">
                                     You can create a new project at the command line with the following:
                                 </p>
@@ -179,11 +181,12 @@ In Pharaoh Virtualize Up
                     
 				    <div class="slider_wrap">		    
                         <div class="col-md-12 text-center fh5co-heading">
-                            For Testers
+                            <h2 class="col-md-7 docs_title">For Testers</h2>
+                            <span class="toggle_slider col-md-5"></span>
                         </div>
                         <div class="col-md-12 text-center fh5co-heading slider_content slider_content_testers">   
                             <div class="col-md-12 text-center fh5co-heading">
-                                <h2>How do I run the Functional tests for the Web Application?</h2>
+                                <h4>How do I run the Functional tests for the Web Application?</h4>
                                 <p class="larger_paragraph">
                                     Open up your build server in the development Virtual Machine, at
                                     http://build.isophpexamplepplication.vm:8078. There, you&apos;ll find a build job
@@ -197,7 +200,7 @@ In Pharaoh Virtualize Up
                                 </p>
                             </div>
                             <div class="col-md-12 text-center fh5co-heading">
-                                <h2>How do I run the Unit tests for the Code Application?</h2>
+                                <h4>How do I run the Unit tests for the Code Application?</h4>
                                 <p class="larger_paragraph">
                                     Open up your build server in the development Virtual Machine, at
                                     http://build.isophpexamplepplication.vm:8078. There, you&apos;ll find a build job
@@ -211,7 +214,7 @@ In Pharaoh Virtualize Up
                                 </p>
                             </div>
                             <div class="col-md-12 text-center fh5co-heading">
-                                <h2>How do I run the Functional tests for the Desktop or Mobile Application?</h2>
+                                <h4>How do I run the Functional tests for the Desktop or Mobile Application?</h4>
                                 <p class="larger_paragraph">
                                     We&apos;re currently working on integrating Behat inside the Virtual Machine with
                                     ChromeDriver for the Mobile Emulator and Electron/PHPDesktop. This functionality
@@ -319,7 +322,7 @@ In Pharaoh Virtualize Up
 
 /*
  * 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>I want to add an icon set across devices and platforms in my project?</h2>
+						<h4>I want to add an icon set across devices and platforms in my project?</h4>
 						<p class="larger_paragraph">
 							clients/mobile/res/icon/android/
                             clients/mobile/res/icon/ios/
