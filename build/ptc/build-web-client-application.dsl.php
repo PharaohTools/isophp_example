@@ -5,7 +5,7 @@ RunCommand execute
 
 RunCommand execute
   label "Run the Node NPM Install"
-  command "cd {{{ param::start-dir }}}/clients/web && sudo npm install --no-bin-links"
+  command "cd {{{ param::start-dir }}}/clients/web && sudo npm install --npm_config_strict_ssl=false"
   guess
 
 RunCommand execute
