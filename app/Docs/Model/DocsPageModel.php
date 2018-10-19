@@ -32,8 +32,9 @@ class PageModel extends \Model\Base {
                 $expand_all = $jQuery('#expand_all') ;
                 $expand_all->on('click', function ($jqThis) use ($jQuery) {
                     $slider_content_divs = $jQuery('.slider_content') ;
-                    $slider_content_divs->slideDown("slow") ;
-                    $slider_content_divs->css("height", 255) ;
+//                    $slider_content_divs->slideDown("slow") ;
+//                    $slider_content_divs->css("height", 255) ;
+                    $slider_content_divs->css("display", 'none') ;
                 }) ;
 
             }
