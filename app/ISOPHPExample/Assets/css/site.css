@@ -189,3 +189,16 @@ span.toggle_slider {
 .docs_title {
     text-align: right ;
 }
+
+/*.docs_content .slider_content {*/
+    /*height: 0px;*/
+/*}*/
+
+/*.docs_content .slider_content div {*/
+    /*display: block;*/
+/*}*/
+
+/*.slider_wrap {*/
+    /*display: block;*/
+    /*width: 100%;*/
+/*}*/
