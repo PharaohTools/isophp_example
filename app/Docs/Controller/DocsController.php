@@ -5,7 +5,7 @@ Namespace Controller ;
 class DocsController extends \Controller\Base {
 
     public function execute($pageVars) {
-        $page_model = new \Model\LandingPage\PageModel() ;
+        $page_model = new \Model\Docs\PageModel() ;
         $page = $page_model->getPage() ;
         \ISOPHP\console::log('ICP', $page) ;
         \ISOPHP\js_core::$window->document->title = 'ISOPHP Documentation - The Isomorphic PHP Framework' ;

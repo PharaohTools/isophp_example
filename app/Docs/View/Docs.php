@@ -14,7 +14,6 @@
 						<div class="col-xs-12 text-right">
 							<ul class="fh5co-social">
 								<li><a href="http://twitter.com/isophp"><i class="icon-twitter"></i></a></li>
-								<!--<li><a href="http://twitter.com/isophp"><i class="icon-dribbble"></i></a></li>-->
 								<li><a href="http://github.com/pharaohtools/isophp"><i class="icon-github"></i></a></li>
 								<li><a href="http://facebook.com/isophp"><i class="icon-facebook"></i></a></li>
 							</ul>
@@ -78,43 +77,57 @@
 
 		<div id="fh5co-services" class="fh5co-bg-section docs_content">
 			<div class="container">
-				<div>	    
-                    <div class="col-md-12 text-center">
+				<div>
+                    <div class="col-md-4 text-center">
+                    </div>
+                    <div class="col-md-4 text-center">
                         <span id="expand_all" class="btn btn-success">Expand All</span>
+                        <span id="hide_all" class="btn btn-success">Hide All</span>
+                    </div>
+                    <div class="col-md-4 text-center">
                     </div>
 				    <div class="slider_wrap">		    
                         <div class="col-md-12 text-center">
-                            <h2 class="col-md-7 docs_title">For Beginners</h2>
-                            <span class="toggle_slider col-md-5"></span>
+                            <div class="col-md-4 text-center">
+                            </div>
+                            <div class="col-md-4 section_title">
+                                <span class="docs_title">For Beginners</span>
+                                <span id="docs_toggle_slider_beginners" class="docs_toggle_slider slider_up" data-slide_target="beginners"></span>
+                            </div>
+                            <div class="col-md-4 text-center">
+                            </div>                           
                         </div>
                         <div class="col-md-12 text-center slider_content slider_content_beginners">   
-                            <div class="text-center">
-                                <h2>How do I create an ISOPHP Project?</h2>
-                                <p class="larger_paragraph">
-                                    You can create a new project at the command line with the following:
-                                </p>
-                                <pre> ptdeploy isophp create -yg </pre>
-                                <p>For a full list of available options during the creation process, use:</p>
-                                <pre> ptdeploy isophp help </pre>
-                                <p>
-                                 The example below shows an example of the minimum required to create a new
-                                 ISOPHP project in a single line:</p>
-                                <pre> ptdeploy isophp create -yg --email="example@isophp.org.uk" --web_link="http://isophp.example.com" --project_name="A New Example Project" --domainid="com.example.isophp" --author_name="Dave the Developer" --description="An Example of a new test Application being created" </pre>
+                            <div class="text-center single_issue">
+                                <h3 id="create_isophp_project_slider" class="single_issue_toggle" data-slide_target="create_isophp_project">How do I create an ISOPHP Project?</h3>
+                                <div id="create_isophp_project" class="text-center single_issue_content">                                
+                                    <p class="larger_paragraph">
+                                        You can create a new project at the command line with the following:
+                                    </p>
+                                    <pre> ptdeploy isophp create -yg </pre>
+                                    <p>For a full list of available options during the creation process, use:</p>
+                                    <pre> ptdeploy isophp help </pre>
+                                    <p>
+                                     The example below shows an example of the minimum required to create a new
+                                     ISOPHP project in a single line:</p>
+                                    <pre> ptdeploy isophp create -yg --email="example@isophp.org.uk" --web_link="http://isophp.example.com" --project_name="A New Example Project" --domainid="com.example.isophp" --author_name="Dave the Developer" --description="An Example of a new test Application being created" </pre>  
+                                </div>
                             </div>
-                            <div class="text-center">
-                                <h2>I want to run an ISOPHP Project</h2>
-                                <p class="larger_paragraph">
-                                    First you should use your command line to navigate to the directory your project is in.
-                                    There is a development Virtual Machine that can build and run your application; with the Web 
-                                    Server, Web Client, Mobile Emulators, Desktop Package and Mobile Application Package
-                                    You can run the project locally with the following:
-                                </p>
-                                <pre>ptvirtualize up now --provision</pre>
-                                <p class="larger_paragraph">
-                                    The above step should end with output like the following, which will detail where your new 
-                                    applications are running on your machine.
-                                </p>
-                                <pre>
+                            <div class="text-center single_issue">
+                                <h3 id="run_isophp_project_slider" class="single_issue_toggle" data-slide_target="run_isophp_project">I want to run an ISOPHP Project</h3>
+                                <div id="run_isophp_project" class="text-center single_issue_content">                                
+                                    <p class="larger_paragraph">
+                                        First you should use your command line to navigate to the directory your project is in.
+                                        There is a development Virtual Machine that can build and run your application; with the Web 
+                                        Server, Web Client, Mobile Emulators, Desktop Package and Mobile Application Package
+                                        You can run the project locally with the following:
+                                    </p>
+                                    <pre>ptvirtualize up now --provision</pre>
+                                    <p class="larger_paragraph">
+                                        The above step should end with output like the following, which will detail where your new 
+                                        applications are running on your machine.
+                                    </p>
+                                    <pre>
 [Pharaoh Logging] [Up] Your ISOPHP Virtualize Box has been brought up. 
 
 The Example Application for the ISO PHP Framework
@@ -141,16 +154,19 @@ Up Successful
 In Pharaoh Virtualize Up
 ******************************
 </pre>
+                                </div>
                             </div>
                             <div class="col-md-ls text-center">
-                                <h2> I want to update the ISOPHP version in my project?</h2>
-                                <p class="larger_paragraph">
-                                    Navigate to the directory containing your project. Then,
-                                    you can update your project at the command line with the following:
-                                </p>
-                                <pre> ptdeploy isophp update -yg </pre>
-                                For a full list of available options during the update process, use
-                                <pre> ptdeploy isophp help </pre>
+                                <h3 id="update_isophp_project_version_slider" class="single_issue_toggle" data-slide_target="update_isophp_project_version"> I want to update the ISOPHP version in my project?</h3>                                
+                                <div id="update_isophp_project_version" class="text-center single_issue_content">  
+                                    <p class="larger_paragraph">
+                                        Navigate to the directory containing your project. Then,
+                                        you can update your project at the command line with the following:
+                                    </p>
+                                    <pre> ptdeploy isophp update -yg </pre>
+                                    For a full list of available options during the update process, use
+                                    <pre> ptdeploy isophp help </pre>                
+                                </div>                                
                             </div>
                         </div>
                     </div> ';
@@ -158,20 +174,28 @@ In Pharaoh Virtualize Up
 
     $html = $html . '
                     
-				    <div class="slider_wrap">		    
+				    <div class="slider_wrap">
                         <div class="col-md-12 text-center">
-                            <h2 class="col-md-7 docs_title">For DevOps</h2>
-                            <span class="toggle_slider col-md-5"></span>
-                        </div>
+                            <div class="col-md-4 text-center">
+                            </div>
+                            <div class="col-md-4 section_title">
+                                <span class="docs_title">For DevOps</span>
+                                <span id="docs_toggle_slider_devops" class="docs_toggle_slider slider_up" data-slide_target="devops"></span>
+                            </div>
+                            <div class="col-md-4 text-center">
+                            </div>
+                        </div>             
                         <div class="col-md-12 text-center slider_content slider_content_devops">   
-                            <div class="text-center">
-                                <h2>How do I provision a running machine?</h2>
-                                <p class="larger_paragraph">
-                                    You can create a new project at the command line with the following:
-                                </p>
-                                <pre> ptvirualize pro now </pre>
-                                <p>For more detailed output during the provision process, use:</p>
-                                <pre> ptvirualize pro now --step-times --step-numbers </pre>
+                            <div class="text-center single_issue">
+                                <h3 id="provision_running_machine_slider" class="single_issue_toggle" data-slide_target="provision_running_machine">How do I provision a running machine?</h3>                              
+                                <div id="provision_running_machine" class="text-center single_issue_content">                                
+                                    <p class="larger_paragraph">
+                                        You can create a new project at the command line with the following:
+                                    </p>
+                                    <pre> ptvirualize pro now </pre>
+                                    <p>For more detailed output during the provision process, use:</p>
+                                    <pre> ptvirualize pro now --step-times --step-numbers </pre>
+                                </div>
                             </div>
                         </div>
                     </div> ';
@@ -179,47 +203,59 @@ In Pharaoh Virtualize Up
 
     $html = $html . '
                     
-				    <div class="slider_wrap">		    
+				    <div class="slider_wrap">
                         <div class="col-md-12 text-center">
-                            <h2 class="col-md-7 docs_title">For Testers</h2>
-                            <span class="toggle_slider toggle_slider_testers col-md-5"></span>
-                        </div>
+                            <div class="col-md-4 text-center">
+                            </div>
+                            <div class="col-md-4 section_title">
+                                <span class="docs_title">For Testers</span>
+                                <span id="docs_toggle_slider_testers" class="docs_toggle_slider slider_up" data-slide_target="testers"></span>
+                            </div>
+                            <div class="col-md-4 text-center">
+                            </div>
+                        </div>                        
                         <div class="col-md-12 text-center slider_content slider_content_testers">   
-                            <div class="text-center">
-                                <h2>How do I run the Functional tests for the Web Application?</h2>
-                                <p class="larger_paragraph">
-                                    Open up your build server in the development Virtual Machine, at
-                                    http://build.isophpexamplepplication.vm:8078. There, you&apos;ll find a build job
-                                    named <strong>Functional Testing</strong>. When you run that build job, Your Behat
-                                    Functional Test suite will execute against the Web Application.
-                                </p>
-                                <p class="larger_paragraph">
-                                    Once your tests have run, you can view their output in friendly HTML format, by
-                                    going to the home page of that build job, and clicking on the <strong>Behat HTML
-                                    Reports</strong> feature.
-                                </p>
+                            <div class="text-center single_issue">
+                                <h3 class="single_issue_toggle" data-slide_target="execute_functional_web_tests">How do I run the Functional tests for the Web Application?</h3>                            
+                                <div id="execute_functional_web_tests" class="text-center single_issue_content">
+                                    <p class="larger_paragraph">
+                                        Open up your build server in the development Virtual Machine, at
+                                        http://build.isophpexamplepplication.vm:8078. There, you&apos;ll find a build job
+                                        named <strong>Functional Testing</strong>. When you run that build job, Your Behat
+                                        Functional Test suite will execute against the Web Application.
+                                    </p>
+                                    <p class="larger_paragraph">
+                                        Once your tests have run, you can view their output in friendly HTML format, by
+                                        going to the home page of that build job, and clicking on the <strong>Behat HTML
+                                        Reports</strong> feature.
+                                    </p>
+                                </div>
                             </div>
-                            <div class="text-center">
-                                <h2>How do I run the Unit tests for the Code Application?</h2>
-                                <p class="larger_paragraph">
-                                    Open up your build server in the development Virtual Machine, at
-                                    http://build.isophpexamplepplication.vm:8078. There, you&apos;ll find a build job
-                                    named <strong>Unit Testing</strong>. When you run that build job, Your PHPUnit
-                                    Unit Test suite will execute against the Code in the app Directory.
-                                </p>
-                                <p class="larger_paragraph">
-                                    Once your tests have run, you can view their output in friendly HTML format, by
-                                    going to the home page of that build job, and clicking on the <strong>PHP Unit HTML
-                                    Reports</strong> feature.
-                                </p>
+                            <div class="text-center single_issue">
+                                <h3 class="single_issue_toggle" data-slide_target="execute_unit_tests_code">How do I run the Unit tests for the Application Code?</h3>                          
+                                <div id="execute_unit_tests_code" class="text-center single_issue_content">
+                                    <p class="larger_paragraph">
+                                        Open up your build server in the development Virtual Machine, at
+                                        http://build.isophpexamplepplication.vm:8078. There, you&apos;ll find a build job
+                                        named <strong>Unit Testing</strong>. When you run that build job, Your PHPUnit
+                                        Unit Test suite will execute against the Code in the app Directory.
+                                    </p>
+                                    <p class="larger_paragraph">
+                                        Once your tests have run, you can view their output in friendly HTML format, by
+                                        going to the home page of that build job, and clicking on the <strong>PHP Unit HTML
+                                        Reports</strong> feature.
+                                    </p>
+                                </div>
                             </div>
-                            <div class="text-center">
-                                <h2>How do I run the Functional tests for the Desktop or Mobile Application?</h2>
-                                <p class="larger_paragraph">
-                                    We&apos;re currently working on integrating Behat inside the Virtual Machine with
-                                    ChromeDriver for the Mobile Emulator and Electron/PHPDesktop. This functionality
-                                    isn&apos;t currently available, but when we have it ready we&apos;ll update here.
-                                </p>
+                            <div class="text-center single_issue">
+                                <h3 class="single_issue_toggle" data-slide_target="run_functional_desktop_mobile_tests">How do I run the Functional tests for the Desktop or Mobile Application?</h3>                          
+                                <div id="run_functional_desktop_mobile_tests" class="text-center single_issue_content">
+                                    <p class="larger_paragraph">
+                                        We&apos;re currently working on integrating Behat inside the Virtual Machine with
+                                        ChromeDriver for the Mobile Emulator and Electron/PHPDesktop. This functionality
+                                        isn&apos;t currently available, but when we have it ready we&apos;ll update here.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div> ';
