@@ -179,20 +179,55 @@ img.download_app_logo {
     padding: 0;
 }
 
-span.toggle_slider {
+span.docs_toggle_slider {
     background-image: url("../images/arrow-down.png");
     background-repeat: no-repeat;
     background-size: contain;
-    min-height: 4em;
+    background-position: bottom center;
+    display: inline-block;
+    margin: 0.4em auto;
+}
+
+.single_issue_toggle:hover {
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.docs_title:hover,
+span.docs_toggle_slider:hover {
+    cursor: pointer;
+}
+
+span.docs_toggle_slider.slider_up{
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg);
+    min-height: 1em;
+    min-width: 20px;
+}
+
+span.docs_toggle_slider.slider_down{
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    min-height: 0.8em;
+    min-width: 30px;
 }
 
 .docs_title {
-    text-align: right ;
+    text-align: center ;
+    font-size: 36px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #000;
 }
 
-/*.docs_content .slider_content {*/
-    /*height: 0px;*/
-/*}*/
+.docs_content .slider_content {
+    display: none;
+}
+
+.docs_content .single_issue_content {
+    display: none;
+}
 
 /*.docs_content .slider_content div {*/
     /*display: block;*/
