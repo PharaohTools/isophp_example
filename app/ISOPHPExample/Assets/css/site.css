@@ -171,7 +171,7 @@ img.download_app_logo {
 
 
 #fh5co-header .display-tc h1, #fh5co-header .display-tc h2,
-#fh5co-counter .display-tc h1,
+span.docs_to#fh5co-counter .display-tc h1,
 #fh5co-counter .display-tc h2,
 .fh5co-cover .display-tc h1,
 .fh5co-cover .display-tc h2 {
@@ -179,13 +179,7 @@ img.download_app_logo {
     padding: 0;
 }
 
-span.docs_toggle_slider {
-    background-image: url("../images/arrow-down.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom center;
-    display: inline-block;
-    margin: 0.4em auto;
+ggle_slider {
 }
 
 .single_issue_toggle:hover {
@@ -198,14 +192,26 @@ span.docs_toggle_slider:hover {
     cursor: pointer;
 }
 
-span.docs_toggle_slider.slider_up{
+span.docs_toggle_slider.slider_up {
+    background-image: url("../images/arrow-down.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    display: inline-block;
+    margin: 0.4em auto;
     -webkit-transform: rotate(270deg);
     transform: rotate(270deg);
     min-height: 1em;
     min-width: 20px;
 }
 
-span.docs_toggle_slider.slider_down{
+span.docs_toggle_slider.slider_down {
+    background-image: url("../images/arrow-down.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    display: inline-block;
+    margin: 0.4em auto;
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
     min-height: 0.8em;

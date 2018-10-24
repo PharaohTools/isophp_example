@@ -91,8 +91,8 @@
                             <div class="col-md-4 text-center">
                             </div>
                             <div class="col-md-4 section_title">
-                                <span class="docs_title">For Beginners</span>
-                                <span id="docs_toggle_slider_beginners" class="docs_toggle_slider slider_up" data-slide_target="beginners"></span>
+                                <span id="docs_toggle_slider_beginners" class="docs_toggle_slider docs_title" data-slide_target="beginners">For Beginners</span>
+                                <span id="docs_toggle_slider_beginners_2" class="docs_toggle_slider slider_up" data-slide_target="beginners"></span>
                             </div>
                             <div class="col-md-4 text-center">
                             </div>                           
@@ -179,8 +179,8 @@ In Pharaoh Virtualize Up
                             <div class="col-md-4 text-center">
                             </div>
                             <div class="col-md-4 section_title">
-                                <span class="docs_title">For DevOps</span>
-                                <span id="docs_toggle_slider_devops" class="docs_toggle_slider slider_up" data-slide_target="devops"></span>
+                                <span id="docs_toggle_slider_devops" class="docs_toggle_slider docs_title">For DevOps</span>
+                                <span id="docs_toggle_slider_devops_2" class="docs_toggle_slider slider_up" data-slide_target="devops"></span>
                             </div>
                             <div class="col-md-4 text-center">
                             </div>
@@ -208,8 +208,8 @@ In Pharaoh Virtualize Up
                             <div class="col-md-4 text-center">
                             </div>
                             <div class="col-md-4 section_title">
-                                <span class="docs_title">For Testers</span>
-                                <span id="docs_toggle_slider_testers" class="docs_toggle_slider slider_up" data-slide_target="testers"></span>
+                                <span id="docs_toggle_slider_testers" class="docs_toggle_slider docs_title">For Testers</span>
+                                <span id="docs_toggle_slider_testers_2" class="docs_toggle_slider slider_up" data-slide_target="testers"></span>
                             </div>
                             <div class="col-md-4 text-center">
                             </div>
